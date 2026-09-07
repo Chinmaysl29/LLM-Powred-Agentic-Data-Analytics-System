@@ -6,7 +6,8 @@ data preparation, feature engineering, and foundation responses.
 
 from enum import Enum
 from typing import Any
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, computed_field
+
 
 
 class FrequencyType(str, Enum):
@@ -178,18 +179,22 @@ class UnifiedForecastOutput(BaseModel):
         if self.upper_bound and not isinstance(self.upper_bound[0], BoundFloat):
             self.upper_bound = [BoundFloat(x) for x in self.upper_bound]
 
+    @computed_field
     @property
     def forecast_id(self) -> str:
         return str(self.diagnostics.get("run_id") or "forecast-run")
 
+    @computed_field
     @property
     def model_name(self) -> str:
         return self.model_type
 
+    @computed_field
     @property
     def forecast_values(self) -> list[DataPoint]:
         dates = self.dates if len(self.dates) == len(self.forecast) else ["" for _ in self.forecast]
         return [DataPoint(date=d, value=float(v)) for d, v in zip(dates, self.forecast)]
+
 
 
 class ForecastValidationOutput(BaseModel):
