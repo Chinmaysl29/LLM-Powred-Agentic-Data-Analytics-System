@@ -1,6 +1,6 @@
 # Enterprise AI Data Analyst OS
 
-This repository follows the supplied seven-phase architecture. Phase 1 is the active implementation: a FastAPI service, PostgreSQL-ready configuration, dataset upload, and raw dataset storage.
+This repository contains the Phase 1 backend foundation for a production-grade enterprise AI Data Analyst platform. It provides a versioned FastAPI gateway, typed configuration, PostgreSQL, Redis, and ChromaDB adapters, request middleware, structured logging, lifecycle management, health checks, and a testing foundation.
 
 ## Run with Docker
 
@@ -11,7 +11,7 @@ docker compose up --build
 ```
 
 Open the frontend at `http://localhost:5173` and the API health endpoint at
-`http://localhost:8000/health`.
+`http://localhost:8000/api/v1/health`.
 
 The Docker services use the Compose network, so PostgreSQL is always available
 to the backend at `postgres:5432`. The `POSTGRES_HOST_PORT` value only controls
@@ -29,7 +29,14 @@ python -m pip install -r backend/requirements.txt
 uvicorn backend.main:app --reload
 ```
 
-Health: `GET /health`  
-Upload: `POST /api/datasets/upload` with multipart field `file`.
+Run the backend test suite with:
 
-Later-phase directories are intentionally kept as stable integration boundaries and are not implemented yet.
+```powershell
+docker compose exec backend pytest -q
+```
+
+Health: `GET /api/v1/health`. Runtime logs are written to `logs/app.log`.
+
+Phase 15 autonomous intelligence is available as a decision-support API at
+`/api/v1/autonomous`. See [Phase 15 readiness](docs/PHASE15_READINESS.md) for
+the current production gap and the recommended implementation sequence.

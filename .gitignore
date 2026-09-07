@@ -6,3 +6,11 @@ datasets/raw/*
 !datasets/raw/.gitkeep
 node_modules/
 dist/
+logs/*.log
+uploads/*
+!uploads/.gitkeep
+data/reports/*
+!data/reports/.gitkeep
+*.db
+
+

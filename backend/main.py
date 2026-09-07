@@ -1,12 +1,3 @@
-from fastapi import FastAPI
+"""Backward-compatible application entry point for Docker and ASGI servers."""
 
-from backend.api.routes import router
-from backend.core.config import settings
-
-app = FastAPI(title=settings.app_name, version=settings.app_version)
-app.include_router(router, prefix="/api")
-
-
-@app.get("/health", tags=["system"])
-def health() -> dict[str, str]:
-    return {"status": "ok", "service": settings.app_name}
+from backend.app.main import app
