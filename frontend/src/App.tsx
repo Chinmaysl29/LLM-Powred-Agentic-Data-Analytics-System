@@ -1,122 +1,102 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Navigate, Outlet, Routes, Route } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
 
-function App() {
-  const [count, setCount] = useState(0)
+import AuthLayout from './layouts/AuthLayout';
+import AppLayout from './layouts/AppLayout';
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+import LoginPage from './pages/auth/LoginPage';
+import SignupPage from './pages/auth/SignupPage';
+import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 
-      <div className="ticks"></div>
+import DashboardPage from './pages/app/DashboardPage';
+import DatasetsPage from './pages/app/DatasetsPage';
+import DatasetDetailPage from './pages/app/DatasetDetailPage';
+import DatasetUploadPage from './pages/app/DatasetUploadPage';
+import ProfilePage from './pages/app/ProfilePage';
+import AnalysisPage from './pages/app/AnalysisPage';
+import VisualizationsPage from './pages/app/VisualizationsPage';
+import InsightsPage from './pages/app/InsightsPage';
+import ReportsPage from './pages/app/ReportsPage';
+import CreateReportPage from './pages/app/CreateReportPage';
+import ReportDetailPage from './pages/app/ReportDetailPage';
+import ReportBuilderPage from './pages/app/ReportBuilderPage';
+import SettingsPage from './pages/app/SettingsPage';
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+import LandingPage from './pages/LandingPage';
+import NotFoundPage from './pages/NotFoundPage';
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+// ---------------------------------------------------------------------------
+// RequireAuth — route guard for authenticated pages.
+//
+// BACKEND INTEGRATION POINT:
+// Currently checks the in-memory AuthContext flag set by devSignIn().
+// When real session/token authentication is implemented, replace the
+// `isAuthenticated` check with a proper token validation call from
+// authService or the auth context.
+// ---------------------------------------------------------------------------
+
+function RequireAuth() {
+  const { isAuthenticated } = useAuth();
+  if (!isAuthenticated) {
+    // Redirect to login, preserving the intended URL for post-login redirect.
+    return <Navigate to="/login" replace />;
+  }
+  return <Outlet />;
 }
 
-export default App
+// ---------------------------------------------------------------------------
+// App
+// ---------------------------------------------------------------------------
+
+function App() {
+  return (
+    <Routes>
+      {/* Landing page — no layout wrapper; fully self-contained */}
+      <Route path="/" element={<LandingPage />} />
+
+      {/* Public Routes (Auth) */}
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      </Route>
+
+      {/* Protected Routes (App) — guarded by RequireAuth */}
+      <Route element={<RequireAuth />}>
+        <Route element={<AppLayout />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+
+          {/* Dataset Management */}
+          <Route path="/datasets" element={<DatasetsPage />} />
+          {/*
+            Phase 2F: Upload must come before /:datasetId so the literal
+            string "upload" is not treated as a dataset ID.
+          */}
+          <Route path="/datasets/upload" element={<DatasetUploadPage />} />
+          <Route path="/datasets/:datasetId" element={<DatasetDetailPage />} />
+
+          {/* Analytics */}
+          <Route path="/analysis" element={<AnalysisPage />} />
+          <Route path="/visualizations" element={<VisualizationsPage />} />
+          <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/what-if" element={<InsightsPage subView="what-if" />} />
+
+          {/* Output */}
+          <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/reports/create" element={<CreateReportPage />} />
+          <Route path="/reports/:reportId" element={<ReportDetailPage />} />
+          <Route path="/reports/:reportId/edit" element={<ReportBuilderPage />} />
+
+          {/* Account */}
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Route>
+      </Route>
+
+      {/* Fallback for unknown routes */}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
+}
+
+export default App;
