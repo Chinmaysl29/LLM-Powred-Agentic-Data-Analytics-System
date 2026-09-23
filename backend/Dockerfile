@@ -1,24 +1,50 @@
 FROM python:3.11-slim
 
-# System dependencies required by psycopg and general build tools
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       libpq-dev curl \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
-# Install Python deps first (layer cache optimisation)
-COPY requirements.txt backend/requirements.txt
-RUN pip install --no-cache-dir -r backend/requirements.txt
+# ── System dependencies ────────────────────────────────────────────────────────
+# libgomp1: OpenMP runtime required by XGBoost CPU builds
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends libgomp1 \
+ && rm -rf /var/lib/apt/lists/*
 
-# Copy application code
-COPY . backend/
+# ── Copy requirements first (cache-friendly layer) ─────────────────────────────
+COPY backend/requirements.txt backend/requirements.txt
 
-# Create the uploads directory so the app doesn't crash on first run
-RUN mkdir -p datasets/raw
+# ── Install all dependencies in a single step ──────────────────────────────────
+#
+# Why --extra-index-url instead of --index-url?
+#   torch==2.5.1+cpu is pinned in requirements.txt and only exists on the
+#   PyTorch CPU wheel index. Using --extra-index-url lets pip find that wheel
+#   there while pulling everything else from the default PyPI index.
+#
+# Why --timeout 300 --retries 10?
+#   The PyTorch CDN (download-r2.pytorch.org) is occasionally slow; generous
+#   timeout + retries prevents transient network blips from aborting the build.
+#
+# Why no separate torch pre-install step?
+#   A separate step timed out repeatedly. One combined install is more resilient
+#   because pip resolves the full graph once and downloads in parallel.
+#
+RUN pip install --no-cache-dir \
+      --timeout 300 \
+      --retries 10 \
+      --extra-index-url https://download.pytorch.org/whl/cpu \
+      -r backend/requirements.txt
+
+# NOTE: pip check intentionally omitted.
+# The torch+cpu wheel can trigger false-positive conflicts in pip check
+# (missing nvidia_* extras) that do not affect CPU-only runtime.
+
+# ── Copy source code after pip (code changes don't bust the dep layer) ─────────
+COPY . .
+
+# ── Health check ───────────────────────────────────────────────────────────────
+# start-period=90s: sentence-transformers downloads model weights on first import
+# which can take 30-60 s inside a fresh container.
+HEALTHCHECK --interval=30s --timeout=15s --start-period=90s --retries=5 \
+  CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')" || exit 1
 
 EXPOSE 8000
 
-# --reload enables hot-reload when the source volume is mounted
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
