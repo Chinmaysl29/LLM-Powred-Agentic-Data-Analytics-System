@@ -1,0 +1,18 @@
+apiVersion: v2
+name: ai-data-analyst-os
+description: Enterprise Helm Chart for planetary-scale AI Data Analyst OS deployment
+type: application
+version: 1.0.0
+appVersion: "2.4.0"
+maintainers:
+  - name: Core Platform Architecture Team
+    email: devops@analystos.enterprise.com
+dependencies:
+  - name: postgresql
+    version: 14.1.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: redis
+    version: 18.1.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: redis.enabled

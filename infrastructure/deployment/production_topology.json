@@ -1,0 +1,105 @@
+{
+  "topology_name": "ai-data-analyst-os-production",
+  "version": "1.0.0",
+  "environment": "production",
+  "layers": [
+    {
+      "layer": "edge",
+      "component": "Cloudflare / CDN & WAF",
+      "protocol": "HTTPS",
+      "port": 443,
+      "responsibilities": ["DDoS Protection", "SSL Termination", "Global Caching", "Bot Mitigation"]
+    },
+    {
+      "layer": "ingress",
+      "component": "Nginx Reverse Proxy / Load Balancer",
+      "protocol": "HTTP/2",
+      "port": 443,
+      "downstream": ["frontend", "api_gateway"],
+      "ssl_enabled": true,
+      "rate_limiting": {
+        "requests_per_minute": 120,
+        "burst": 30
+      }
+    },
+    {
+      "layer": "frontend",
+      "component": "Vite React SPA",
+      "container_image": "ai-data-analyst-os-frontend:prod",
+      "instances": {
+        "min_replicas": 2,
+        "max_replicas": 6,
+        "target_cpu_utilization_pct": 70
+      },
+      "resources": {
+        "cpu_limit": "1.0",
+        "cpu_request": "0.25",
+        "memory_limit": "1Gi",
+        "memory_request": "256Mi"
+      }
+    },
+    {
+      "layer": "api_gateway",
+      "component": "FastAPI Core Gateway",
+      "container_image": "ai-data-analyst-os-backend:prod",
+      "workers_per_replica": 4,
+      "instances": {
+        "min_replicas": 2,
+        "max_replicas": 10,
+        "target_cpu_utilization_pct": 75
+      },
+      "resources": {
+        "cpu_limit": "4.0",
+        "cpu_request": "1.0",
+        "memory_limit": "8Gi",
+        "memory_request": "2Gi"
+      }
+    },
+    {
+      "layer": "database",
+      "component": "PostgreSQL 16 High Availability",
+      "topology": "Primary-Replica with PgBouncer Pooling",
+      "storage": {
+        "type": "SSD nvme",
+        "size_gb": 250,
+        "auto_grow": true
+      },
+      "resources": {
+        "cpu": "4.0",
+        "memory": "16Gi"
+      }
+    },
+    {
+      "layer": "cache",
+      "component": "Redis 7 Cluster",
+      "topology": "Sentinel High Availability (1 Primary, 2 Replicas)",
+      "resources": {
+        "cpu": "2.0",
+        "memory": "8Gi",
+        "maxmemory_policy": "allkeys-lru"
+      }
+    },
+    {
+      "layer": "vectorstore",
+      "component": "ChromaDB High Performance",
+      "storage": {
+        "persistent_volume_gb": 100
+      },
+      "resources": {
+        "cpu": "4.0",
+        "memory": "12Gi"
+      }
+    }
+  ],
+  "disaster_recovery": {
+    "rpo_minutes": 15,
+    "rto_minutes": 30,
+    "strategy": "Automated cross-region snapshot replication with secondary standby standby cluster",
+    "backup_cadence": {
+      "database_snapshots": "Every 6 hours",
+      "wal_archiving": "Continuous",
+      "vector_snapshots": "Daily",
+      "configuration": "Version controlled in Git"
+    }
+  }
+}

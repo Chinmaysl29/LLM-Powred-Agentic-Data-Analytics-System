@@ -1,0 +1,57 @@
+global:
+  environment: production
+  regions:
+    - us-east-1
+    - eu-central-1
+    - ap-south-1
+
+backend:
+  replicaCount: 6
+  image:
+    repository: analystos/backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 8Gi
+    requests:
+      cpu: 1000m
+      memory: 2Gi
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 30
+    targetCPUUtilizationPercentage: 75
+
+frontend:
+  replicaCount: 3
+  image:
+    repository: analystos/frontend
+    tag: latest
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+
+serviceMesh:
+  enabled: true
+  istio:
+    mtls: STRICT
+    trafficRouting:
+      canaryWeight: 10
+
+postgresql:
+  enabled: true
+  architecture: replication
+  readReplicas:
+    replicaCount: 2
+
+redis:
+  enabled: true
+  architecture: cluster
+  cluster:
+    nodes: 6

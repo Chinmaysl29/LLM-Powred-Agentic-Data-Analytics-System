@@ -1,6 +1,10 @@
 # AI-Powered Data Analyst Platform
 
+<<<<<<< HEAD
 A full-stack, LLM-powered data analytics platform that allows users to upload datasets, inspect them, and interact with their data through AI-driven insights, natural-language queries, visualisations, and automated reports.
+=======
+This repository contains the Phase 1 backend foundation for a production-grade enterprise AI Data Analyst platform. It provides a versioned FastAPI gateway, typed configuration, PostgreSQL, Redis, and ChromaDB adapters, request middleware, structured logging, lifecycle management, health checks, and a testing foundation.
+>>>>>>> origin/main
 
 ---
 
@@ -416,12 +420,9 @@ cp .env.example .env
 
 # 2. Start all services
 docker compose up --build
-
-# 3. Access
-#    Frontend  → http://localhost:5173
-#    Backend   → http://localhost:8400
-#    API docs  → http://localhost:8400/docs
 ```
+
+Open the frontend at `http://localhost:5173` and the API health endpoint at `http://localhost:8000/api/v1/health`.
 
 ### Frontend only (development)
 
@@ -437,8 +438,16 @@ npm run dev
 ```bash
 cd backend
 pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+uvicorn backend.main:app --reload --port 8000
 # → http://localhost:8000
+```
+
+### Running Backend Tests
+
+```powershell
+docker compose exec backend pytest -q
+# or locally in venv:
+pytest -q
 ```
 
 ---
@@ -544,6 +553,12 @@ All styles live in a single file: `frontend/src/index.css`.
 | 13 | Profile & settings |
 | 14 | Admin panel |
 | 15 | Production hardening, auth boundary, deployment |
+
+---
+
+## Autonomous Intelligence & Phase Readiness
+
+Phase 15 autonomous intelligence is available as a decision-support API at `/api/v1/autonomous`. See [Phase 15 readiness](docs/PHASE15_READINESS.md) for the current production gap and the recommended implementation sequence.
 
 ---
 

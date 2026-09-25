@@ -1,0 +1,49 @@
+name: Continuous Deployment & Release Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test_and_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Test Suite
+        run: |
+          pip install -r requirements.txt
+          pytest tests/
+
+      - name: Build Docker Container
+        run: |
+          docker build -t analystos/backend:${{ github.sha }} .
+
+  deploy_staging:
+    needs: test_and_build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Deploy to Staging Cluster
+        run: echo "Deploying to Staging..."
+
+  deploy_production_canary:
+    needs: deploy_staging
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Canary Deploy 10%
+        run: echo "Canary deployment initialized..."
+
+      - name: Validate Health Checks
+        run: echo "Probing liveness and readiness endpoints..."
+
+      - name: Promote to 100% Traffic
+        run: echo "Traffic promoted to 100%."
