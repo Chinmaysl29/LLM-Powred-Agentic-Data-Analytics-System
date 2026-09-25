@@ -50,7 +50,7 @@ const TRANSITION = { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const };
 
 export default function SignupPage() {
   const navigate = useNavigate();
-  const { devSignIn } = useAuth();
+  const { signup, login } = useAuth();
 
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
@@ -118,11 +118,6 @@ export default function SignupPage() {
 
   // -------------------------------------------------------------------------
   // Submit
-  // DEV-MODE: Uses devSignIn() to advance past the auth boundary.
-  //
-  // BACKEND DEPENDENCY: Replace devSignIn() + navigate with:
-  //   await authService.signup({ email, password, full_name: fullName });
-  //   navigate('/dashboard');
   // -------------------------------------------------------------------------
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -133,11 +128,8 @@ export default function SignupPage() {
 
     setIsSubmitting(true);
     try {
-      // DEV-MODE AUTH BOUNDARY
-      // Simulates async then advances to workspace.
-      // Replace with authService.signup() when backend is ready.
-      await new Promise<void>((resolve) => setTimeout(resolve, 400));
-      devSignIn();
+      await signup({ email, password, full_name: fullName });
+      await login({ email, password });
       navigate('/dashboard');
     } catch (err: unknown) {
       const message =

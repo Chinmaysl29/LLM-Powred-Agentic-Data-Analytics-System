@@ -2,50 +2,48 @@
 /**
  * AuthContext — Frontend authentication state boundary.
  *
- * ARCHITECTURE NOTE:
- * This context manages the in-memory authentication state for the frontend.
- * It currently uses a dev-mode sign-in mechanism (devSignIn) that sets an
- * in-memory flag without making any real API call.
- *
- * BACKEND INTEGRATION POINT:
- * When backend authentication endpoints are implemented, replace `devSignIn()`
- * with a call to `authService.login()` / `authService.signup()`.
- * The context interface (isAuthenticated, signOut) does not need to change.
- *
- * The context is intentionally minimal. Token storage, session refresh, and
- * user profile caching will be added once the backend auth contract is defined.
+ * Manages authentication state, user session, and token persistence
+ * connected to the real backend authentication contract.
  */
 
 import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from 'react';
+import { clearAuthToken, getAuthToken } from '../api/client';
+import { authService } from '../services/authService';
+import type { LoginRequest, SignupRequest, User } from '../types/auth';
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
-interface AuthContextValue {
+export interface AuthContextValue {
   /** True when the user has passed the authentication boundary. */
   isAuthenticated: boolean;
 
+  /** Current authenticated user profile or null if not authenticated. */
+  user: User | null;
+
+  /** Authenticate with email & password against the backend. */
+  login: (data: LoginRequest) => Promise<User>;
+
+  /** Register a new user with the backend. */
+  signup: (data: SignupRequest) => Promise<User>;
+
   /**
-   * DEV-MODE ONLY — advance the user past the auth boundary without making
-   * a real API call. This simulates a successful login/signup for frontend
-   * development purposes.
-   *
-   * BACKEND DEPENDENCY: Replace this call with authService.login() /
-   * authService.signup() once backend authentication endpoints are live.
+   * DEV-MODE fallback — advance the user past the auth boundary.
+   * Preserved for backward compatibility.
    */
   devSignIn: () => void;
 
   /**
-   * Clear the authentication state and navigate the user out of the app.
-   * Future: will also call authService.logout() to invalidate the session.
+   * Clear the authentication state, revoke backend token, and navigate out.
    */
   signOut: () => void;
 }
@@ -61,21 +59,51 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 // ---------------------------------------------------------------------------
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => Boolean(getAuthToken()));
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const token = getAuthToken();
+    if (token) {
+      authService
+        .getCurrentUser()
+        .then((fetchedUser) => {
+          setUser(fetchedUser);
+          setIsAuthenticated(true);
+        })
+        .catch(() => {
+          clearAuthToken();
+          setUser(null);
+          setIsAuthenticated(false);
+        });
+    }
+  }, []);
+
+  const login = useCallback(async (data: LoginRequest) => {
+    const loggedInUser = await authService.login(data);
+    setUser(loggedInUser);
+    setIsAuthenticated(true);
+    return loggedInUser;
+  }, []);
+
+  const signup = useCallback(async (data: SignupRequest) => {
+    return await authService.signup(data);
+  }, []);
 
   const devSignIn = useCallback(() => {
-    // BACKEND DEPENDENCY: Replace with real auth token/session storage.
     setIsAuthenticated(true);
   }, []);
 
   const signOut = useCallback(() => {
-    // BACKEND DEPENDENCY: Call authService.logout() here.
-    setIsAuthenticated(false);
+    authService.logout().finally(() => {
+      setUser(null);
+      setIsAuthenticated(false);
+    });
   }, []);
 
   const value = useMemo<AuthContextValue>(
-    () => ({ isAuthenticated, devSignIn, signOut }),
-    [isAuthenticated, devSignIn, signOut],
+    () => ({ isAuthenticated, user, devSignIn, signOut, login, signup }),
+    [isAuthenticated, user, devSignIn, signOut, login, signup],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

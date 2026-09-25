@@ -19,10 +19,7 @@
 function getApiBaseUrl(): string {
   const url = import.meta.env.VITE_API_BASE_URL;
   if (!url) {
-    throw new Error(
-      'VITE_API_BASE_URL is not configured. ' +
-        'Set it in the frontend .env file (see .env.example).',
-    );
+    return 'http://localhost:8000';
   }
   return url as string;
 }
@@ -77,6 +74,37 @@ function errorCodeFromStatus(status: number): string {
 }
 
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// Authentication Token Storage
+// ---------------------------------------------------------------------------
+
+const AUTH_TOKEN_KEY = 'auth_token';
+
+export function getAuthToken(): string | null {
+  try {
+    return localStorage.getItem(AUTH_TOKEN_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function setAuthToken(token: string): void {
+  try {
+    localStorage.setItem(AUTH_TOKEN_KEY, token);
+  } catch {
+    // Ignore storage quota or access errors
+  }
+}
+
+export function clearAuthToken(): void {
+  try {
+    localStorage.removeItem(AUTH_TOKEN_KEY);
+  } catch {
+    // Ignore storage access errors
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Internal helpers
 // ---------------------------------------------------------------------------
 
@@ -110,11 +138,21 @@ async function request<T>(
     }
   }
 
+  const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
+
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
     Accept: 'application/json',
     ...options.headers,
   };
+
+  if (!isFormData) {
+    headers['Content-Type'] = 'application/json';
+  }
+
+  const token = getAuthToken();
+  if (token && !headers['Authorization']) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
 
   // Timeout handling via AbortController
   const timeoutMs = options.timeout ?? DEFAULT_TIMEOUT_MS;
@@ -132,7 +170,7 @@ async function request<T>(
     const response = await fetch(url.toString(), {
       method,
       headers,
-      body: body !== undefined ? JSON.stringify(body) : undefined,
+      body: isFormData ? (body as FormData) : (body !== undefined ? JSON.stringify(body) : undefined),
       signal: controller.signal,
     });
 

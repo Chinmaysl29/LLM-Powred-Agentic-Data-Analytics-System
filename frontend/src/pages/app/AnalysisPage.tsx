@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowUpRight,
   BarChart3,
-  Check,
   ChevronDown,
-  Circle,
   FileText,
   Lightbulb,
   Plus,
@@ -16,10 +14,13 @@ import {
   X,
 } from 'lucide-react';
 import { TextShimmer } from '../../components/ui/shimmer-text';
+import { datasetService } from '../../services/datasetService';
+import { analysisService } from '../../services/analysisService';
+import type { Dataset } from '../../types/datasets';
+import type { ChatResponse } from '../../types/analysis';
 
 type WorkspaceView = 'new' | 'history';
-type AnalysisState = 'idle' | 'simple' | 'visualizing' | 'result';
-type PromptIntent = 'simple' | 'visualization';
+type AnalysisState = 'idle' | 'simple' | 'result';
 
 /** Represents a file attached to the composer for AI context. */
 interface AttachedFile {
@@ -31,114 +32,21 @@ interface AttachedFile {
   kind: 'dataset' | 'document' | 'image';
 }
 
-const DATASETS = [
-  'Sales_Data_2026.xlsx',
-  'Customer_Data.csv',
-  'Marketing_Data.xlsx',
-  'Product_Performance.csv',
-];
-
 const SUGGESTIONS = [
-  'Why did revenue decrease last month?',
+  'What is the average cost?',
+  'Show total revenue by item',
   'Which product has the highest growth?',
-  'Which customer segment has the highest churn?',
-  'Show me the relationship between marketing spend and revenue.',
+  'Summarize the dataset health and performance',
 ];
 
 const HISTORY = [
-  { question: 'Why did revenue decrease last month?', dataset: 'Sales Data', when: 'Today' },
-  { question: 'Which customers are most likely to churn?', dataset: 'Customer Data', when: 'Yesterday' },
-  { question: 'Which campaign generated the highest ROI?', dataset: 'Marketing Data', when: '2 days ago' },
+  { question: 'What is the average cost?', dataset: 'test_products.csv', when: 'Today' },
+  { question: 'Show total revenue by item', dataset: 'test_products.csv', when: 'Yesterday' },
 ];
 
-const VISUALIZATION_STEPS = [
-  'Understanding your request',
-  'Preparing your dataset',
-  'Analyzing patterns',
-  'Generating visualizations',
-  'Finalizing your workspace',
-];
+function ResultPreview({ result }: { result: ChatResponse }) {
+  const hasData = result.data && result.data.length > 0;
 
-function classifyPromptIntent(question: string): PromptIntent {
-  const normalized = question.toLowerCase();
-  const visualizationSignals = [
-    'chart',
-    'visual',
-    'visualize',
-    'visualization',
-    'graph',
-    'plot',
-    'line',
-    'bar',
-    'pie',
-    'donut',
-    'trend',
-    'compare',
-    'distribution',
-    'dashboard',
-    'region',
-    'revenue',
-    'sales',
-    'performance',
-  ];
-  return visualizationSignals.some((signal) => normalized.includes(signal)) ? 'visualization' : 'simple';
-}
-
-function VisualizationGenerationLoader({ activeStep }: { activeStep: number }) {
-  return (
-    <section className="analysis-viz-loader" aria-live="polite" aria-label="Visualization generation progress">
-      <div className="analysis-viz-animation" aria-hidden="true">
-        <svg viewBox="0 0 420 210">
-          <defs>
-            <linearGradient id="loaderLine" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0%" stopColor="#ffb86b" />
-              <stop offset="52%" stopColor="#6bdcff" />
-              <stop offset="100%" stopColor="#8f7cff" />
-            </linearGradient>
-            <radialGradient id="loaderGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#6bdcff" stopOpacity="0.42" />
-              <stop offset="100%" stopColor="#6bdcff" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <circle className="analysis-loader-radial" cx="210" cy="104" r="78" fill="url(#loaderGlow)" />
-          <path className="analysis-loader-grid" d="M40 50H380M40 95H380M40 140H380M95 26V168M155 26V168M215 26V168M275 26V168M335 26V168" />
-          <path className="analysis-loader-flow" d="M42 132 C92 54 136 54 184 111 S278 169 378 62" />
-          <g className="analysis-loader-points">
-            {[72, 116, 160, 204, 248, 292, 336].map((x, index) => (
-              <circle key={x} cx={x} cy={index % 2 ? 82 : 122} r={index === activeStep + 1 ? 7 : 4} />
-            ))}
-          </g>
-          <g className="analysis-loader-bubbles">
-            <circle cx="118" cy="58" r="13" />
-            <circle cx="286" cy="74" r="18" />
-            <circle cx="334" cy="136" r="10" />
-          </g>
-        </svg>
-      </div>
-      <div className="analysis-viz-copy">
-        <h2>Creating your visualizations</h2>
-        <p>Analyzing your data and generating insights...</p>
-      </div>
-      <ol className="analysis-workflow-list analysis-workflow-list--viz">
-        {VISUALIZATION_STEPS.map((step, index) => {
-          const state = index < activeStep ? 'complete' : index === activeStep ? 'active' : 'upcoming';
-          return (
-            <li key={step} className={`analysis-workflow-step analysis-workflow-step--${state}`}>
-              {state === 'complete' ? <Check size={13} aria-hidden="true" /> : <Circle size={11} aria-hidden="true" />}
-              <span>{step}</span>
-            </li>
-          );
-        })}
-      </ol>
-      <div className="analysis-viz-status">
-        <strong>Turning your data into meaningful visual stories</strong>
-        <span>Almost there...</span>
-      </div>
-    </section>
-  );
-}
-
-function ResultPreview() {
   return (
     <motion.section
       className="analysis-results"
@@ -148,71 +56,124 @@ function ResultPreview() {
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="analysis-result-summary">
-        <p className="analysis-overline">AI Summary</p>
-        <h2 id="analysis-summary-heading">Revenue is down 12.4% from the previous month.</h2>
-        <p>
-          The decline is primarily driven by lower Product B performance and a weaker return from Campaign Y.
-        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+          <p className="analysis-overline" style={{ margin: 0 }}>AI Summary</p>
+          <span
+            style={{
+              fontSize: '11px',
+              padding: '2px 8px',
+              borderRadius: '12px',
+              background: 'rgba(107, 220, 255, 0.12)',
+              color: '#6bdcff',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            }}
+          >
+            {result.intent}
+          </span>
+          <span style={{ fontSize: '12px', color: 'rgba(218, 228, 240, 0.65)' }}>
+            {Math.round(result.confidence * 100)}% confidence
+          </span>
+          <span style={{ fontSize: '12px', color: 'rgba(218, 228, 240, 0.45)' }}>
+            • {result.execution_time.toFixed(2)}s execution
+          </span>
+        </div>
+        <h2 id="analysis-summary-heading">{result.answer}</h2>
+        {result.explanation && (
+          <p>{result.explanation}</p>
+        )}
       </div>
 
       <div className="analysis-result-grid">
+        {/* Key Findings / Returned Data */}
         <section className="analysis-result-card" aria-labelledby="key-findings-heading">
           <div className="analysis-card-heading">
             <BarChart3 size={15} aria-hidden="true" />
-            <h3 id="key-findings-heading">Key Findings</h3>
+            <h3 id="key-findings-heading">Key Findings & Data</h3>
           </div>
-          <dl className="analysis-metrics">
-            <div><dt>Revenue</dt><dd>-12.4%</dd></div>
-            <div><dt>Orders</dt><dd>-8.2%</dd></div>
-            <div><dt>Conversion</dt><dd>-4.1%</dd></div>
-          </dl>
+          {hasData ? (
+            <dl className="analysis-metrics">
+              {result.data.slice(0, 8).map((row, rIdx) =>
+                Object.entries(row).map(([key, val]) => (
+                  <div key={`${rIdx}-${key}`}>
+                    <dt title={key}>{key.replace(/_/g, ' ')}</dt>
+                    <dd style={{ color: '#6bdcff' }}>
+                      {val !== null && val !== undefined ? String(val) : '—'}
+                    </dd>
+                  </div>
+                ))
+              )}
+            </dl>
+          ) : (
+            <p style={{ color: 'rgba(218, 228, 240, 0.48)', fontSize: '13px', margin: '16px 0 0' }}>
+              No structured data records returned for this query.
+            </p>
+          )}
         </section>
 
+        {/* Visualization Card */}
         <section className="analysis-result-card analysis-chart-card" aria-labelledby="visual-preview-heading">
           <div className="analysis-card-heading">
             <BarChart3 size={15} aria-hidden="true" />
-            <h3 id="visual-preview-heading">Visualization Preview</h3>
+            <h3 id="visual-preview-heading">Visualization</h3>
           </div>
-          <svg viewBox="0 0 280 100" role="img" aria-label="Revenue trend declining over the last six months">
-            <defs>
-              <linearGradient id="analysis-chart-gradient" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stopColor="#8be8dd" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#8be8dd" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path className="analysis-chart-grid" d="M0 25H280M0 50H280M0 75H280" />
-            <path className="analysis-chart-area" d="M0 18 L45 24 L90 32 L135 42 L180 48 L225 62 L280 80 L280 100 L0 100 Z" />
-            <path className="analysis-chart-line" d="M0 18 L45 24 L90 32 L135 42 L180 48 L225 62 L280 80" />
-          </svg>
+          <div style={{ margin: '14px 0', fontSize: '13px', color: 'rgba(218, 228, 240, 0.65)', lineHeight: 1.5 }}>
+            {hasData
+              ? `${result.data.length} structured data record${result.data.length === 1 ? '' : 's'} available.`
+              : 'Analytical narrative generated from dataset context.'}
+            <div style={{ marginTop: '6px', fontSize: '12px', color: 'rgba(218, 228, 240, 0.45)' }}>
+              Interactive visualization generation is scheduled for Phase 11.
+            </div>
+          </div>
           <Link to="/visualizations" className="analysis-open-visualization">
             Open in Visualizations <ArrowUpRight size={13} aria-hidden="true" />
           </Link>
         </section>
 
+        {/* Insights Card */}
         <section className="analysis-result-card" aria-labelledby="insights-result-heading">
           <div className="analysis-card-heading">
             <Lightbulb size={15} aria-hidden="true" />
             <h3 id="insights-result-heading">Insights</h3>
           </div>
           <ul className="analysis-bullet-list">
-            <li>Revenue decline is concentrated in Product B.</li>
-            <li>Customer segment X showed the largest decrease.</li>
-            <li>Campaign Y generated negative ROI.</li>
+            <li>Intent classification: <strong>{result.intent}</strong> ({Math.round(result.confidence * 100)}% match)</li>
+            {result.explanation ? (
+              <li>{result.explanation}</li>
+            ) : (
+              <li>Execution completed in {result.execution_time.toFixed(2)}s</li>
+            )}
+            {hasData && (
+              <li>Processed {result.data.length} analytical data observation{result.data.length === 1 ? '' : 's'}.</li>
+            )}
           </ul>
-          <Link to="/insights" className="analysis-inline-link">View insights <ArrowUpRight size={13} aria-hidden="true" /></Link>
+          <Link to="/insights" className="analysis-inline-link">
+            View insights <ArrowUpRight size={13} aria-hidden="true" />
+          </Link>
         </section>
 
+        {/* Recommendations Card */}
         <section className="analysis-result-card" aria-labelledby="recommendations-heading">
           <div className="analysis-card-heading">
             <FileText size={15} aria-hidden="true" />
             <h3 id="recommendations-heading">Recommendations</h3>
           </div>
           <ul className="analysis-bullet-list">
-            <li>Investigate Product B performance.</li>
-            <li>Review campaign allocation.</li>
-            <li>Focus retention efforts on affected customers.</li>
+            {result.actionable && result.actionable.length > 0 ? (
+              result.actionable.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))
+            ) : (
+              <>
+                <li>Review the calculated metrics against operational benchmarks.</li>
+                <li>Drill down into related dimensions or time periods for deeper analysis.</li>
+              </>
+            )}
           </ul>
-          <Link to="/reports" className="analysis-inline-link">View reports <ArrowUpRight size={13} aria-hidden="true" /></Link>
+          <Link to="/reports" className="analysis-inline-link">
+            View reports <ArrowUpRight size={13} aria-hidden="true" />
+          </Link>
         </section>
       </div>
     </motion.section>
@@ -244,19 +205,48 @@ function fileKind(name: string): AttachedFile['kind'] {
 
 export default function AnalysisPage() {
   const location = useLocation();
-  const navigate = useNavigate();
   const reducedMotion = useReducedMotion();
   const pendingQuestion = (location.state as { question?: string } | null)?.question ?? '';
   const [view, setView] = useState<WorkspaceView>('new');
-  const [dataset, setDataset] = useState(DATASETS[0]);
+  
+  // Real datasets loaded from backend
+  const [availableDatasets, setAvailableDatasets] = useState<Dataset[]>([]);
+  const [selectedDatasetId, setSelectedDatasetId] = useState<string>('');
+  const [isLoadingDatasets, setIsLoadingDatasets] = useState<boolean>(true);
+
+  // Analysis query & execution state
   const [question, setQuestion] = useState(pendingQuestion);
   const [analysisState, setAnalysisState] = useState<AnalysisState>('idle');
-  const [workflowStep, setWorkflowStep] = useState(0);
+  const [analysisResult, setAnalysisResult] = useState<ChatResponse | null>(null);
+  const [analysisError, setAnalysisError] = useState<string | null>(null);
 
-  // Attachment state — local to this page; no backend call yet.
-  // BACKEND INTEGRATION POINT: wire attachments to the future analysis context service.
+  // Attachment state
   const [attachedFiles, setAttachedFiles] = useState<AttachedFile[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    datasetService
+      .list()
+      .then((list) => {
+        if (isMounted) {
+          setAvailableDatasets(list);
+          if (list.length > 0) {
+            setSelectedDatasetId(list[0].dataset_id);
+          }
+        }
+      })
+      .catch(() => {
+        // Fallback gracefully; general queries remain available
+      })
+      .finally(() => {
+        if (isMounted) setIsLoadingDatasets(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   function handleAttachClick() {
     fileInputRef.current?.click();
@@ -272,11 +262,9 @@ export default function AnalysisPage() {
       kind: fileKind(f.name),
     }));
     setAttachedFiles((prev) => {
-      // Deduplicate by id
       const existingIds = new Set(prev.map((a) => a.id));
       return [...prev, ...next.filter((a) => !existingIds.has(a.id))];
     });
-    // Reset so the same file can be re-selected after removal
     e.target.value = '';
   }
 
@@ -284,50 +272,36 @@ export default function AnalysisPage() {
     setAttachedFiles((prev) => prev.filter((a) => a.id !== id));
   }
 
-  useEffect(() => {
-    if (analysisState === 'simple') {
-      const timer = window.setTimeout(() => setAnalysisState('result'), 1150);
-      return () => window.clearTimeout(timer);
-    }
-
-    if (analysisState === 'visualizing') {
-      const timer = window.setInterval(() => {
-        setWorkflowStep((current) => {
-          if (current >= VISUALIZATION_STEPS.length - 1) {
-            window.clearInterval(timer);
-            navigate('/visualizations', {
-              state: {
-                dataset,
-                question,
-                chartType: 'Line',
-              },
-            });
-            return current;
-          }
-          return current + 1;
-        });
-      }, 680);
-      return () => window.clearInterval(timer);
-    }
-
-    return undefined;
-  }, [analysisState, dataset, navigate, question]);
-
-  function startAnalysis() {
+  async function startAnalysis() {
     const trimmed = question.trim();
-    if (!trimmed) return;
-    setWorkflowStep(0);
-    setAnalysisState(classifyPromptIntent(trimmed) === 'visualization' ? 'visualizing' : 'simple');
+    if (!trimmed || analysisState === 'simple') return;
+
+    setAnalysisError(null);
+    setAnalysisState('simple');
+
+    try {
+      const res = await analysisService.ask(trimmed, selectedDatasetId || null);
+      setAnalysisResult(res);
+      setAnalysisState('result');
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : 'Failed to process analysis request. Please try again.';
+      setAnalysisError(message);
+      setAnalysisState('idle');
+    }
   }
 
   function resetAnalysis() {
     setAnalysisState('idle');
+    setAnalysisResult(null);
+    setAnalysisError(null);
     setQuestion('');
-    setWorkflowStep(0);
     setView('new');
   }
 
-  const statusVisible = analysisState === 'simple' || analysisState === 'visualizing';
+  const selectedDatasetObj = availableDatasets.find((d) => d.dataset_id === selectedDatasetId);
 
   return (
     <div className="ws-page analysis-workspace">
@@ -369,6 +343,8 @@ export default function AnalysisPage() {
                     setQuestion(item.question);
                     setView('new');
                     setAnalysisState('idle');
+                    setAnalysisResult(null);
+                    setAnalysisError(null);
                   }}
                 >
                   <span>{item.question}</span>
@@ -394,18 +370,69 @@ export default function AnalysisPage() {
 
             {analysisState !== 'result' && (
               <section className="analysis-composer-area" aria-label="Ask AI to analyze your data">
+                {/* Error Banner */}
+                {analysisError && (
+                  <div
+                    role="alert"
+                    style={{
+                      marginBottom: '16px',
+                      padding: '12px 16px',
+                      borderRadius: '8px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid rgba(239, 68, 68, 0.25)',
+                      color: '#f87171',
+                      fontSize: '13px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '12px',
+                    }}
+                  >
+                    <span>{analysisError}</span>
+                    <button
+                      type="button"
+                      onClick={() => setAnalysisError(null)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: '#f87171',
+                        cursor: 'pointer',
+                        padding: '2px 4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}
+                      aria-label="Dismiss error"
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+                )}
+
                 <label className="analysis-dataset-select" htmlFor="analysis-dataset">
                   <span>Dataset</span>
                   <span className="analysis-select-wrap">
-                    <select id="analysis-dataset" value={dataset} onChange={(event) => setDataset(event.target.value)}>
-                      {DATASETS.map((item) => <option key={item}>{item}</option>)}
+                    <select
+                      id="analysis-dataset"
+                      value={selectedDatasetId}
+                      onChange={(event) => setSelectedDatasetId(event.target.value)}
+                      disabled={isLoadingDatasets}
+                    >
+                      {availableDatasets.length === 0 ? (
+                        <option value="">No datasets uploaded (General Query)</option>
+                      ) : (
+                        availableDatasets.map((item) => (
+                          <option key={item.dataset_id} value={item.dataset_id}>
+                            {item.filename}
+                          </option>
+                        ))
+                      )}
                     </select>
                     <ChevronDown size={14} aria-hidden="true" />
                   </span>
                 </label>
 
                 <div className="analysis-composer">
-                  {/* Hidden file input — triggered by the + button */}
+                  {/* Hidden file input */}
                   <input
                     ref={fileInputRef}
                     type="file"
@@ -418,7 +445,7 @@ export default function AnalysisPage() {
                   />
 
                   <div className="analysis-composer-content">
-                    {/* Attachment chips — shown when files are attached */}
+                    {/* Attachment chips */}
                     {attachedFiles.length > 0 && (
                       <ul className="analysis-attachments" aria-label="Attached files">
                         {attachedFiles.map((af) => (
@@ -446,24 +473,35 @@ export default function AnalysisPage() {
                       value={question}
                       onChange={(event) => setQuestion(event.target.value)}
                       onKeyDown={(event) => {
-                        if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') startAnalysis();
+                        if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+                          event.preventDefault();
+                          startAnalysis();
+                        }
                       }}
                       placeholder="Ask anything about your data..."
                       aria-label="Ask an analytical question"
                       rows={4}
+                      disabled={analysisState === 'simple'}
                     />
 
-                    {/* Attach button — bottom-left */}
+                    {/* Attach button */}
                     <button
                       type="button"
                       className="analysis-attach-button"
                       onClick={handleAttachClick}
                       aria-label="Attach files"
+                      disabled={analysisState === 'simple'}
                     >
                       <Plus size={16} aria-hidden="true" />
                     </button>
 
-                    <button type="button" className="analysis-send-button" onClick={startAnalysis} disabled={!question.trim()} aria-label="Send analysis question">
+                    <button
+                      type="button"
+                      className="analysis-send-button"
+                      onClick={startAnalysis}
+                      disabled={!question.trim() || analysisState === 'simple'}
+                      aria-label="Send analysis question"
+                    >
                       <Send size={16} aria-hidden="true" />
                     </button>
                   </div>
@@ -471,15 +509,11 @@ export default function AnalysisPage() {
 
                 {analysisState === 'simple' && (
                   <section className="analysis-status" aria-live="polite" aria-label="Analysis progress">
-                    <TextShimmer className="analysis-thinking">Agent is thinking ...</TextShimmer>
+                    <TextShimmer className="analysis-thinking">Agent is analyzing your dataset...</TextShimmer>
                   </section>
                 )}
 
-                {analysisState === 'visualizing' && (
-                  <VisualizationGenerationLoader activeStep={workflowStep} />
-                )}
-
-                {!statusVisible && (
+                {analysisState === 'idle' && (
                   <div className="analysis-suggestions" aria-label="Suggested questions">
                     {SUGGESTIONS.map((suggestion) => (
                       <button key={suggestion} type="button" onClick={() => setQuestion(suggestion)}>
@@ -491,11 +525,11 @@ export default function AnalysisPage() {
               </section>
             )}
 
-            {analysisState === 'result' && (
+            {analysisState === 'result' && analysisResult && (
               <>
                 <div className="analysis-result-toolbar">
                   <div>
-                    <p className="analysis-overline">{dataset}</p>
+                    <p className="analysis-overline">{selectedDatasetObj?.filename || 'General Analysis'}</p>
                     <p className="analysis-result-question">{question}</p>
                   </div>
                   <button type="button" className="analysis-new-button" onClick={resetAnalysis}>
@@ -503,7 +537,7 @@ export default function AnalysisPage() {
                     New analysis
                   </button>
                 </div>
-                <ResultPreview />
+                <ResultPreview result={analysisResult} />
               </>
             )}
           </>

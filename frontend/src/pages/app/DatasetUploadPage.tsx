@@ -31,9 +31,10 @@
  */
 
 import { useState, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import type { UploadFileEntry, UploadValidationError } from '../../types/datasets';
 import { formatFileSize } from '../../datasetUtils';
+import { datasetService } from '../../services/datasetService';
 
 // ---------------------------------------------------------------------------
 // Accepted dataset file extensions
@@ -163,11 +164,32 @@ function IconAlertCircle({ className }: { className?: string }) {
 // ---------------------------------------------------------------------------
 
 export default function DatasetUploadPage() {
+  const navigate = useNavigate();
   const [isDragActive, setIsDragActive] = useState<boolean>(false);
   const [selectedFiles, setSelectedFiles] = useState<UploadFileEntry[]>([]);
   const [validationErrors, setValidationErrors] = useState<UploadValidationError[]>([]);
+  const [isUploading, setIsUploading] = useState<boolean>(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
+
+  async function handleUpload() {
+    if (selectedFiles.length === 0 || isUploading) return;
+    setIsUploading(true);
+    setUploadError(null);
+    try {
+      for (const entry of selectedFiles) {
+        await datasetService.upload(entry.file);
+      }
+      navigate('/datasets');
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : 'Upload failed. Please try again.';
+      setUploadError(message);
+    } finally {
+      setIsUploading(false);
+    }
+  }
 
   /**
    * Merges newly selected File objects into the selection list.
@@ -451,18 +473,30 @@ export default function DatasetUploadPage() {
           </div>
         )}
 
-        {/*
-          PHASE 2F BOUNDARY
-          ─────────────────
-          The Upload action button and submission logic are intentionally
-          omitted. There is no backend POST /api/upload endpoint yet.
-          Do not add a fake submission or a fake success message.
-
-          Future integration: add an "Upload files" <button> here and wire it
-          to datasetService.upload(formData). On success, navigate to /datasets.
-          The selected files list above is already the correct source of truth
-          for building the FormData payload.
-        */}
+        {/* Upload Action */}
+        {selectedFiles.length > 0 && (
+          <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {uploadError && (
+              <div className="upload-error-banner" role="alert">
+                <div className="upload-error-banner-header">
+                  <IconAlertCircle className="upload-error-icon" />
+                  <span>{uploadError}</span>
+                </div>
+              </div>
+            )}
+            <button
+              type="button"
+              className="datasets-upload-btn"
+              disabled={isUploading}
+              onClick={handleUpload}
+              style={{ width: '100%', justifyContent: 'center' }}
+            >
+              {isUploading
+                ? 'Uploading…'
+                : `Upload ${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'}`}
+            </button>
+          </div>
+        )}
 
       </div>
     </div>

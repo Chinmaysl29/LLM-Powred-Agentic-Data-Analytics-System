@@ -29,16 +29,16 @@
  * BACKEND DEPENDENCY: GET /api/datasets -- not yet implemented.
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Dataset, DatasetStatus } from '../../types/datasets';
 import {
-  DEV_DATASETS,
   formatFileSize,
   formatDate,
   getExtension,
 } from '../../datasetUtils';
 import { StatusBadge } from '../../components/StatusBadge';
+import { datasetService } from '../../services/datasetService';
 
 // ---------------------------------------------------------------------------
 // Sort options
@@ -484,12 +484,31 @@ function DatasetControls({
 // ---------------------------------------------------------------------------
 
 export default function DatasetsPage() {
-  // Phase 2B: seeded synchronously with isolated development data.
-  // BACKEND DEPENDENCY: Replace with datasetService.list() when
-  // GET /api/datasets is implemented. See integration comment above.
-  const [datasets] = useState<Dataset[]>(DEV_DATASETS);
-  const [isLoading] = useState<boolean>(false);
-  const [error] = useState<string | null>(null);
+  const [datasets, setDatasets] = useState<Dataset[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    datasetService
+      .list()
+      .then((data) => {
+        if (isMounted) setDatasets(data);
+      })
+      .catch((err: unknown) => {
+        if (isMounted) {
+          const message = err instanceof Error ? err.message : 'Failed to load datasets';
+          setError(message);
+        }
+      })
+      .finally(() => {
+        if (isMounted) setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Phase 2C: search, filter, sort - all local state, no global state.
   const [searchQuery, setSearchQuery] = useState<string>('');

@@ -76,7 +76,7 @@ type Step = 'email' | 'password';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { devSignIn } = useAuth();
+  const { login } = useAuth();
 
   // Two-step flow state
   const [step, setStep] = useState<Step>('email');
@@ -122,13 +122,6 @@ export default function LoginPage() {
 
   // -------------------------------------------------------------------------
   // Step 2 — submit
-  //
-  // DEV-MODE: Uses devSignIn() to advance past the auth boundary without
-  // a real API call. This is the integration point for authService.login().
-  //
-  // BACKEND DEPENDENCY: Replace devSignIn() + navigate with:
-  //   await authService.login({ email, password });
-  //   navigate('/dashboard');
   // -------------------------------------------------------------------------
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -144,14 +137,7 @@ export default function LoginPage() {
 
     setIsSubmitting(true);
     try {
-      // -----------------------------------------------------------------
-      // DEV-MODE AUTH BOUNDARY
-      // Simulates a brief async operation then advances to the workspace.
-      // Replace with authService.login({ email, password }) when backend
-      // authentication endpoints are implemented.
-      // -----------------------------------------------------------------
-      await new Promise<void>((resolve) => setTimeout(resolve, 400));
-      devSignIn();
+      await login({ email, password });
       navigate('/dashboard');
     } catch (err: unknown) {
       const message =
