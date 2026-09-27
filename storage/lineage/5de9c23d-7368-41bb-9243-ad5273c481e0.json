@@ -1,0 +1,15 @@
+{
+  "dataset_id": "5de9c23d-7368-41bb-9243-ad5273c481e0",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "58191925-54a4-46a4-8d85-6e2688054e1f",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-26 19:07:11.013855+00:00",
+      "author": "system",
+      "description": "Initial ingestion of top_products_sales.csv"
+    }
+  ]
+}

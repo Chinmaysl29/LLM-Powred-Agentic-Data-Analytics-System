@@ -1,0 +1,19 @@
+{
+  "workspace_id": "ws-2f86894114",
+  "session_id": "sess-alpha-001",
+  "created_at": "2026-09-27T12:33:46.163716+00:00",
+  "conversation": [
+    {
+      "id": "turn-cc3cd4b0",
+      "timestamp": "2026-09-27T12:33:46.163764+00:00",
+      "user_message": "Analyze confidential merger metrics.",
+      "ai_response": "Merger targets EBITDA expansion of 24%.",
+      "intent": "general_query",
+      "context": {}
+    }
+  ],
+  "analytics": [],
+  "dashboard": {},
+  "forecasts": [],
+  "datasets": {}
+}

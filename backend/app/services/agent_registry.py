@@ -157,15 +157,11 @@ class AgentRegistry:
         return list(self._runners.keys())
 
     def _bootstrap_default_runners(self) -> None:
-        """Initialize standard default runners for Phase 3.2."""
+        """Initialize standard default runners."""
         core_agent_names = [
             "data_retrieval",
             "eda",
             "statistics",
-            "visualization",
-            "forecasting",
-            "recommendation",
-            "sql",
             "rag",
             "validation",
             "cleaning",
@@ -173,3 +169,32 @@ class AgentRegistry:
         ]
         for name in core_agent_names:
             self.register(DefaultAgentRunner(agent_name=name))
+
+        # Register enterprise concrete runners
+        try:
+            from backend.agents.sql_agent import SQLAgentRunner
+            self.register(SQLAgentRunner())
+        except Exception as e:
+            logger.warning("Could not bootstrap SQLAgentRunner: %s", e)
+            self.register(DefaultAgentRunner(agent_name="sql"))
+
+        try:
+            from backend.agents.visualization_agent import VisualizationAgentRunner
+            self.register(VisualizationAgentRunner())
+        except Exception as e:
+            logger.warning("Could not bootstrap VisualizationAgentRunner: %s", e)
+            self.register(DefaultAgentRunner(agent_name="visualization"))
+
+        try:
+            from backend.agents.forecasting_agent import ForecastingAgentRunner
+            self.register(ForecastingAgentRunner())
+        except Exception as e:
+            logger.warning("Could not bootstrap ForecastingAgentRunner: %s", e)
+            self.register(DefaultAgentRunner(agent_name="forecasting"))
+
+        try:
+            from backend.agents.recommendation_agent import RecommendationAgentRunner
+            self.register(RecommendationAgentRunner())
+        except Exception as e:
+            logger.warning("Could not bootstrap RecommendationAgentRunner: %s", e)
+            self.register(DefaultAgentRunner(agent_name="recommendation"))

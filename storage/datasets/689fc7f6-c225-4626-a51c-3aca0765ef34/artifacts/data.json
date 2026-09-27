@@ -1,0 +1,26 @@
+{
+  "dataset_id": "689fc7f6-c225-4626-a51c-3aca0765ef34",
+  "dataset_name": "SaaS Subscriptions",
+  "columns": [
+    "product",
+    "mrr",
+    "active_users"
+  ],
+  "records": [
+    {
+      "product": "SaaS Pro",
+      "mrr": 5000,
+      "active_users": 120
+    },
+    {
+      "product": "Data Cloud",
+      "mrr": 12000,
+      "active_users": 450
+    },
+    {
+      "product": "Security Shield",
+      "mrr": 3500,
+      "active_users": 80
+    }
+  ]
+}

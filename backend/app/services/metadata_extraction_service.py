@@ -35,6 +35,8 @@ class MetadataExtractionService:
                 return pd.read_excel(absolute_path)
             elif file_type == "json":
                 return pd.read_json(absolute_path)
+            elif file_type == "parquet":
+                return pd.read_parquet(absolute_path)
             elif file_type == "pdf":
                 return pd.DataFrame()
             else:
@@ -74,8 +76,23 @@ class MetadataExtractionService:
 
     def extract_metadata(self, dataset_id: str, file_path: str, file_type: str) -> DatasetMetadataCreate:
         """Extract all metadata for a given dataset file."""
-        logger.info("Starting metadata extraction for dataset_id=%s file_type=%s", dataset_id, file_type)
-        
+        if file_type == "pdf":
+            try:
+                import fitz
+                doc = fitz.open(self.storage_service.retrieve_file(file_path))
+                row_count = len(doc)
+            except Exception:
+                row_count = 1
+            return DatasetMetadataCreate(
+                dataset_id=dataset_id,
+                row_count=row_count,
+                column_count=0,
+                column_names=[],
+                column_types={},
+                columns_metadata=[],
+                classifications=DatasetClassification(numeric=[], categorical=[], datetime=[], boolean=[]),
+            )
+
         df = self._load_dataframe(file_path, file_type)
         
         row_count = int(df.shape[0])

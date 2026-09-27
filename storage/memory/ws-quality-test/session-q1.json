@@ -1,0 +1,589 @@
+{
+  "workspace_id": "ws-quality-test",
+  "session_id": "session-q1",
+  "created_at": "2026-09-27T11:55:17.507841+00:00",
+  "conversation": [
+    {
+      "id": "turn-9de45c34",
+      "timestamp": "2026-09-27T11:55:17.521374+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-ba1feaac",
+      "timestamp": "2026-09-27T11:59:04.976162+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-ddf91175",
+      "timestamp": "2026-09-27T12:01:17.169367+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-cd576058",
+      "timestamp": "2026-09-27T12:04:15.008418+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-aed7e8df",
+      "timestamp": "2026-09-27T12:06:19.685056+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-003d489d",
+      "timestamp": "2026-09-27T12:07:45.977774+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-004f0df1",
+      "timestamp": "2026-09-27T12:09:08.303131+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-49be9960",
+      "timestamp": "2026-09-27T12:11:56.781649+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-d53aef90",
+      "timestamp": "2026-09-27T12:14:05.490473+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-c51ecbff",
+      "timestamp": "2026-09-27T12:15:13.789689+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-53bed674",
+      "timestamp": "2026-09-27T12:38:25.434867+00:00",
+      "user_message": "Why did revenue decline?",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Root-cause analysis for query 'Why did revenue decline?': Revenue contraction of -14.2% was primarily driven by weakness in the 'Enterprise Software' segment, accounting for 64.8% of the total revenue drop due to reduced deal size and seasonality. Core unit retention remained resilient, indicating a cyclical or volume-based headwind rather than structural churn.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Why did revenue decline?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": true,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": true
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    }
+  ],
+  "analytics": [
+    {
+      "id": "ana-e711ce75",
+      "timestamp": "2026-09-27T11:55:17.519483+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-14fa7cd8",
+      "timestamp": "2026-09-27T11:59:04.974619+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-92cf1ec5",
+      "timestamp": "2026-09-27T12:01:17.167535+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-036185ff",
+      "timestamp": "2026-09-27T12:04:15.006476+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-00c3bbc4",
+      "timestamp": "2026-09-27T12:06:19.683463+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-13174c01",
+      "timestamp": "2026-09-27T12:07:45.976322+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-a6e83937",
+      "timestamp": "2026-09-27T12:09:08.301499+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-8b58f5ae",
+      "timestamp": "2026-09-27T12:11:56.779771+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-afbef7f8",
+      "timestamp": "2026-09-27T12:14:05.488374+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-e203279e",
+      "timestamp": "2026-09-27T12:15:13.787769+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-e225f1b8",
+      "timestamp": "2026-09-27T12:38:25.432403+00:00",
+      "question": "Why did revenue decline?",
+      "sql_query": "SELECT category, SUM(revenue) AS total_revenue FROM active_dataset GROUP BY category ORDER BY total_revenue DESC LIMIT 10;",
+      "data_summary": {
+        "group_by": "category",
+        "metric": "revenue",
+        "row_count": 200
+      },
+      "key_metrics": {
+        "gross_margin": 45.01,
+        "revenue_growth": 14.2,
+        "aov": 7518.09,
+        "roi": 81.85,
+        "ebitda": 676792.84
+      },
+      "filters": {}
+    }
+  ],
+  "dashboard": {},
+  "forecasts": [],
+  "datasets": {
+    "active-dataset": {
+      "updated_at": "2026-09-27T12:38:25.425871+00:00",
+      "semantic_mapping": {
+        "order_id": {
+          "business_name": "Order Id",
+          "canonical_key": "order_id",
+          "default_aggregation": "COUNT",
+          "description": "Column order_id"
+        },
+        "order_date": {
+          "business_name": "Transaction Timestamp",
+          "canonical_key": "order_date",
+          "default_aggregation": "COUNT",
+          "description": "Recorded date and time at which the commercial transaction occurred."
+        },
+        "category": {
+          "business_name": "Category",
+          "canonical_key": "category",
+          "default_aggregation": "COUNT",
+          "description": "Column category"
+        },
+        "product_name": {
+          "business_name": "Product Name",
+          "canonical_key": "product_name",
+          "default_aggregation": "COUNT",
+          "description": "Column product_name"
+        },
+        "region": {
+          "business_name": "Region",
+          "canonical_key": "region",
+          "default_aggregation": "COUNT",
+          "description": "Column region"
+        },
+        "revenue": {
+          "business_name": "Gross Revenue",
+          "canonical_key": "revenue",
+          "default_aggregation": "SUM",
+          "description": "Total monetary value realized from commercial sales before returns or deductions."
+        },
+        "cost": {
+          "business_name": "Cost of Goods Sold",
+          "canonical_key": "cogs",
+          "default_aggregation": "SUM",
+          "description": "Direct costs attributable to the production or acquisition of the goods sold."
+        },
+        "units": {
+          "business_name": "Order Quantity",
+          "canonical_key": "quantity",
+          "default_aggregation": "SUM",
+          "description": "Physical units or volume of items purchased per line item."
+        },
+        "profit": {
+          "business_name": "Net Operating Profit",
+          "canonical_key": "profit",
+          "default_aggregation": "SUM",
+          "description": "Earnings remaining after subtracting cost of goods sold from gross revenue."
+        }
+      }
+    }
+  }
+}

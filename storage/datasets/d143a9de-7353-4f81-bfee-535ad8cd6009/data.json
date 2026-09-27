@@ -1,0 +1,31 @@
+{
+  "dataset_id": "d143a9de-7353-4f81-bfee-535ad8cd6009",
+  "dataset_name": "Products Catalog",
+  "columns": [
+    "product_id",
+    "name",
+    "price"
+  ],
+  "records": [
+    {
+      "product_id": 201,
+      "name": "Laptop",
+      "price": 1200.0
+    },
+    {
+      "product_id": 202,
+      "name": "Mouse",
+      "price": 25.5
+    },
+    {
+      "product_id": 203,
+      "name": "Keyboard",
+      "price": 75.0
+    },
+    {
+      "product_id": 204,
+      "name": "Headphones",
+      "price": 150.0
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+employee_id,department,role,salary,tenure_years,performance_score,status,attrition_risk_score
+EMP-2000,Sales,Sales Engineer,116829.66,6.1,4.0,Active,0.25
+EMP-2001,Sales,Sales Engineer,154977.13,3.3,4.4,Active,0.19
+EMP-2002,Engineering,DevOps Specialist,106906.02,6.1,4.5,Active,0.22
+EMP-2003,Engineering,Software Engineer II,111697.38,3.0,5.0,Active,0.15
+EMP-2004,Sales,Sales Engineer,135117.6,0.7,4.0,Active,0.21
+EMP-2005,People Ops,HR Business Partner,100550.67,5.9,3.8,Active,0.26
+EMP-2006,Engineering,DevOps Specialist,132254.42,4.7,4.3,Active,0.23
+EMP-2007,People Ops,HR Business Partner,176320.92,6.4,4.2,Active,0.24
+EMP-2008,Customer Success,Implementation Consultant,129258.76,2.0,4.8,Active,0.16
+EMP-2009,Engineering,DevOps Specialist,164085.04,5.6,3.7,Active,0.27
+EMP-2010,Sales,SDR Lead,87770.46,4.7,3.1,Active,0.3
+EMP-2011,Product,Group Product Manager,79426.84,7.4,3.0,Active,0.31
+EMP-2012,Engineering,DevOps Specialist,110633.88,1.3,3.4,Active,0.25
+EMP-2013,Customer Success,Implementation Consultant,190691.09,2.3,5.0,Active,0.15
+EMP-2014,Finance,Controller,104642.29,3.3,3.0,Active,0.27
+EMP-2015,Engineering,Software Engineer II,105855.09,6.6,3.5,Active,0.28
+EMP-2016,Engineering,Software Engineer II,76929.17,5.4,3.0,Active,0.31
+EMP-2017,Sales,SDR Lead,178996.06,4.7,2.9,Active,0.32
+EMP-2018,Customer Success,Implementation Consultant,126453.13,5.7,3.4,Active,0.29
+EMP-2019,Engineering,Software Engineer II,132935.82,4.8,3.4,Active,0.29
+EMP-2020,Sales,SDR Lead,92483.69,2.6,3.2,Active,0.26
+EMP-2021,Sales,Enterprise Account Executive,167496.47,5.5,3.5,Active,0.28
+EMP-2022,Engineering,QA Lead,113513.33,0.8,4.4,Active,0.19
+EMP-2023,Engineering,QA Lead,76245.54,0.8,3.2,Active,0.26
+EMP-2024,Engineering,DevOps Specialist,103629.44,5.8,3.6,Active,0.27
+EMP-2025,Finance,Revenue Ops Specialist,95447.21,6.4,4.8,Active,0.2
+EMP-2026,Sales,Sales Engineer,75047.75,1.0,4.7,Active,0.17
+EMP-2027,Sales,SDR Lead,110686.74,6.6,3.5,Active,0.28
+EMP-2028,Customer Success,Customer Success Manager,141349.54,2.7,2.9,Active,0.28
+EMP-2029,Sales,Enterprise Account Executive,160215.96,4.8,3.6,Active,0.27
+EMP-2030,Finance,Senior Financial Analyst,185071.59,1.2,3.4,Active,0.25
+EMP-2031,Customer Success,Customer Success Manager,138562.37,5.2,3.4,Active,0.29
+EMP-2032,Product,Technical Writer,126065.74,3.6,3.7,Active,0.23
+EMP-2033,Product,Product Designer,120999.98,1.2,3.3,Active,0.25
+EMP-2034,Finance,Revenue Ops Specialist,79976.8,4.9,3.1,Active,0.3
+EMP-2035,Engineering,Senior Staff Engineer,174828.09,5.7,2.9,Active,0.32
+EMP-2036,People Ops,HR Business Partner,159030.4,7.0,3.2,Active,0.3
+EMP-2037,People Ops,HR Business Partner,133923.88,3.3,3.8,Active,0.22
+EMP-2038,Sales,Sales Engineer,182634.09,4.6,3.2,Active,0.3
+EMP-2039,Finance,Controller,185968.24,1.0,4.0,Active,0.21
+EMP-2040,Engineering,DevOps Specialist,173693.43,3.4,3.8,Active,0.22
+EMP-2041,Engineering,QA Lead,161084.26,0.5,3.9,Active,0.22
+EMP-2042,Customer Success,Customer Success Manager,166736.95,3.9,3.6,Active,0.23
+EMP-2043,People Ops,Talent Acquisition Lead,82750.12,1.6,3.2,Active,0.26
+EMP-2044,Engineering,DevOps Specialist,175902.56,2.9,3.7,Active,0.23
+EMP-2045,Engineering,DevOps Specialist,133427.2,7.0,3.0,Active,0.31
+EMP-2046,Sales,SDR Lead,179403.58,4.7,4.6,Active,0.21
+EMP-2047,Engineering,DevOps Specialist,113010.34,0.8,3.5,Active,0.24
+EMP-2048,Customer Success,Customer Success Manager,116029.31,7.3,4.5,Active,0.22
+EMP-2049,Product,Group Product Manager,127201.46,5.0,4.5,Active,0.22
+EMP-2050,Sales,SDR Lead,153364.19,3.8,4.0,Active,0.21
+EMP-2051,Sales,Sales Engineer,170919.97,2.4,5.0,Active,0.15
+EMP-2052,Engineering,QA Lead,93573.26,6.6,3.4,Active,0.29
+EMP-2053,Engineering,DevOps Specialist,191628.51,2.8,3.7,Active,0.23
+EMP-2054,Sales,SDR Lead,142530.17,1.3,4.1,Active,0.2
+EMP-2055,Engineering,Software Engineer II,184067.44,4.5,4.9,Active,0.2
+EMP-2056,Sales,Enterprise Account Executive,122705.45,6.0,4.5,Active,0.22
+EMP-2057,Engineering,Software Engineer II,148420.24,1.7,4.1,Active,0.2
+EMP-2058,Engineering,DevOps Specialist,148187.27,4.7,3.1,Active,0.3
+EMP-2059,Engineering,Senior Staff Engineer,107684.37,7.3,4.1,Active,0.24
+EMP-2060,Product,Technical Writer,88886.78,4.8,3.3,Active,0.29
+EMP-2061,People Ops,Talent Acquisition Lead,124069.28,1.9,4.1,Active,0.2
+EMP-2062,Finance,Revenue Ops Specialist,189585.42,3.7,4.2,Active,0.2
+EMP-2063,Product,Product Designer,155074.63,3.6,4.6,Active,0.17
+EMP-2064,Product,Product Designer,99109.33,5.4,4.4,Active,0.23
+EMP-2065,Sales,Enterprise Account Executive,176919.38,0.8,3.8,Active,0.22
+EMP-2066,Engineering,DevOps Specialist,99166.31,2.2,3.6,Active,0.23
+EMP-2067,Engineering,QA Lead,84988.17,6.5,3.0,Active,0.31
+EMP-2068,Engineering,Senior Staff Engineer,128713.81,3.5,3.9,Active,0.22
+EMP-2069,Sales,SDR Lead,111072.49,5.6,4.1,Active,0.24
+EMP-2070,Customer Success,Customer Success Manager,127936.26,6.6,3.9,Active,0.26
+EMP-2071,Sales,Enterprise Account Executive,160562.86,3.3,3.1,Active,0.26
+EMP-2072,Sales,Sales Engineer,180863.95,2.8,3.6,Active,0.23
+EMP-2073,Product,Product Designer,116535.39,5.4,3.6,Active,0.27
+EMP-2074,Sales,Enterprise Account Executive,77799.68,1.7,4.1,Active,0.2
+EMP-2075,Engineering,Software Engineer II,102521.41,3.0,3.3,Active,0.25
+EMP-2076,Sales,SDR Lead,102975.7,6.6,2.9,Active,0.32
+EMP-2077,Sales,Enterprise Account Executive,149527.57,1.5,4.0,Active,0.21
+EMP-2078,Customer Success,Customer Success Manager,192252.2,7.2,3.9,Active,0.26
+EMP-2079,Engineering,QA Lead,113310.66,4.8,4.5,Active,0.22
+EMP-2080,Customer Success,Customer Success Manager,119068.57,2.0,4.3,Active,0.19
+EMP-2081,Sales,Enterprise Account Executive,108759.79,3.5,4.0,Active,0.21
+EMP-2082,Sales,Sales Engineer,146869.08,3.3,4.1,Active,0.2
+EMP-2083,Product,Group Product Manager,189857.88,1.4,3.5,Active,0.24
+EMP-2084,Finance,Controller,92088.2,7.4,3.0,Active,0.31
+EMP-2085,Engineering,Software Engineer II,132640.66,0.7,2.9,Active,0.28
+EMP-2086,Engineering,QA Lead,170004.07,0.8,3.0,Active,0.27
+EMP-2087,Engineering,Senior Staff Engineer,175240.81,1.6,4.7,Active,0.17
+EMP-2088,Engineering,Software Engineer II,173598.59,0.6,4.4,Active,0.19
+EMP-2089,Finance,Controller,168987.22,2.3,3.3,Active,0.25
+EMP-2090,Engineering,DevOps Specialist,182806.63,4.6,3.1,Active,0.3
+EMP-2091,Sales,Enterprise Account Executive,111968.26,1.4,4.7,Active,0.17
+EMP-2092,Sales,Enterprise Account Executive,81456.33,1.5,3.0,Active,0.27
+EMP-2093,Product,Product Designer,98845.48,4.8,4.7,Active,0.21
+EMP-2094,Engineering,DevOps Specialist,172569.12,7.3,3.2,Active,0.3
+EMP-2095,People Ops,HR Business Partner,179986.55,1.0,3.5,Active,0.24
+EMP-2096,Product,Product Designer,190331.51,2.6,3.3,Active,0.25
+EMP-2097,Sales,SDR Lead,148505.46,6.7,5.0,Active,0.19
+EMP-2098,Customer Success,Customer Success Manager,123605.56,2.5,3.2,Active,0.26
+EMP-2099,Sales,SDR Lead,76811.72,6.4,3.0,Active,0.31
+EMP-2100,Sales,Sales Engineer,156146.82,4.8,4.6,Active,0.21
+EMP-2101,Engineering,Senior Staff Engineer,180023.02,6.1,4.6,Active,0.21
+EMP-2102,Product,Product Designer,85435.21,6.3,3.0,Active,0.31
+EMP-2103,Engineering,Senior Staff Engineer,75004.39,4.6,3.3,Active,0.29
+EMP-2104,Finance,Revenue Ops Specialist,83626.1,4.0,3.6,Active,0.23
+EMP-2105,Engineering,QA Lead,102287.32,5.2,4.2,Active,0.24
+EMP-2106,Engineering,Software Engineer II,128190.39,7.1,3.0,Active,0.31
+EMP-2107,Engineering,QA Lead,160012.07,1.8,4.9,Active,0.16
+EMP-2108,Finance,Revenue Ops Specialist,105691.45,1.0,4.0,Active,0.21
+EMP-2109,Product,Group Product Manager,177191.95,6.2,3.7,Active,0.27
+EMP-2110,Customer Success,Customer Success Manager,86148.16,1.7,3.2,Active,0.26
+EMP-2111,Finance,Revenue Ops Specialist,102991.61,2.0,3.3,Active,0.25
+EMP-2112,Customer Success,Implementation Consultant,85028.78,1.4,4.0,Active,0.21
+EMP-2113,Product,Technical Writer,122673.61,2.9,3.7,Active,0.23
+EMP-2114,Finance,Controller,83151.14,5.3,4.6,Active,0.21
+EMP-2115,Customer Success,Implementation Consultant,168693.37,7.2,3.1,Active,0.3
+EMP-2116,Engineering,QA Lead,83883.76,4.0,4.1,Active,0.2
+EMP-2117,People Ops,Talent Acquisition Lead,133825.04,4.2,3.1,Active,0.3
+EMP-2118,Customer Success,Customer Success Manager,132682.63,4.0,3.9,Active,0.22
+EMP-2119,Product,Group Product Manager,109182.24,7.3,3.7,Active,0.27
+EMP-2120,Engineering,Senior Staff Engineer,173343.77,0.8,5.0,Active,0.15
+EMP-2121,Customer Success,Implementation Consultant,193912.82,4.3,4.1,Active,0.24
+EMP-2122,People Ops,Talent Acquisition Lead,149863.65,3.4,3.0,Active,0.27
+EMP-2123,Product,Product Designer,128530.86,3.1,3.2,Active,0.26
+EMP-2124,Product,Technical Writer,162487.87,4.3,4.4,Active,0.23
+EMP-2125,Product,Product Designer,104358.07,5.5,4.0,Active,0.25
+EMP-2126,Engineering,DevOps Specialist,107372.63,2.8,4.0,Active,0.21
+EMP-2127,Sales,Sales Engineer,127614.47,4.2,3.2,Active,0.3
+EMP-2128,Product,Technical Writer,114196.71,5.2,3.1,Active,0.3
+EMP-2129,Sales,Enterprise Account Executive,115236.81,3.5,3.5,Active,0.24
+EMP-2130,Product,Group Product Manager,89669.68,1.7,4.1,Active,0.2
+EMP-2131,Product,Product Designer,156876.45,3.8,3.7,Active,0.23
+EMP-2132,Engineering,DevOps Specialist,167180.02,6.1,4.5,Active,0.22
+EMP-2133,Finance,Controller,128108.39,2.6,4.2,Active,0.2
+EMP-2134,Engineering,Senior Staff Engineer,177491.85,4.5,5.0,Active,0.19
+EMP-2135,Sales,Sales Engineer,91569.93,3.1,4.7,Active,0.17
+EMP-2136,Sales,Enterprise Account Executive,190121.54,5.6,4.8,Active,0.2
+EMP-2137,Engineering,QA Lead,164287.61,6.4,4.6,Active,0.21
+EMP-2138,People Ops,HR Business Partner,132009.21,3.6,3.7,Active,0.23
+EMP-2139,Engineering,DevOps Specialist,93170.87,4.0,3.6,Active,0.23
+EMP-2140,Sales,Sales Engineer,103610.55,7.1,4.5,Active,0.22
+EMP-2141,Engineering,Senior Staff Engineer,87434.6,4.2,4.6,Active,0.21
+EMP-2142,Customer Success,Implementation Consultant,140954.86,2.8,3.9,Active,0.22
+EMP-2143,People Ops,HR Business Partner,111008.61,3.1,4.9,Active,0.16
+EMP-2144,Sales,SDR Lead,174588.6,3.5,3.4,Active,0.25
+EMP-2145,Engineering,Software Engineer II,110448.36,2.0,4.1,Active,0.2
+EMP-2146,Finance,Controller,123130.82,1.2,4.6,Active,0.17
+EMP-2147,Sales,Enterprise Account Executive,182581.59,2.7,3.0,Active,0.27
+EMP-2148,Product,Product Designer,148518.35,6.1,4.3,Active,0.23
+EMP-2149,People Ops,HR Business Partner,172295.0,2.5,4.7,Active,0.17
+EMP-2150,Engineering,Senior Staff Engineer,133006.25,1.7,4.4,Active,0.19
+EMP-2151,Customer Success,Implementation Consultant,186680.31,7.5,4.8,Active,0.2
+EMP-2152,Engineering,Senior Staff Engineer,148879.27,3.1,3.9,Active,0.22
+EMP-2153,People Ops,Talent Acquisition Lead,151530.23,7.1,4.9,Active,0.2
+EMP-2154,Engineering,Senior Staff Engineer,76880.14,6.6,4.5,Active,0.22
+EMP-2155,Sales,Sales Engineer,170470.96,1.1,3.7,Active,0.23
+EMP-2156,Finance,Senior Financial Analyst,133615.63,2.0,4.5,Active,0.18
+EMP-2157,Finance,Revenue Ops Specialist,143960.55,3.6,3.3,Active,0.25
+EMP-2158,Engineering,DevOps Specialist,154598.53,4.4,4.4,Active,0.23
+EMP-2159,Finance,Senior Financial Analyst,137155.31,1.0,3.4,Active,0.25
+EMP-2160,Sales,SDR Lead,126427.84,4.1,4.7,Active,0.21
+EMP-2161,Finance,Senior Financial Analyst,83980.41,7.3,5.0,Active,0.19
+EMP-2162,Sales,Sales Engineer,177247.53,0.9,4.9,Active,0.16
+EMP-2163,Engineering,Senior Staff Engineer,168663.93,7.2,4.6,Active,0.21
+EMP-2164,Sales,Sales Engineer,168122.36,4.4,3.1,Active,0.3
+EMP-2165,Product,Technical Writer,174794.66,1.0,4.2,Active,0.2
+EMP-2166,Sales,Sales Engineer,139341.93,6.7,4.9,Active,0.2
+EMP-2167,Sales,Sales Engineer,157694.32,6.5,4.0,Active,0.25
+EMP-2168,Engineering,QA Lead,155856.07,2.8,3.4,Active,0.25
+EMP-2169,Customer Success,Implementation Consultant,177118.77,2.8,3.0,Active,0.27
+EMP-2170,Customer Success,Implementation Consultant,117374.1,0.7,3.6,Active,0.23
+EMP-2171,People Ops,HR Business Partner,135849.63,1.1,4.6,Active,0.17
+EMP-2172,Engineering,Software Engineer II,114452.77,3.1,4.7,Active,0.17
+EMP-2173,Sales,Sales Engineer,127362.22,4.1,4.9,Active,0.2
+EMP-2174,Engineering,Software Engineer II,179978.23,1.3,4.7,Active,0.17
+EMP-2175,Engineering,QA Lead,148056.65,6.2,4.6,Active,0.21
+EMP-2176,Customer Success,Customer Success Manager,180811.05,6.1,4.2,Active,0.24
+EMP-2177,People Ops,HR Business Partner,109496.56,3.3,3.4,Active,0.25
+EMP-2178,People Ops,HR Business Partner,187975.38,6.1,4.1,Active,0.24
+EMP-2179,Sales,SDR Lead,75548.59,1.6,2.8,Active,0.28
+EMP-2180,Finance,Senior Financial Analyst,97764.81,1.8,4.5,Active,0.18
+EMP-2181,Product,Technical Writer,121414.07,3.4,4.1,Active,0.2
+EMP-2182,Engineering,Software Engineer II,189616.07,2.3,2.8,Active,0.28
+EMP-2183,Engineering,Senior Staff Engineer,135216.86,5.9,4.9,Active,0.2
+EMP-2184,Engineering,Software Engineer II,127144.7,5.2,3.8,Active,0.26
+EMP-2185,Engineering,QA Lead,161499.66,4.1,4.1,Active,0.24
+EMP-2186,Engineering,DevOps Specialist,112076.02,1.1,4.3,Active,0.19
+EMP-2187,Finance,Senior Financial Analyst,160855.69,2.3,4.4,Active,0.19
+EMP-2188,Customer Success,Implementation Consultant,137938.49,1.0,4.9,Active,0.16
+EMP-2189,Finance,Senior Financial Analyst,130871.22,6.4,4.1,Active,0.24
+EMP-2190,Sales,Sales Engineer,145817.15,4.7,3.4,Active,0.29
+EMP-2191,Product,Group Product Manager,78231.7,6.9,4.1,Active,0.24
+EMP-2192,Engineering,DevOps Specialist,120514.22,4.4,3.2,Active,0.3
+EMP-2193,Product,Technical Writer,126761.87,5.6,4.3,Active,0.23
+EMP-2194,Sales,SDR Lead,187048.74,3.0,3.2,Active,0.26
+EMP-2195,Customer Success,Customer Success Manager,170974.09,3.8,4.6,Active,0.17
+EMP-2196,Engineering,Software Engineer II,118271.64,0.9,2.8,Active,0.28
+EMP-2197,Customer Success,Customer Success Manager,93381.8,5.1,4.6,Active,0.21
+EMP-2198,Engineering,Senior Staff Engineer,153257.9,5.4,4.1,Active,0.24
+EMP-2199,Sales,SDR Lead,130919.21,2.0,4.6,Active,0.17
+EMP-2200,Product,Group Product Manager,85522.57,3.7,2.8,Active,0.28
+EMP-2201,Engineering,Senior Staff Engineer,163659.13,4.5,3.3,Active,0.29
+EMP-2202,Sales,Enterprise Account Executive,154882.57,4.2,4.3,Active,0.23
+EMP-2203,Engineering,QA Lead,174755.86,1.9,3.4,Active,0.25
+EMP-2204,People Ops,HR Business Partner,143949.29,3.9,2.9,Active,0.28
+EMP-2205,Sales,Enterprise Account Executive,170542.71,6.6,4.9,Active,0.2
+EMP-2206,Product,Product Designer,130570.99,0.6,2.8,Active,0.28
+EMP-2207,Product,Technical Writer,182370.6,1.8,4.5,Active,0.18
+EMP-2208,Engineering,DevOps Specialist,99306.79,6.2,3.7,Active,0.27
+EMP-2209,Product,Group Product Manager,160751.29,4.2,4.3,Active,0.23
+EMP-2210,Finance,Senior Financial Analyst,187818.74,6.0,3.7,Active,0.27
+EMP-2211,Customer Success,Implementation Consultant,106160.81,2.8,4.6,Active,0.17
+EMP-2212,Sales,Sales Engineer,180729.13,4.9,3.8,Active,0.26
+EMP-2213,Product,Product Designer,107244.58,5.0,4.0,Active,0.25
+EMP-2214,Engineering,Senior Staff Engineer,94053.77,1.6,3.8,Active,0.22
+EMP-2215,Sales,Enterprise Account Executive,129843.37,3.2,4.6,Active,0.17
+EMP-2216,Customer Success,Customer Success Manager,89095.1,5.5,3.5,Active,0.28
+EMP-2217,Product,Group Product Manager,109472.17,3.6,4.7,Active,0.17
+EMP-2218,Sales,Sales Engineer,168680.14,3.5,3.8,Active,0.22
+EMP-2219,Customer Success,Implementation Consultant,79599.83,3.9,4.7,Active,0.17
+EMP-2220,Engineering,QA Lead,111711.7,4.5,3.5,Active,0.28
+EMP-2221,Sales,SDR Lead,152823.78,2.2,4.2,Active,0.2
+EMP-2222,People Ops,Talent Acquisition Lead,157513.82,6.1,3.0,Active,0.31
+EMP-2223,Engineering,QA Lead,90293.49,2.6,3.3,Active,0.25
+EMP-2224,Customer Success,Customer Success Manager,184728.74,2.4,3.3,Active,0.25
+EMP-2225,Finance,Senior Financial Analyst,149529.32,1.4,3.7,Active,0.23
+EMP-2226,Engineering,Senior Staff Engineer,146536.57,1.1,4.3,Active,0.19
+EMP-2227,Product,Product Designer,170990.56,0.8,2.9,Active,0.28
+EMP-2228,Product,Product Designer,105134.37,4.2,3.3,Active,0.29
+EMP-2229,Sales,SDR Lead,156524.56,7.5,3.5,Active,0.28
+EMP-2230,Product,Technical Writer,130231.38,0.5,4.6,Active,0.17
+EMP-2231,Product,Group Product Manager,168190.74,1.7,4.3,Active,0.19
+EMP-2232,Engineering,DevOps Specialist,132972.15,4.1,4.5,Active,0.22
+EMP-2233,Sales,SDR Lead,105590.57,4.0,4.4,Active,0.19
+EMP-2234,Engineering,Senior Staff Engineer,161996.76,2.5,3.1,Active,0.26
+EMP-2235,Finance,Revenue Ops Specialist,95946.36,1.1,3.6,Active,0.23
+EMP-2236,People Ops,Talent Acquisition Lead,83371.38,5.2,3.5,Active,0.28
+EMP-2237,Engineering,QA Lead,182039.76,7.0,4.9,Active,0.2
+EMP-2238,Sales,Sales Engineer,84570.15,4.8,4.7,Active,0.21
+EMP-2239,Finance,Senior Financial Analyst,154020.04,1.5,3.3,Active,0.25
+EMP-2240,Sales,Sales Engineer,123496.56,0.8,3.6,Active,0.23
+EMP-2241,Product,Product Designer,135098.42,7.4,3.8,Active,0.26
+EMP-2242,Customer Success,Implementation Consultant,112833.79,1.5,3.7,Active,0.23
+EMP-2243,Engineering,QA Lead,169153.42,5.1,3.0,Active,0.31
+EMP-2244,Engineering,QA Lead,178509.04,1.6,3.1,Active,0.26
+EMP-2245,Engineering,QA Lead,121692.82,1.5,3.5,Active,0.24
+EMP-2246,Engineering,Senior Staff Engineer,101648.36,3.3,3.0,Active,0.27
+EMP-2247,Customer Success,Implementation Consultant,77170.86,6.3,3.2,Active,0.3
+EMP-2248,Finance,Senior Financial Analyst,175992.1,3.5,4.8,Active,0.16
+EMP-2249,Product,Group Product Manager,178695.9,7.4,4.3,Active,0.23
+EMP-2250,Engineering,QA Lead,142795.19,2.2,3.7,Active,0.23
+EMP-2251,Sales,SDR Lead,84966.98,7.0,3.9,Active,0.26
+EMP-2252,Engineering,Software Engineer II,128562.01,5.3,3.0,Active,0.31
+EMP-2253,Sales,Sales Engineer,90478.7,2.2,2.9,Active,0.28
+EMP-2254,Engineering,QA Lead,170459.82,7.0,2.9,Active,0.32
+EMP-2255,Engineering,Senior Staff Engineer,194824.57,3.5,4.8,Active,0.16
+EMP-2256,People Ops,Talent Acquisition Lead,186105.12,1.6,4.3,Active,0.19
+EMP-2257,Product,Product Designer,88465.12,3.2,3.6,Active,0.23
+EMP-2258,Sales,Sales Engineer,153651.72,4.7,4.3,Active,0.23
+EMP-2259,Sales,SDR Lead,151687.17,2.4,4.1,Active,0.2
+EMP-2260,People Ops,Talent Acquisition Lead,110803.85,2.8,3.8,Active,0.22
+EMP-2261,People Ops,Talent Acquisition Lead,169867.12,4.7,4.7,Active,0.21
+EMP-2262,Customer Success,Implementation Consultant,88438.25,3.8,4.5,Active,0.18
+EMP-2263,Engineering,Senior Staff Engineer,184432.87,4.9,3.0,Active,0.31
+EMP-2264,Engineering,DevOps Specialist,154722.59,4.4,4.7,Active,0.21
+EMP-2265,People Ops,Talent Acquisition Lead,190915.36,1.6,3.6,Active,0.23
+EMP-2266,Sales,SDR Lead,172444.1,7.0,4.3,Active,0.23
+EMP-2267,Engineering,Software Engineer II,185967.06,2.1,3.0,Active,0.27
+EMP-2268,Engineering,Software Engineer II,177391.24,4.3,2.8,Active,0.32
+EMP-2269,Engineering,Senior Staff Engineer,121643.43,5.4,4.4,Active,0.23
+EMP-2270,Product,Product Designer,166813.05,3.3,4.5,Active,0.18
+EMP-2271,Customer Success,Implementation Consultant,110901.25,1.6,3.5,Active,0.24
+EMP-2272,People Ops,HR Business Partner,163686.09,6.6,4.4,Active,0.23
+EMP-2273,Customer Success,Implementation Consultant,139208.19,4.3,3.1,Active,0.3
+EMP-2274,Sales,Enterprise Account Executive,94000.66,6.5,4.9,Active,0.2
+EMP-2275,People Ops,Talent Acquisition Lead,179495.53,5.4,4.0,Active,0.25
+EMP-2276,Engineering,Senior Staff Engineer,186215.9,6.3,3.3,Active,0.29
+EMP-2277,Customer Success,Customer Success Manager,85516.87,5.8,3.7,Active,0.27
+EMP-2278,Engineering,QA Lead,128903.11,2.8,4.6,Active,0.17
+EMP-2279,Engineering,DevOps Specialist,182335.0,5.2,3.8,Active,0.26
+EMP-2280,Customer Success,Customer Success Manager,89967.67,5.3,3.9,Active,0.26
+EMP-2281,Engineering,Software Engineer II,150391.91,5.2,3.5,Active,0.28
+EMP-2282,Sales,Enterprise Account Executive,129567.41,4.9,3.8,Active,0.26
+EMP-2283,Engineering,QA Lead,110715.88,4.8,3.4,Active,0.29
+EMP-2284,Engineering,QA Lead,79684.51,0.9,4.7,Active,0.17
+EMP-2285,Engineering,Senior Staff Engineer,144156.33,6.0,4.1,Active,0.24
+EMP-2286,Engineering,QA Lead,96545.92,5.6,3.8,Active,0.26
+EMP-2287,Sales,Sales Engineer,78741.68,5.9,3.6,Active,0.27
+EMP-2288,Engineering,Software Engineer II,86447.35,4.7,4.0,Active,0.25
+EMP-2289,Finance,Controller,151575.52,2.3,4.5,Active,0.18
+EMP-2290,Engineering,DevOps Specialist,107655.8,1.6,3.8,Active,0.22
+EMP-2291,Sales,Enterprise Account Executive,88111.91,5.4,4.8,Active,0.2
+EMP-2292,Customer Success,Implementation Consultant,119262.25,4.4,3.2,Active,0.3
+EMP-2293,Finance,Revenue Ops Specialist,138163.16,7.2,4.8,Active,0.2
+EMP-2294,Customer Success,Implementation Consultant,114367.29,1.2,4.4,Active,0.19
+EMP-2295,Product,Technical Writer,187973.58,1.5,3.1,Active,0.26
+EMP-2296,Engineering,Senior Staff Engineer,93813.7,6.3,4.9,Active,0.2
+EMP-2297,Customer Success,Implementation Consultant,78637.65,6.5,3.5,Active,0.28
+EMP-2298,Engineering,Senior Staff Engineer,170132.92,1.0,4.9,Active,0.16
+EMP-2299,Product,Product Designer,152274.34,7.3,3.5,Active,0.28
+EMP-2300,Sales,Sales Engineer,168252.01,5.0,3.8,Active,0.26
+EMP-2301,Product,Technical Writer,125821.18,3.0,3.5,Active,0.24
+EMP-2302,Engineering,Senior Staff Engineer,154476.89,1.0,3.7,Active,0.23
+EMP-2303,Sales,Sales Engineer,110316.69,5.4,4.0,Active,0.25
+EMP-2304,Engineering,Software Engineer II,94339.88,1.0,3.9,Active,0.22
+EMP-2305,Product,Product Designer,191681.65,2.7,3.1,Active,0.26
+EMP-2306,Finance,Senior Financial Analyst,139411.89,6.6,3.9,Active,0.26
+EMP-2307,Product,Group Product Manager,165217.91,2.9,3.5,Active,0.24
+EMP-2308,Sales,Enterprise Account Executive,145727.45,5.1,3.5,Active,0.28
+EMP-2309,Engineering,QA Lead,133643.55,5.7,4.7,Active,0.21
+EMP-2310,Sales,Enterprise Account Executive,181538.92,6.0,3.5,Active,0.28
+EMP-2311,Sales,Enterprise Account Executive,121207.37,1.3,4.5,Active,0.18
+EMP-2312,People Ops,Talent Acquisition Lead,138126.93,1.3,3.3,Active,0.25
+EMP-2313,Engineering,DevOps Specialist,176983.99,3.2,3.2,Active,0.26
+EMP-2314,Engineering,Software Engineer II,144433.93,6.3,3.3,Active,0.29
+EMP-2315,Engineering,Software Engineer II,98219.21,4.7,4.4,Active,0.23
+EMP-2316,Product,Group Product Manager,101790.06,1.5,4.5,Active,0.18
+EMP-2317,Sales,Sales Engineer,186302.11,1.3,4.1,Active,0.2
+EMP-2318,People Ops,Talent Acquisition Lead,191747.35,1.1,4.9,Active,0.16
+EMP-2319,Finance,Revenue Ops Specialist,79060.41,6.6,3.8,Active,0.26
+EMP-2320,Product,Product Designer,171022.09,0.6,4.9,Active,0.16
+EMP-2321,Engineering,Software Engineer II,145341.62,3.5,4.6,Active,0.17
+EMP-2322,People Ops,HR Business Partner,79265.59,4.1,3.5,Active,0.28
+EMP-2323,Sales,Enterprise Account Executive,140671.0,3.3,4.0,Active,0.21
+EMP-2324,Customer Success,Implementation Consultant,131778.36,3.4,4.4,Active,0.19
+EMP-2325,Sales,Sales Engineer,82134.82,6.7,3.9,Active,0.26
+EMP-2326,Sales,Enterprise Account Executive,192229.16,3.2,3.6,Active,0.23
+EMP-2327,People Ops,HR Business Partner,104925.18,4.0,4.5,Active,0.18
+EMP-2328,Sales,Enterprise Account Executive,154572.2,5.1,5.0,Active,0.19
+EMP-2329,Engineering,Senior Staff Engineer,80492.61,1.4,4.4,Active,0.19
+EMP-2330,Engineering,QA Lead,121729.99,4.9,3.9,Active,0.26
+EMP-2331,Finance,Controller,169072.18,7.0,5.0,Active,0.19
+EMP-2332,Engineering,Software Engineer II,161613.65,1.3,4.5,Active,0.18
+EMP-2333,Engineering,Software Engineer II,112272.71,5.4,3.1,Active,0.3
+EMP-2334,Sales,Sales Engineer,179388.84,3.8,3.2,Active,0.26
+EMP-2335,Product,Technical Writer,132195.55,7.3,3.4,Active,0.29
+EMP-2336,Customer Success,Customer Success Manager,92664.95,3.5,4.6,Active,0.17
+EMP-2337,Customer Success,Implementation Consultant,84611.74,2.8,4.3,Active,0.19
+EMP-2338,Product,Product Designer,155893.28,3.9,4.1,Active,0.2
+EMP-2339,Engineering,DevOps Specialist,170058.55,5.3,4.5,Active,0.22
+EMP-2340,People Ops,HR Business Partner,100250.93,2.5,4.2,Active,0.2
+EMP-2341,Engineering,Software Engineer II,129865.71,6.8,2.9,Active,0.32
+EMP-2342,Product,Technical Writer,76966.84,1.6,3.3,Active,0.25
+EMP-2343,Finance,Revenue Ops Specialist,108794.62,4.1,4.6,Active,0.21
+EMP-2344,Finance,Senior Financial Analyst,115127.14,2.0,3.0,Active,0.27
+EMP-2345,Sales,Enterprise Account Executive,139767.03,3.6,3.6,Active,0.23
+EMP-2346,People Ops,Talent Acquisition Lead,79457.79,4.4,4.6,Active,0.21
+EMP-2347,Sales,SDR Lead,121530.4,2.5,3.5,Active,0.24
+EMP-2348,Product,Group Product Manager,109990.71,2.3,3.3,Active,0.25
+EMP-2349,Product,Group Product Manager,172996.56,1.0,4.6,Active,0.17
+EMP-2350,Engineering,Software Engineer II,158434.46,2.5,4.2,Active,0.2
+EMP-2351,Product,Product Designer,189550.72,3.8,3.2,Active,0.26
+EMP-2352,Product,Product Designer,129602.61,5.2,4.2,Active,0.24
+EMP-2353,Product,Technical Writer,149762.82,6.0,3.1,Active,0.3
+EMP-2354,Engineering,Software Engineer II,169241.16,7.2,3.2,Active,0.3
+EMP-2355,People Ops,HR Business Partner,153309.16,3.5,4.4,Active,0.19
+EMP-2356,Engineering,QA Lead,112176.01,4.0,3.6,Active,0.23
+EMP-2357,Engineering,Senior Staff Engineer,189935.45,5.3,4.7,Active,0.21
+EMP-2358,Sales,SDR Lead,116369.49,2.6,3.9,Active,0.22
+EMP-2359,Product,Product Designer,148814.33,1.5,3.6,Active,0.23
+EMP-2360,People Ops,HR Business Partner,99063.2,7.1,3.7,Active,0.27
+EMP-2361,Engineering,DevOps Specialist,160457.14,0.7,3.0,Active,0.27
+EMP-2362,People Ops,HR Business Partner,146293.18,4.2,3.3,Active,0.29
+EMP-2363,Engineering,Senior Staff Engineer,109663.95,5.2,3.3,Active,0.29
+EMP-2364,Finance,Senior Financial Analyst,114209.73,4.6,5.0,Active,0.19
+EMP-2365,Finance,Controller,153616.23,5.5,3.8,Active,0.26
+EMP-2366,Finance,Senior Financial Analyst,183989.33,7.2,2.9,Active,0.32
+EMP-2367,Engineering,Software Engineer II,166239.62,0.8,4.0,Active,0.21
+EMP-2368,Finance,Controller,115852.24,2.7,4.8,Active,0.16
+EMP-2369,Sales,Sales Engineer,182653.93,2.2,4.0,Active,0.21
+EMP-2370,Product,Group Product Manager,100629.62,1.0,4.7,Active,0.17
+EMP-2371,Engineering,Software Engineer II,162513.31,5.9,4.8,Active,0.2
+EMP-2372,Finance,Senior Financial Analyst,180285.5,1.0,3.7,Active,0.23
+EMP-2373,Engineering,QA Lead,180149.04,6.0,4.0,Active,0.25
+EMP-2374,People Ops,HR Business Partner,128692.99,4.0,4.4,Active,0.19
+EMP-2375,Engineering,DevOps Specialist,120924.43,0.5,2.9,Active,0.28
+EMP-2376,Sales,Sales Engineer,185682.66,4.8,4.8,Active,0.2
+EMP-2377,Sales,Sales Engineer,162068.0,7.0,4.7,Active,0.21
+EMP-2378,People Ops,HR Business Partner,92281.8,2.6,4.4,Active,0.19
+EMP-2379,Engineering,Senior Staff Engineer,92161.46,2.5,3.6,Active,0.23
+EMP-2380,People Ops,Talent Acquisition Lead,128557.83,6.7,4.5,Active,0.22
+EMP-2381,Engineering,Senior Staff Engineer,106675.9,7.3,3.7,Active,0.27
+EMP-2382,People Ops,HR Business Partner,145401.05,2.1,3.1,Active,0.26
+EMP-2383,Finance,Senior Financial Analyst,99163.45,5.6,3.0,Active,0.31
+EMP-2384,Customer Success,Customer Success Manager,182414.77,4.7,5.0,Active,0.19
+EMP-2385,Engineering,Software Engineer II,170373.06,4.8,4.7,Active,0.21
+EMP-2386,Product,Product Designer,114690.48,0.9,4.2,Active,0.2
+EMP-2387,Sales,Enterprise Account Executive,109212.44,3.0,3.2,Active,0.26
+EMP-2388,Engineering,Senior Staff Engineer,139952.77,2.9,4.4,Active,0.19
+EMP-2389,People Ops,Talent Acquisition Lead,81268.18,5.1,3.1,Active,0.3
+EMP-2390,Engineering,QA Lead,121329.89,5.8,2.9,Active,0.32
+EMP-2391,Sales,Enterprise Account Executive,193825.49,3.0,3.3,Active,0.25
+EMP-2392,Sales,Sales Engineer,131731.77,6.3,4.3,Active,0.23
+EMP-2393,Engineering,Software Engineer II,109595.35,4.9,4.1,Active,0.24
+EMP-2394,Sales,SDR Lead,88377.26,1.0,4.5,Active,0.18
+EMP-2395,People Ops,HR Business Partner,85119.42,2.4,3.7,Active,0.23
+EMP-2396,Customer Success,Implementation Consultant,85005.05,4.5,4.6,Active,0.21
+EMP-2397,Sales,SDR Lead,152040.95,5.9,4.0,Active,0.25
+EMP-2398,Sales,Sales Engineer,125688.22,0.7,3.0,Active,0.27
+EMP-2399,Product,Group Product Manager,187796.13,1.0,3.2,Active,0.26
+EMP-2400,Product,Product Designer,79254.21,0.9,4.1,Active,0.2
+EMP-2401,Engineering,DevOps Specialist,86451.43,4.4,4.1,Active,0.24
+EMP-2402,Engineering,Software Engineer II,81948.83,5.0,2.9,Active,0.32
+EMP-2403,Product,Technical Writer,121666.07,1.3,3.3,Active,0.25
+EMP-2404,Sales,SDR Lead,147723.48,2.3,4.4,Active,0.19
+EMP-2405,Engineering,Software Engineer II,93007.35,2.7,2.9,Active,0.28
+EMP-2406,Sales,SDR Lead,123868.11,5.4,2.9,Active,0.32
+EMP-2407,Sales,Sales Engineer,91977.93,1.4,3.6,Active,0.23
+EMP-2408,Engineering,Software Engineer II,85941.39,4.6,3.6,Active,0.27
+EMP-2409,Sales,SDR Lead,92237.79,1.7,3.0,Active,0.27
+EMP-2410,People Ops,HR Business Partner,114417.0,0.7,3.4,Active,0.25
+EMP-2411,Customer Success,Customer Success Manager,193464.87,3.8,3.4,Active,0.25
+EMP-2412,Engineering,Senior Staff Engineer,169366.43,4.4,2.8,Active,0.32
+EMP-2413,Product,Technical Writer,77495.76,1.2,4.7,Active,0.17
+EMP-2414,Product,Group Product Manager,190423.41,4.1,4.3,Active,0.23
+EMP-2415,Product,Group Product Manager,82076.97,3.7,4.0,Active,0.21
+EMP-2416,Engineering,Senior Staff Engineer,177072.85,3.5,4.4,Active,0.19
+EMP-2417,People Ops,HR Business Partner,187499.48,2.9,2.9,Active,0.28
+EMP-2418,Finance,Senior Financial Analyst,112576.42,6.3,4.3,Active,0.23
+EMP-2419,Engineering,DevOps Specialist,89281.55,5.3,2.8,Active,0.32
+EMP-2420,Engineering,Software Engineer II,142798.27,2.0,5.0,Active,0.15
+EMP-2421,Engineering,Software Engineer II,171505.76,3.5,3.9,Active,0.22
+EMP-2422,Sales,Sales Engineer,94076.99,5.5,4.7,Active,0.21
+EMP-2423,Customer Success,Customer Success Manager,134618.59,2.9,3.7,Active,0.23
+EMP-2424,Product,Group Product Manager,192897.9,1.8,3.3,Active,0.25
+EMP-2425,Engineering,QA Lead,75958.72,5.0,4.9,Active,0.2
+EMP-2426,Product,Product Designer,92146.69,3.4,3.1,Active,0.26
+EMP-2427,Product,Group Product Manager,171822.01,5.9,4.9,Active,0.2
+EMP-2428,Finance,Controller,193428.92,4.7,4.2,Active,0.24
+EMP-2429,Engineering,QA Lead,163233.99,4.2,4.4,Active,0.23
+EMP-2430,Engineering,Senior Staff Engineer,183786.51,6.6,3.8,Active,0.26
+EMP-2431,Engineering,Senior Staff Engineer,187385.75,1.9,2.9,Active,0.28
+EMP-2432,Sales,Sales Engineer,87615.91,7.3,4.4,Active,0.23
+EMP-2433,Customer Success,Implementation Consultant,149358.63,5.0,4.4,Active,0.23
+EMP-2434,People Ops,Talent Acquisition Lead,113100.3,7.3,3.0,Active,0.31
+EMP-2435,Finance,Controller,80071.62,3.4,4.0,Active,0.21
+EMP-2436,Product,Technical Writer,134967.06,3.6,4.3,Active,0.19
+EMP-2437,Sales,Sales Engineer,170823.48,4.0,4.3,Active,0.19
+EMP-2438,People Ops,HR Business Partner,158427.12,4.0,2.9,Active,0.28
+EMP-2439,Customer Success,Customer Success Manager,85865.27,6.3,4.0,Active,0.25
+EMP-2440,Engineering,Senior Staff Engineer,165008.18,1.3,3.1,Active,0.26
+EMP-2441,Sales,Sales Engineer,80237.4,5.0,4.1,Active,0.24
+EMP-2442,People Ops,Talent Acquisition Lead,163393.71,1.5,3.0,Active,0.27
+EMP-2443,Engineering,Software Engineer II,105191.83,3.9,4.3,Active,0.19
+EMP-2444,Sales,Enterprise Account Executive,192828.67,1.3,4.1,Active,0.2
+EMP-2445,Engineering,DevOps Specialist,181468.16,7.0,4.3,Active,0.23
+EMP-2446,Engineering,DevOps Specialist,112481.18,5.1,3.1,Active,0.3
+EMP-2447,Finance,Senior Financial Analyst,173668.79,2.1,4.8,Active,0.16
+EMP-2448,Engineering,Software Engineer II,179156.56,1.4,2.9,Active,0.28
+EMP-2449,Finance,Revenue Ops Specialist,165666.82,4.4,3.1,Active,0.3
+EMP-2450,Sales,Enterprise Account Executive,117702.42,5.4,3.0,Active,0.31
+EMP-2451,Sales,SDR Lead,136038.8,6.5,4.7,Active,0.21
+EMP-2452,Finance,Senior Financial Analyst,165841.3,4.4,3.5,Active,0.28
+EMP-2453,Engineering,Senior Staff Engineer,167994.55,5.0,3.0,Active,0.31
+EMP-2454,Engineering,Senior Staff Engineer,127332.84,1.5,4.0,Active,0.21
+EMP-2455,Engineering,Software Engineer II,156624.51,3.3,3.8,Active,0.22
+EMP-2456,People Ops,Talent Acquisition Lead,164164.77,6.0,3.0,Active,0.31
+EMP-2457,Customer Success,Implementation Consultant,110893.22,1.3,4.5,Active,0.18
+EMP-2458,Customer Success,Implementation Consultant,86482.65,5.3,4.4,Active,0.23
+EMP-2459,Customer Success,Implementation Consultant,103649.29,5.7,3.2,Active,0.3
+EMP-2460,Customer Success,Implementation Consultant,140913.64,3.3,3.5,Active,0.24
+EMP-2461,Engineering,Senior Staff Engineer,100309.39,0.8,4.8,Active,0.16
+EMP-2462,Product,Product Designer,141882.2,1.3,4.8,Active,0.16
+EMP-2463,Product,Technical Writer,103115.92,6.8,3.2,Active,0.3
+EMP-2464,Product,Group Product Manager,81162.87,4.5,3.5,Active,0.28
+EMP-2465,Sales,Sales Engineer,97794.78,7.0,3.7,Active,0.27
+EMP-2466,Engineering,DevOps Specialist,117412.97,4.4,3.7,Active,0.27
+EMP-2467,Finance,Revenue Ops Specialist,168680.12,4.4,2.9,Active,0.32
+EMP-2468,Sales,Sales Engineer,106501.64,3.1,3.3,Active,0.25
+EMP-2469,Product,Technical Writer,164290.9,5.7,3.5,Active,0.28
+EMP-2470,Finance,Controller,156311.99,1.4,3.1,Active,0.26
+EMP-2471,Engineering,Senior Staff Engineer,77050.25,4.6,3.8,Active,0.26
+EMP-2472,Engineering,Senior Staff Engineer,152767.37,5.8,4.3,Active,0.23
+EMP-2473,Finance,Controller,191966.54,4.5,4.2,Active,0.24
+EMP-2474,Product,Product Designer,131714.61,4.6,3.7,Active,0.27
+EMP-2475,Sales,Enterprise Account Executive,104777.17,5.6,5.0,Active,0.19
+EMP-2476,Engineering,Software Engineer II,156590.75,5.9,4.7,Active,0.21
+EMP-2477,Sales,Enterprise Account Executive,102187.45,1.9,3.2,Active,0.26
+EMP-2478,Engineering,QA Lead,151094.46,5.2,4.8,Active,0.2
+EMP-2479,Product,Technical Writer,96612.63,7.5,3.3,Active,0.29
+EMP-2480,Engineering,QA Lead,79639.35,5.8,3.8,Active,0.26
+EMP-2481,Engineering,Software Engineer II,88770.82,2.7,3.7,Active,0.23
+EMP-2482,Product,Group Product Manager,172897.29,0.7,4.9,Active,0.16
+EMP-2483,Finance,Senior Financial Analyst,97658.88,6.6,4.3,Active,0.23
+EMP-2484,Customer Success,Customer Success Manager,167379.4,6.5,4.2,Active,0.24
+EMP-2485,Finance,Revenue Ops Specialist,99701.82,3.3,4.4,Active,0.19
+EMP-2486,Engineering,Software Engineer II,103329.13,3.1,3.7,Active,0.23
+EMP-2487,Product,Group Product Manager,152755.67,1.8,4.3,Active,0.19
+EMP-2488,Engineering,DevOps Specialist,156663.05,7.4,3.1,Active,0.3
+EMP-2489,Engineering,DevOps Specialist,92200.42,6.6,4.5,Active,0.22
+EMP-2490,People Ops,Talent Acquisition Lead,170970.95,2.0,3.0,Active,0.27
+EMP-2491,Engineering,Senior Staff Engineer,79736.4,1.8,2.9,Active,0.28
+EMP-2492,Engineering,Software Engineer II,105103.49,1.5,4.6,Active,0.17
+EMP-2493,Product,Group Product Manager,188749.33,1.1,3.2,Active,0.26
+EMP-2494,Finance,Controller,96379.89,6.1,4.6,Active,0.21
+EMP-2495,Engineering,Senior Staff Engineer,84065.74,2.9,3.2,Active,0.26
+EMP-2496,Customer Success,Customer Success Manager,130275.72,2.2,4.8,Active,0.16
+EMP-2497,Engineering,Software Engineer II,93004.78,0.8,4.8,Active,0.16
+EMP-2498,Sales,SDR Lead,87346.61,2.9,4.5,Active,0.18
+EMP-2499,Engineering,QA Lead,88547.74,3.9,3.4,Active,0.25

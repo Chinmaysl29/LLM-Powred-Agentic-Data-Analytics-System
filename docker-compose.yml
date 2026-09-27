@@ -24,6 +24,8 @@ services:
       CHROMA_PORT: 8000
       # Allow the Vite dev server running in the frontend container
       FRONTEND_URL: http://localhost:5173
+      UPLOAD_DIR: storage
+      ALLOWED_FILE_TYPES: csv,xlsx,xls,json,parquet,pdf
 
     depends_on:
       - postgres
@@ -37,6 +39,7 @@ services:
       - ./logs:/app/logs
       - ./tests:/app/tests:ro
       - ./pytest.ini:/app/pytest.ini:ro
+      - ./storage:/app/storage
 
   frontend:
     build:

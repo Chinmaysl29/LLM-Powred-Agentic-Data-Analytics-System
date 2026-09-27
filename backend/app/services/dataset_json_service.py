@@ -25,25 +25,70 @@ class DatasetJsonService:
         canonical = root / "canonical"
         artifacts.mkdir(parents=True, exist_ok=True)
         canonical.mkdir(parents=True, exist_ok=True)
-        source_hash = hashlib.sha256(Path(original_path).read_bytes()).hexdigest()
-        if parsed.dataframe is None:
-            json_path = artifacts / "document.json"
-            json_path.write_text(json.dumps(parsed.document, ensure_ascii=False, default=str), encoding="utf-8")
-            return {"json_path": str(json_path), "canonical_path": None, "canonical_format": "document_json", "content_hash": source_hash, "row_count": None, "column_count": None}
-        return self._write_tabular(dataset_id, dataset_name, parsed.dataframe, artifacts, canonical, source_hash)
+        self.storage.processed_dir.mkdir(parents=True, exist_ok=True)
 
-    @staticmethod
-    def _write_tabular(dataset_id: str, dataset_name: str, frame: pd.DataFrame, artifacts: Path, canonical: Path, source_hash: str) -> dict[str, Any]:
-        json_path = artifacts / "data.json"
-        payload = {"dataset_id": dataset_id, "dataset_name": dataset_name, "columns": frame.columns.tolist(), "records": json.loads(frame.to_json(orient="records", date_format="iso"))}
-        json_path.write_text(json.dumps(payload, ensure_ascii=False, default=str), encoding="utf-8")
+        source_bytes = Path(original_path).read_bytes()
+        source_hash = hashlib.sha256(source_bytes).hexdigest()
+
+        if parsed.dataframe is None:
+            doc_payload = parsed.document or {}
+            doc_json = json.dumps(doc_payload, ensure_ascii=False, default=str, indent=2)
+
+            # Store in storage lake domains
+            self.storage.save_canonical(dataset_id, doc_payload)
+            processed_json_path = self.storage.processed_dir / f"{dataset_id}.json"
+            processed_json_path.write_text(doc_json, encoding="utf-8")
+
+            # Store in dataset registry
+            (root / "document.json").write_text(doc_json, encoding="utf-8")
+            (artifacts / "document.json").write_text(doc_json, encoding="utf-8")
+
+            page_count = len(doc_payload.get("pages", []))
+            return {
+                "json_path": str(processed_json_path),
+                "canonical_path": str(processed_json_path),
+                "canonical_format": "document_json",
+                "content_hash": source_hash,
+                "row_count": page_count,
+                "column_count": 0,
+            }
+
+        frame = parsed.dataframe
+        records = json.loads(frame.to_json(orient="records", date_format="iso"))
+        canonical_json = json.dumps(records, ensure_ascii=False, default=str, indent=2)
+
+        # 1. Store canonical and processed JSON in storage lake domains
+        self.storage.save_canonical(dataset_id, records)
+        processed_json_path = self.storage.processed_dir / f"{dataset_id}.json"
+        processed_json_path.write_text(canonical_json, encoding="utf-8")
+
+        # 2. Store in dataset directory: data.json and artifacts/data.json
+        full_payload = {
+            "dataset_id": dataset_id,
+            "dataset_name": dataset_name,
+            "columns": frame.columns.tolist(),
+            "records": records,
+        }
+        full_json = json.dumps(full_payload, ensure_ascii=False, default=str, indent=2)
+        (root / "data.json").write_text(full_json, encoding="utf-8")
+        (artifacts / "data.json").write_text(full_json, encoding="utf-8")
+
+        # 3. Store parquet for columnar analytics
         parquet_path = canonical / "data.parquet"
         try:
             frame.to_parquet(parquet_path, index=False)
             canonical_path, canonical_format = str(parquet_path), "parquet"
-        except (ImportError, ValueError):
-            canonical_path, canonical_format = str(json_path), "json"
-        return {"json_path": str(json_path), "canonical_path": canonical_path, "canonical_format": canonical_format, "content_hash": source_hash, "row_count": int(len(frame)), "column_count": int(len(frame.columns))}
+        except (ImportError, ValueError, Exception):
+            canonical_path, canonical_format = str(processed_json_path), "json"
+
+        return {
+            "json_path": str(processed_json_path),
+            "canonical_path": canonical_path,
+            "canonical_format": canonical_format,
+            "content_hash": source_hash,
+            "row_count": int(len(frame)),
+            "column_count": int(len(frame.columns)),
+        }
 
     @staticmethod
     def write_artifact(path: str | Path, payload: Any) -> None:

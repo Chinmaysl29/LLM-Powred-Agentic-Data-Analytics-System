@@ -1,0 +1,15 @@
+{
+  "dataset_id": "c7cd1ba2-4ee1-4047-b7a1-6443e1b140d5",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "1e7639e5-da63-440d-a7a2-8986f31b566f",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-26 18:58:56.517239+00:00",
+      "author": "system",
+      "description": "Initial ingestion of Annual_Report_2024.pdf"
+    }
+  ]
+}

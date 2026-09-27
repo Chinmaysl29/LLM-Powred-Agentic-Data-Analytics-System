@@ -1,0 +1,21 @@
+{
+  "id": "term-stockout-risk",
+  "term": "Stockout Risk Rate",
+  "definition": "Percentage of inventory items with days of supply below emergency safety reorder threshold.",
+  "formula": "(COUNT(SKUs WHERE days_of_supply < safety_threshold) / Total SKUs) * 100",
+  "synonyms": [
+    "Inventory Depletion Risk",
+    "Out of Stock Hazard"
+  ],
+  "category": "Supply Chain & Ops",
+  "owner": "Supply Chain Operations Lead",
+  "status": "Approved",
+  "physical_mappings": [
+    {
+      "dataset": "supply_chain_operations_2026.csv",
+      "column": "inventory_status"
+    }
+  ],
+  "created_at": "2026-09-27T12:30:05.286861+00:00",
+  "updated_at": "2026-09-27T12:30:05.286922+00:00"
+}

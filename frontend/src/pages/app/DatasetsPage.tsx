@@ -217,10 +217,30 @@ function DatasetTable({ datasets, hasSourceData, onClearFilters }: DatasetTableP
             </svg>
             <p className="dataset-empty-title">No datasets yet</p>
             <p className="dataset-empty-body">
-              Datasets will appear here once they have been ingested and are
-              available for analysis. Data ingestion will be available in a
-              future release.
+              Datasets will appear here once they have been uploaded and are
+              available for analysis.
             </p>
+            <Link
+              to="/datasets/upload"
+              className="datasets-upload-btn"
+              style={{ marginTop: '16px', display: 'inline-flex' }}
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+              Upload Dataset
+            </Link>
           </div>
         </div>
       );

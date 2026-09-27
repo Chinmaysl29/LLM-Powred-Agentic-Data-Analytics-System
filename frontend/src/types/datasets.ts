@@ -1,36 +1,6 @@
 /**
- * Frontend dataset domain types.
- *
- * These reflect the confirmed backend DatasetResponse contract from:
- *   backend/schemas/datasets.py
- *
- * Confirmed fields (Phase 2A audit):
- *   dataset_id, filename, size_bytes, uploaded_at, status
- *
- * The backend `path` field is intentionally OMITTED.
- * Server-side filesystem paths must never be exposed or rendered in the UI.
- *
- * Additional fields (row_count, column_count, columns, etc.) will be added
- * here only when the corresponding backend endpoint contract is confirmed.
- *
- * BACKEND DEPENDENCY:
- *   GET /api/datasets — not yet implemented.
- *   GET /api/datasets/:id — not yet implemented.
+ * Frontend dataset domain types for Enterprise Dataset Management Center.
  */
-
-// ---------------------------------------------------------------------------
-// DatasetStatus
-//
-// 'uploaded' is the only confirmed backend status value (Phase 2A audit).
-//
-// The remaining values are ANTICIPATED based on the multi-stage pipeline
-// architecture observed in the repository (datasets/raw → datasets/validated
-// → datasets/processed). They appear in Phase 2B development data only.
-//
-// Do not treat these anticipated values as a confirmed backend contract.
-// Reconcile with the actual backend enum when GET /api/datasets is
-// implemented.
-// ---------------------------------------------------------------------------
 
 export type DatasetStatus =
   | 'uploaded'
@@ -38,99 +8,244 @@ export type DatasetStatus =
   | 'validated'
   | 'processing'
   | 'processed'
-  | 'failed';
+  | 'failed'
+  | 'Ready'
+  | 'Processed';
 
-// ---------------------------------------------------------------------------
-// Dataset
-//
-// Frontend representation of a single dataset.
-// Mirrors the confirmed DatasetResponse schema; `path` is omitted.
-// ---------------------------------------------------------------------------
+export type DatasetFileType = 'CSV' | 'Excel' | 'JSON' | 'PDF' | 'Parquet';
 
 export interface Dataset {
   /** Unique identifier (UUID string from backend). */
   dataset_id: string;
-  /** Original filename as uploaded (e.g. "sales_q1_2026.csv"). */
+  /** Original filename as uploaded (e.g. "Sales_Data_2025.csv"). */
   filename: string;
+  /** Display name */
+  name?: string;
+  /** Format of dataset file */
+  file_type?: DatasetFileType | string;
+  /** Number of rows (or undefined if document) */
+  row_count?: number;
+  /** Number of columns */
+  column_count?: number;
+  /** Number of pages (for PDF reports) */
+  pages?: number;
+  /** Overall quality score percentage (0-100) */
+  quality_score?: number;
   /** File size in bytes. */
   size_bytes: number;
   /** ISO 8601 UTC timestamp of when the file was uploaded. */
   uploaded_at: string;
+  /** ISO 8601 UTC timestamp of last update */
+  updated_at?: string;
   /** Current processing status in the data pipeline. */
   status: DatasetStatus;
+  /** Raw storage location path */
+  raw_path?: string;
+  /** Cleaned / Processed Parquet storage path */
+  processed_path?: string;
+  /** Human-readable description */
+  description?: string;
 }
 
-// ---------------------------------------------------------------------------
-// DatasetPreview
-//
-// Frontend contract for the bounded dataset preview response.
-//
-// Phase 2E: Used with isolated development preview data (DEV_PREVIEWS in
-//   datasetUtils.ts). No browser-side file parsing occurs.
-// Future: Will mirror the GET /api/datasets/:id/preview response shape.
-//
-// The UI layer is data-source agnostic — it renders whatever columns and
-// rows are provided. It does not know how the data was parsed or stored.
-//
-// BACKEND DEPENDENCY: GET /api/datasets/:id/preview — not yet implemented.
-// ---------------------------------------------------------------------------
-
-/** A single cell value in a preview row. null represents a missing/empty value. */
 export type CellValue = string | number | boolean | null;
-
-/** A single preview row: maps column name -> cell value. */
 export type PreviewRow = Record<string, CellValue>;
 
-/** Bounded dataset preview returned by the preview endpoint (or dev data). */
 export interface DatasetPreview {
-  /** Ordered list of column names derived from the dataset schema. */
   columns: string[];
-  /** Sample rows — a bounded subset of the full dataset. */
   rows: PreviewRow[];
-  /**
-   * Total number of rows in the full dataset.
-   * Used to display "Showing X of Y rows". May be 0 if dataset is empty.
-   */
   totalRows: number;
 }
 
-// ---------------------------------------------------------------------------
-// Upload UI types — Phase 2F, frontend-only.
-//
-// These types represent the local state of the dataset upload UI.
-// They are NOT backend DTOs and carry NO backend contract assumptions.
-// The actual multipart/form-data upload contract (endpoint path, field
-// names, response shape, file-size limits) will be determined when
-// POST /api/upload (or equivalent) is implemented.
-//
-// BACKEND DEPENDENCY: POST /api/upload — not yet implemented.
-// ---------------------------------------------------------------------------
-
-/**
- * A single file entry in the upload selection list.
- * Wraps the native browser File object with a stable UI key.
- *
- * The `key` is generated at selection time using filename + size +
- * lastModified to power the duplicate-detection check and React
- * reconciliation. It is NOT sent to the backend.
- */
 export interface UploadFileEntry {
-  /** Stable unique key for React list rendering and duplicate detection. */
   key: string;
-  /** The native browser File object. Not parsed — raw reference only. */
   file: File;
 }
 
-/**
- * A validation error generated by the frontend upload type check.
- *
- * Only extension validation is performed client-side. All real security
- * validation (MIME type, content, malware, size limits) must happen
- * on the backend when POST /api/upload is implemented.
- */
 export interface UploadValidationError {
-  /** The filename that was rejected. */
   filename: string;
-  /** Human-readable reason for rejection. */
   reason: string;
+}
+
+// ---------------------------------------------------------------------------
+// Database Connection Types
+// ---------------------------------------------------------------------------
+
+export type DatabaseEngine = 'PostgreSQL' | 'MySQL' | 'MongoDB' | 'SQL Server' | 'Oracle';
+
+export interface DatabaseConnection {
+  id: string;
+  name: string;
+  engine: DatabaseEngine;
+  host: string;
+  port: number;
+  database: string;
+  username: string;
+  ssl: boolean;
+  status: 'connected' | 'error' | 'testing';
+  latencyMs?: number;
+  tablesCount?: number;
+  lastTestedAt: string;
+}
+
+// ---------------------------------------------------------------------------
+// API Connection Types
+// ---------------------------------------------------------------------------
+
+export type ApiType = 'REST API' | 'GraphQL API';
+export type ApiAuthType = 'none' | 'bearer' | 'basic' | 'apiKey';
+
+export interface ApiHeader {
+  key: string;
+  value: string;
+}
+
+export interface ApiConnection {
+  id: string;
+  name: string;
+  type: ApiType;
+  baseUrl: string;
+  endpoint?: string;
+  authType: ApiAuthType;
+  apiKey?: string;
+  apiKeyHeader?: string;
+  headers: ApiHeader[];
+  status: 'connected' | 'error' | 'testing';
+  latencyMs?: number;
+  lastTestedAt: string;
+}
+
+// ---------------------------------------------------------------------------
+// Data Warehouse Types
+// ---------------------------------------------------------------------------
+
+export interface WarehouseColumn {
+  name: string;
+  type: string;
+  nullable: boolean;
+  isPrimaryKey?: boolean;
+  isForeignKey?: boolean;
+}
+
+export interface FactTable {
+  id: string;
+  name: string;
+  description: string;
+  rowCount: number;
+  columnCount: number;
+  partitionKey: string;
+  sizeBytes: number;
+  lastRefreshed: string;
+  columns: WarehouseColumn[];
+}
+
+export interface DimensionTable {
+  id: string;
+  name: string;
+  description: string;
+  rowCount: number;
+  columnCount: number;
+  primaryKey: string;
+  sizeBytes: number;
+  lastRefreshed: string;
+  columns: WarehouseColumn[];
+}
+
+export interface WarehouseView {
+  id: string;
+  name: string;
+  description: string;
+  sourceTables: string[];
+  lastRefreshed: string;
+  query: string;
+}
+
+export interface MaterializedView {
+  id: string;
+  name: string;
+  description: string;
+  refreshInterval: string;
+  lastRefreshed: string;
+  rowCount: number;
+  sizeBytes: number;
+  query: string;
+  status: 'ready' | 'refreshing';
+}
+
+export interface DataWarehouseCatalog {
+  factTables: FactTable[];
+  dimensionTables: DimensionTable[];
+  views: WarehouseView[];
+  materializedViews: MaterializedView[];
+}
+
+// ---------------------------------------------------------------------------
+// Dataset Deep Detail Types (Metadata, Profile, Quality, Versions, Lineage)
+// ---------------------------------------------------------------------------
+
+export interface ColumnMetadata {
+  name: string;
+  datatype: string;
+  uniqueValues: number;
+  nullCount: number;
+  nullPercentage: number;
+  sampleValues: (string | number)[];
+  isPrimaryKey?: boolean;
+  isTarget?: boolean;
+}
+
+export interface ColumnProfileStat {
+  count: number;
+  mean?: number;
+  median?: number;
+  stdDev?: number;
+  min?: number;
+  max?: number;
+  q25?: number;
+  q75?: number;
+  distribution?: { bucket: string; count: number }[];
+  boxplot?: { min: number; q1: number; median: number; q3: number; max: number };
+}
+
+export interface DatasetProfileData {
+  summary: Record<string, ColumnProfileStat>;
+  correlation: {
+    columns: string[];
+    matrix: number[][];
+  };
+}
+
+export interface QualityRuleResult {
+  rule: string;
+  description: string;
+  status: 'passed' | 'warning' | 'failed';
+  score: number;
+}
+
+export interface DatasetQualityData {
+  qualityScore: number;
+  missingValuesCount: number;
+  duplicateRowsCount: number;
+  outliersCount: number;
+  rules: QualityRuleResult[];
+}
+
+export interface DatasetVersionItem {
+  version_number: number;
+  label: string;
+  created_at: string;
+  author: string;
+  changelog: string;
+  rows: number;
+  columns: number;
+  size_bytes: number;
+  isActive: boolean;
+}
+
+export interface DatasetLineageNode {
+  id: string;
+  title: string;
+  type: 'source' | 'raw_storage' | 'engine' | 'processed_storage' | 'registry' | 'ai_agent';
+  description: string;
+  path?: string;
+  status: 'active' | 'synced' | 'ready';
 }

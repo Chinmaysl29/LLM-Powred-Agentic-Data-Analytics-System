@@ -473,10 +473,11 @@ export function calculateScenarioProjection(
   baselineCustomersArg = 14_820,
   inputsArg?: ScenarioInputVariables
 ): ScenarioProjection {
-  let baselineRevenue = 2_480_000;
-  let baselineOrders = 18_420;
-  let baselineCustomers = 14_820;
+  let baselineRevenue: number;
+  let baselineOrders: number;
+  let baselineCustomers: number;
   let inputs: ScenarioInputVariables;
+
 
   if (typeof baselineRevenueOrDatasetId === 'string') {
     const isMkt = baselineRevenueOrDatasetId === 'marketing';

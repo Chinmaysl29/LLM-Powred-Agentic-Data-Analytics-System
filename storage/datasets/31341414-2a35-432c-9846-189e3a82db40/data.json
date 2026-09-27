@@ -1,0 +1,26 @@
+{
+  "dataset_id": "31341414-2a35-432c-9846-189e3a82db40",
+  "dataset_name": "Customer Tiers",
+  "columns": [
+    "customer_id",
+    "tier",
+    "spend"
+  ],
+  "records": [
+    {
+      "customer_id": "C01",
+      "tier": "Gold",
+      "spend": 4500
+    },
+    {
+      "customer_id": "C02",
+      "tier": "Silver",
+      "spend": 1200
+    },
+    {
+      "customer_id": "C03",
+      "tier": "Bronze",
+      "spend": 350
+    }
+  ]
+}

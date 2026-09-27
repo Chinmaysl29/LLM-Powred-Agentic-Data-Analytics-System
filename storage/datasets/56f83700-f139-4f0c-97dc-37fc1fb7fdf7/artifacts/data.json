@@ -1,0 +1,24 @@
+{
+  "dataset_id": "56f83700-f139-4f0c-97dc-37fc1fb7fdf7",
+  "dataset_name": "Live Customers CSV",
+  "columns": [
+    "id",
+    "customer_name",
+    "email",
+    "spent"
+  ],
+  "records": [
+    {
+      "id": 101,
+      "customer_name": "John Doe",
+      "email": "john@acme.com",
+      "spent": 1250.5
+    },
+    {
+      "id": 102,
+      "customer_name": "Jane Smith",
+      "email": "jane@globex.com",
+      "spent": 3400.0
+    }
+  ]
+}

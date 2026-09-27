@@ -21,3 +21,10 @@ class KnowledgeValidationResult(BaseModel):
     checks: List[ValidationCheck] = Field(default_factory=list, description="Individual claim checks")
     warnings: List[str] = Field(default_factory=list, description="Non-critical validation warnings")
     answer_has_sources: bool = Field(default=True, description="True if answer cites at least one source")
+    # Phase 22 Empirical Grounding Metrics
+    source_coverage: float = Field(default=1.0, ge=0.0, le=1.0, description="Ratio of claims grounded in retrieved context")
+    evidence_coverage: float = Field(default=1.0, ge=0.0, le=1.0, description="Ratio of numeric facts verified against evidence")
+    grounding_score: float = Field(default=1.0, ge=0.0, le=1.0, description="Composite grounding score")
+    citation_accuracy: float = Field(default=1.0, ge=0.0, le=1.0, description="Percentage of citations with valid content alignment")
+    grounded_confidence_score: float = Field(default=1.0, ge=0.0, le=1.0, description="Overall grounded confidence score replacing static hallucination claims")
+

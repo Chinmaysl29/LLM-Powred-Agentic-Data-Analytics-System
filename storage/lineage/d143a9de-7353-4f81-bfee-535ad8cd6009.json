@@ -1,0 +1,15 @@
+{
+  "dataset_id": "d143a9de-7353-4f81-bfee-535ad8cd6009",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "2d9ac453-2fa1-4696-8b40-41d7dc0e431e",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-27 09:30:25.882249",
+      "author": "system",
+      "description": "Initial ingestion of products.xlsx"
+    }
+  ]
+}

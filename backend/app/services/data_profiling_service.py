@@ -93,6 +93,16 @@ class DataProfilingService:
     def generate_profile(self, dataset_id: str, file_path: str, file_type: str) -> DatasetProfileCreate:
         """Generate a complete statistical profile for a dataset file."""
         logger.info("Starting data profiling for dataset_id=%s", dataset_id)
+
+        if file_type == "pdf":
+            return DatasetProfileCreate(
+                dataset_id=dataset_id,
+                duplicate_rows=0,
+                duplicate_percentage=0.0,
+                missing_data_profile=MissingDataProfile(null_count=0, null_percentage=0.0, columns_with_missing=[]),
+                cardinality_profile=CardinalityProfile(high_cardinality_columns=[], low_cardinality_columns=[]),
+                numeric_columns_profile={},
+            )
         
         try:
             df = self.metadata_service._load_dataframe(file_path, file_type)

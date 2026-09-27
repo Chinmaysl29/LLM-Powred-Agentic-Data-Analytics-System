@@ -1,0 +1,15 @@
+{
+  "dataset_id": "88a2fec5-2cca-425d-aa04-592aeda75824",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "d2a40002-2d4b-41be-aa09-127277710c37",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-27 10:22:25.907602",
+      "author": "system",
+      "description": "Initial ingestion of employees.csv"
+    }
+  ]
+}

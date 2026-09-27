@@ -1,0 +1,26 @@
+{
+  "dataset_id": "952b7ae8-b635-4d97-bf85-5fc2d9276519",
+  "dataset_name": "Finance Metrics",
+  "columns": [
+    "month",
+    "revenue",
+    "costs"
+  ],
+  "records": [
+    {
+      "month": "Jan",
+      "revenue": 10000,
+      "costs": 6000
+    },
+    {
+      "month": "Feb",
+      "revenue": 12000,
+      "costs": 6500
+    },
+    {
+      "month": "Mar",
+      "revenue": 15000,
+      "costs": 7000
+    }
+  ]
+}

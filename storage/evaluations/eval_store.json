@@ -1,0 +1,97 @@
+{
+  "feedback": [
+    {
+      "id": "fb-c9679a7c",
+      "workspace_id": "default-ws",
+      "query": "What products drive profit?",
+      "rating": 5,
+      "feedback_type": "thumbs_up",
+      "user_comment": "Excellent attribution and reasoning.",
+      "recorded_at": "2026-09-27T12:30:22.067349+00:00"
+    },
+    {
+      "id": "fb-223ee916",
+      "workspace_id": "default-ws",
+      "query": "What products drive profit?",
+      "rating": 5,
+      "feedback_type": "thumbs_up",
+      "user_comment": "Excellent attribution and reasoning.",
+      "recorded_at": "2026-09-27T12:33:46.260605+00:00"
+    },
+    {
+      "id": "fb-8fc09573",
+      "workspace_id": "default-ws",
+      "query": "What products drive profit?",
+      "rating": 5,
+      "feedback_type": "thumbs_up",
+      "user_comment": "Excellent attribution and reasoning.",
+      "recorded_at": "2026-09-27T12:37:11.224961+00:00"
+    }
+  ],
+  "sql": [
+    {
+      "query": "Top customers",
+      "sql": "SELECT * FROM customers",
+      "success": true,
+      "execution_ms": 12.5,
+      "timestamp": "2026-09-27T12:30:22.068769+00:00"
+    },
+    {
+      "query": "Top customers",
+      "sql": "SELECT * FROM customers",
+      "success": true,
+      "execution_ms": 12.5,
+      "timestamp": "2026-09-27T12:33:46.261527+00:00"
+    },
+    {
+      "query": "Top customers",
+      "sql": "SELECT * FROM customers",
+      "success": true,
+      "execution_ms": 12.5,
+      "timestamp": "2026-09-27T12:37:11.226121+00:00"
+    }
+  ],
+  "grounding": [
+    {
+      "query": "Why did revenue drop?",
+      "grounding_score": 0.98,
+      "evidence_coverage": 0.99,
+      "timestamp": "2026-09-27T12:30:22.069762+00:00"
+    },
+    {
+      "query": "Why did revenue drop?",
+      "grounding_score": 0.98,
+      "evidence_coverage": 0.99,
+      "timestamp": "2026-09-27T12:33:46.262416+00:00"
+    },
+    {
+      "query": "Why did revenue drop?",
+      "grounding_score": 0.98,
+      "evidence_coverage": 0.99,
+      "timestamp": "2026-09-27T12:37:11.227211+00:00"
+    }
+  ],
+  "forecast": [
+    {
+      "model": "MultiModelEnsemble",
+      "mape": 3.8,
+      "rmse": 24.5,
+      "r2": 0.96,
+      "timestamp": "2026-09-27T12:30:22.070742+00:00"
+    },
+    {
+      "model": "MultiModelEnsemble",
+      "mape": 3.8,
+      "rmse": 24.5,
+      "r2": 0.96,
+      "timestamp": "2026-09-27T12:33:46.263351+00:00"
+    },
+    {
+      "model": "MultiModelEnsemble",
+      "mape": 3.8,
+      "rmse": 24.5,
+      "r2": 0.96,
+      "timestamp": "2026-09-27T12:37:11.228215+00:00"
+    }
+  ]
+}

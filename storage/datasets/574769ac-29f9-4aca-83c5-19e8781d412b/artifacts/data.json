@@ -1,0 +1,30 @@
+{
+  "dataset_id": "574769ac-29f9-4aca-83c5-19e8781d412b",
+  "dataset_name": "Orders Dataset",
+  "columns": [
+    "order_id",
+    "customer",
+    "amount",
+    "status"
+  ],
+  "records": [
+    {
+      "order_id": 1001,
+      "customer": "Acme Corp",
+      "amount": 1500.0,
+      "status": "Completed"
+    },
+    {
+      "order_id": 1002,
+      "customer": "Global Tech",
+      "amount": 2300.0,
+      "status": "Pending"
+    },
+    {
+      "order_id": 1003,
+      "customer": "Starlight",
+      "amount": 450.0,
+      "status": "Completed"
+    }
+  ]
+}

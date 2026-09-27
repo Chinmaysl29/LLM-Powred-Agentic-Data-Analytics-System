@@ -81,9 +81,18 @@ class OrchestratorService:
             validation_service = ValidationService()
             summary_service = ExecutiveSummaryService()
 
+            from backend.agents.sql_agent import SQLAgentRunner
+            from backend.agents.visualization_agent import VisualizationAgentRunner
+            from backend.agents.forecasting_agent import ForecastingAgentRunner
+            from backend.agents.recommendation_agent import RecommendationAgentRunner
+
             self._agent_registry.register(DataRetrievalAgentRunner(retrieval_service=retrieval_service))
             self._agent_registry.register(EDAAgentRunner(eda_service=eda_service, retrieval_service=retrieval_service))
             self._agent_registry.register(StatisticsAgentRunner(statistics_service=statistics_service, retrieval_service=retrieval_service))
+            self._agent_registry.register(SQLAgentRunner(retrieval_service=retrieval_service))
+            self._agent_registry.register(VisualizationAgentRunner(retrieval_service=retrieval_service))
+            self._agent_registry.register(ForecastingAgentRunner(retrieval_service=retrieval_service))
+            self._agent_registry.register(RecommendationAgentRunner())
             self._agent_registry.register(ValidationAgentRunner(validation_service=validation_service))
             self._agent_registry.register(ExecutiveSummaryAgentRunner(summary_service=summary_service, name="summary"))
             self._agent_registry.register(ExecutiveSummaryAgentRunner(summary_service=summary_service, name="executive_summary"))

@@ -1,3 +1,10 @@
+/* Phase 23 UX Intelligence CSS */
+@import './phase23-part1.css';
+@import './phase23-part2.css';
+@import './phase23-part3.css';
+@import './phase23-part4.css';
+@import './phase23-part5.css';
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -1972,6 +1979,194 @@ p {
   .upload-back-link {
     align-self: flex-start;
   }
+}
+
+/* -------------------------------------------------------------------------
+   Workspace Theme Enforcement for Datasets and Dataset Upload Pages
+   Ensures card, dropzone, table, and controls render in sleek dark slate
+   matching the user's reference design
+   ------------------------------------------------------------------------- */
+.ws-main .upload-card {
+  background: #171b26;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+.ws-main .upload-card-title {
+  color: #f3f4f6;
+}
+
+.ws-main .upload-card-subtitle {
+  color: #9ca3af;
+}
+
+.ws-main .upload-dropzone {
+  background: #11141c;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.ws-main .upload-dropzone:hover,
+.ws-main .upload-dropzone--active {
+  background: rgba(170, 59, 255, 0.08);
+  border-color: #aa3bff;
+}
+
+.ws-main .upload-cloud-icon {
+  color: #9ca3af;
+}
+
+.ws-main .upload-dropzone-text {
+  color: #f3f4f6;
+}
+
+.ws-main .upload-browse-action {
+  color: #c084fc;
+}
+
+.ws-main .upload-file-item {
+  background: #11141c;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.ws-main .upload-file-icon {
+  background: rgba(170, 59, 255, 0.12);
+  border-color: rgba(170, 59, 255, 0.25);
+  color: #c084fc;
+}
+
+.ws-main .upload-file-name {
+  color: #f3f4f6;
+}
+
+.ws-main .upload-file-size {
+  color: #9ca3af;
+}
+
+.ws-main .upload-file-remove {
+  color: #9ca3af;
+}
+
+.ws-main .upload-file-remove:hover {
+  color: #f87171;
+  background-color: rgba(248, 113, 113, 0.1);
+}
+
+.ws-main .upload-file-list-heading {
+  color: #f3f4f6;
+}
+
+.ws-main .page-title {
+  color: #f3f4f6;
+}
+
+.ws-main .page-description {
+  color: #9ca3af;
+}
+
+.ws-main .upload-back-link {
+  color: #9ca3af;
+}
+
+.ws-main .upload-back-link:hover {
+  color: #c084fc;
+  background-color: rgba(170, 59, 255, 0.1);
+}
+
+.ws-main .datasets-upload-btn {
+  background: linear-gradient(135deg, #aa3bff 0%, #7928ca 100%);
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(170, 59, 255, 0.35);
+  transition: all 0.15s ease;
+}
+
+.ws-main .datasets-upload-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 6px 16px rgba(170, 59, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.ws-main .dataset-summary {
+  background: #171b26;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.ws-main .dataset-stat-value {
+  color: #f3f4f6;
+}
+
+.ws-main .dataset-stat-label {
+  color: #9ca3af;
+}
+
+.ws-main .dataset-controls {
+  background: #171b26;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.ws-main .dataset-control-label {
+  color: #9ca3af;
+}
+
+.ws-main .dataset-search-input,
+.ws-main .dataset-control-select {
+  background: #11141c;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f3f4f6;
+}
+
+.ws-main .dataset-table-wrapper {
+  background: #171b26;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.ws-main .dataset-table thead {
+  background: #11141c;
+}
+
+.ws-main .dataset-table th {
+  color: #9ca3af;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.ws-main .dataset-table tbody tr:hover {
+  background-color: rgba(170, 59, 255, 0.06);
+}
+
+.ws-main .dataset-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.ws-main .dataset-filename {
+  color: #f3f4f6;
+}
+
+.status-badge--ready,
+.status-badge--Ready {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+.status-badge--ready::before,
+.status-badge--Ready::before {
+  background: #4ade80;
+}
+
+.ws-main .dataset-meta {
+  color: #9ca3af;
+}
+
+.ws-main .dataset-empty {
+  color: #9ca3af;
+}
+
+.ws-main .dataset-empty-title {
+  color: #f3f4f6;
+}
+
+.ws-main .dataset-empty-body {
+  color: #9ca3af;
 }
 
 /* =========================================================================

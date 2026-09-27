@@ -1,0 +1,15 @@
+{
+  "dataset_id": "0ba85612-9a1b-4aba-8549-19b2c2359f41",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "38a2be4b-3cac-4084-b200-19bfa480013b",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-27 10:22:26.399951",
+      "author": "system",
+      "description": "Initial ingestion of customers.json"
+    }
+  ]
+}

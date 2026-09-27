@@ -17,22 +17,42 @@ except ImportError:
 class ChromaDBStore(BaseVectorStore):
     """ChromaDB persistent vector store with collection management."""
 
-    def __init__(self, collection_name: str = "rag_chunks", persist_directory: Optional[str] = None) -> None:
+    def __init__(
+        self,
+        collection_name: str = "rag_chunks",
+        persist_directory: Optional[str] = None,
+        host: Optional[str] = None,
+        port: Optional[int] = None,
+        client: Optional[Any] = None,
+    ) -> None:
         if not _CHROMA_AVAILABLE:
             raise RuntimeError("chromadb package is not installed.")
 
         self._collection_name = collection_name
 
-        if persist_directory:
+        if client is not None:
+            self._client = client
+        elif host:
+            self._client = chromadb.HttpClient(host=host, port=port or 8000)
+        elif persist_directory:
             self._client = chromadb.PersistentClient(path=persist_directory)
         else:
-            self._client = chromadb.EphemeralClient()
+            try:
+                from backend.app.core.config import get_settings
+                settings = get_settings()
+                if settings.chroma_host:
+                    self._client = chromadb.HttpClient(host=settings.chroma_host, port=settings.chroma_port)
+                else:
+                    self._client = chromadb.PersistentClient(path=str(settings.upload_dir + "/embeddings/chroma"))
+            except Exception:
+                self._client = chromadb.EphemeralClient()
 
         self._collection = self._client.get_or_create_collection(
             name=collection_name,
             metadata={"hnsw:space": "cosine"},
         )
         self._dimension: int = 0
+
 
     def add(
         self,
@@ -118,9 +138,15 @@ class ChromaDBStore(BaseVectorStore):
 
         return results
 
-    def delete(self, chunk_ids: List[str]) -> None:
+    def delete(self, chunk_ids: Optional[List[str]] = None, document_id: Optional[str] = None) -> None:
         if chunk_ids:
             self._collection.delete(ids=chunk_ids)
+        elif document_id:
+            try:
+                self._collection.delete(where={"document_id": document_id})
+            except Exception:
+                pass
+
 
     def clear(self) -> None:
         self._client.delete_collection(self._collection_name)

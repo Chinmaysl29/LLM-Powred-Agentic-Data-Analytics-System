@@ -1,0 +1,26 @@
+[
+  {
+    "order_id": 101,
+    "customer": "Alpha Corp",
+    "revenue": 1250.5,
+    "active": true
+  },
+  {
+    "order_id": 102,
+    "customer": "Beta LLC",
+    "revenue": 4300.0,
+    "active": false
+  },
+  {
+    "order_id": 103,
+    "customer": "Gamma Inc",
+    "revenue": 890.25,
+    "active": true
+  },
+  {
+    "order_id": 104,
+    "customer": "Delta Co",
+    "revenue": 6200.75,
+    "active": true
+  }
+]

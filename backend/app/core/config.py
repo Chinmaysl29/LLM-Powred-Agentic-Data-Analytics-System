@@ -117,8 +117,8 @@ class Settings(BaseSettings):
     # File Uploads
     # ------------------------------------------------------------------
     max_file_size_mb: int = 100
-    allowed_file_types: str = "csv,xlsx,xls,json,parquet"
-    upload_dir: str = "uploads"
+    allowed_file_types: str = "csv,xlsx,xls,json,parquet,pdf"
+    upload_dir: str = "storage"
 
     # ------------------------------------------------------------------
     # Visualization

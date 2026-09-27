@@ -1,0 +1,17 @@
+[
+  {
+    "item": "Widget A",
+    "price": 19.99,
+    "stock": 150
+  },
+  {
+    "item": "Widget B",
+    "price": 49.99,
+    "stock": 80
+  },
+  {
+    "item": "Widget C",
+    "price": 99.0,
+    "stock": 25
+  }
+]

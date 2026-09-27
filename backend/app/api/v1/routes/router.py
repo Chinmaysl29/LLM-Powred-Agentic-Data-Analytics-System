@@ -24,6 +24,9 @@ from backend.app.api.v1.routes.workspaces import router as workspaces_router
 from backend.app.api.v1.routes.autonomous import router as autonomous_router
 from backend.app.api.v1.routes.audit import router as audit_router
 from backend.app.api.v1.routes.chat import router as chat_router
+from backend.app.api.v1.routes.monitoring import router as monitoring_router
+from backend.app.api.v1.routes.lineage import router as lineage_router
+from backend.app.api.v1.routes.enterprise_os import router as enterprise_os_router
 
 
 router = APIRouter()
@@ -49,4 +52,8 @@ router.include_router(workspaces_router)
 router.include_router(autonomous_router)
 router.include_router(audit_router)
 router.include_router(chat_router)
+router.include_router(monitoring_router)
+router.include_router(lineage_router)
+router.include_router(enterprise_os_router)
+
 

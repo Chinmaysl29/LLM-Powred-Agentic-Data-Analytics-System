@@ -13,7 +13,8 @@ import {
 } from 'lucide-react';
 import type { ReportType, ReportSectionConfig } from '../../types/reports';
 import { DEFAULT_REPORT_SECTIONS, createReport } from '../../services/reportsService';
-import { ReportGenerationProgress, REPORT_GENERATION_STEPS } from '../../components/reports/ReportGenerationProgress';
+import { ReportGenerationProgress } from '../../components/reports/ReportGenerationProgress';
+import { REPORT_GENERATION_STEPS } from '../../components/reports/reportSteps';
 
 export default function CreateReportPage() {
   const navigate = useNavigate();

@@ -318,3 +318,30 @@ async def get_persisted_forecast_run(
         "output": run.output,
         "created_at": run.created_at.isoformat() if run.created_at else None,
     }
+
+
+# -----------------------------------------------------------------------------
+# 8. Forecast Health & Accuracy Dashboard (Phase 18.6.3)
+# -----------------------------------------------------------------------------
+
+@router.get(
+    "/dashboard",
+    summary="Forecast Health & Accuracy Dashboard (Phase 18.6.3)",
+)
+async def get_forecast_accuracy_dashboard() -> dict[str, Any]:
+    """Retrieve multi-model accuracy metrics (MAE, RMSE, MAPE, R2, Confidence), trend analysis, and ranking history."""
+    from backend.forecasting.validation_framework import ForecastValidationFramework
+    framework = ForecastValidationFramework()
+    return framework.get_health_dashboard()
+
+
+@router.get(
+    "/accuracy-dashboard",
+    summary="Forecast Accuracy Dashboard Alias",
+)
+async def get_forecast_accuracy_dashboard_alias() -> dict[str, Any]:
+    """Alias for /dashboard providing enterprise forecast accuracy benchmarking."""
+    from backend.forecasting.validation_framework import ForecastValidationFramework
+    framework = ForecastValidationFramework()
+    return framework.get_health_dashboard()
+

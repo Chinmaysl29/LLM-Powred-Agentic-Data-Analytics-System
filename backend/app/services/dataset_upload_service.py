@@ -152,6 +152,35 @@ class DatasetUploadService:
             logger.exception("Canonical dataset materialization failed dataset_id=%s", dataset_id)
             raise
 
+        # Stage 2c: If document/PDF, chunk, embed, and index into Vector Store (ChromaDB)
+        if created_record.file_type == "pdf" or canonical.get("canonical_format") == "document_json":
+            try:
+                proc_json = self.storage_service.processed_dir / f"{dataset_id}.json"
+                if proc_json.exists():
+                    doc_payload = json.loads(proc_json.read_text(encoding="utf-8"))
+                    extracted_text = doc_payload.get("text") or " ".join(
+                        p.get("text", "") for p in doc_payload.get("pages", [])
+                    )
+                    if extracted_text.strip():
+                        from backend.app.services.rag_service import get_pipeline, RAGService
+                        rag_svc = RAGService(get_pipeline())
+                        ingest_res = rag_svc.ingest_document(
+                            document_id=dataset_id,
+                            content=extracted_text,
+                            metadata={
+                                "dataset_id": dataset_id,
+                                "file_name": file_name,
+                                "file_type": file_type,
+                            },
+                        )
+                        logger.info(
+                            "Indexed document into RAG/Chroma dataset_id=%s chunks=%d",
+                            dataset_id,
+                            ingest_res.chunks_indexed,
+                        )
+            except Exception as exc:
+                logger.warning("RAG indexing for document dataset_id=%s encountered issue: %s", dataset_id, exc)
+
         metadata_create = None
         profile_create = None
         quality_create = None
@@ -175,8 +204,10 @@ class DatasetUploadService:
                 classifications=metadata_create.classifications.model_dump(),
             )
             self.metadata_repository.create(metadata_record)
-            metadata_path = self.storage_service.dataset_directory(dataset_id) / "artifacts" / "metadata.json"
+            root_dir = self.storage_service.dataset_directory(dataset_id)
+            metadata_path = root_dir / "metadata.json"
             self.canonical_service.write_artifact(metadata_path, metadata_create)
+            self.canonical_service.write_artifact(root_dir / "artifacts" / "metadata.json", metadata_create)
             self.dataset_repository.update(dataset_id, metadata_path=str(metadata_path))
             logger.info("Persisted metadata for dataset_id=%s", dataset_id)
         except Exception as exc:
@@ -200,8 +231,12 @@ class DatasetUploadService:
                 },
             )
             self.profile_repository.create(profile_record)
-            profile_path = self.storage_service.dataset_directory(dataset_id) / "artifacts" / "profile.json"
+            root_dir = self.storage_service.dataset_directory(dataset_id)
+            profile_path = root_dir / "profile.json"
             self.canonical_service.write_artifact(profile_path, profile_create)
+            self.canonical_service.write_artifact(root_dir / "artifacts" / "profile.json", profile_create)
+            # Enterprise Lake: storage/profiles/
+            self.storage_service.save_profile(dataset_id, profile_create.model_dump())
             self.dataset_repository.update(dataset_id, profile_path=str(profile_path))
             logger.info("Persisted profile for dataset_id=%s", dataset_id)
         except Exception as exc:
@@ -226,8 +261,12 @@ class DatasetUploadService:
                 quality_classification=quality_create.quality_classification,
             )
             self.quality_repository.create(quality_record)
-            quality_path = self.storage_service.dataset_directory(dataset_id) / "artifacts" / "quality.json"
+            root_dir = self.storage_service.dataset_directory(dataset_id)
+            quality_path = root_dir / "quality.json"
             self.canonical_service.write_artifact(quality_path, quality_create)
+            self.canonical_service.write_artifact(root_dir / "artifacts" / "quality.json", quality_create)
+            # Enterprise Lake: storage/quality/
+            self.storage_service.save_quality(dataset_id, quality_create.model_dump())
             self.dataset_repository.update(dataset_id, quality_path=str(quality_path), status="ready")
             logger.info("Persisted quality assessment for dataset_id=%s", dataset_id)
         except Exception as exc:
@@ -246,6 +285,44 @@ class DatasetUploadService:
                 created_record.dataset_id,
                 last_active_version_id=version_record.version_id,
             )
+
+            # Write versions.json and lineage.json to registry root: storage/datasets/{dataset_id}/
+            root_dir = self.storage_service.dataset_directory(dataset_id)
+            versions_payload = {
+                "dataset_id": dataset_id,
+                "total_versions": 1,
+                "active_version": 1,
+                "versions": [
+                    {
+                        "version_id": version_record.version_id,
+                        "version_number": 1,
+                        "change_type": version_record.change_type,
+                        "storage_path": version_record.storage_path,
+                        "created_by": version_record.created_by,
+                        "created_at": str(version_record.created_at),
+                        "is_active": True,
+                    }
+                ],
+            }
+            lineage_payload = {
+                "dataset_id": dataset_id,
+                "current_version": 1,
+                "lineage": [
+                    {
+                        "version_id": version_record.version_id,
+                        "version_number": 1,
+                        "parent_version_id": None,
+                        "change_type": "initial_upload",
+                        "timestamp": str(version_record.created_at),
+                        "author": created_by,
+                        "description": f"Initial ingestion of {file_name}",
+                    }
+                ],
+            }
+            self.canonical_service.write_artifact(root_dir / "versions.json", versions_payload)
+            self.canonical_service.write_artifact(root_dir / "lineage.json", lineage_payload)
+            # Enterprise Lake: storage/lineage/
+            self.storage_service.save_lineage(dataset_id, lineage_payload)
             logger.info("Created initial version for dataset_id=%s version_id=%s", dataset_id, version_record.version_id)
         except Exception as exc:
             logger.error("Versioning failed for dataset_id=%s: %s", dataset_id, exc)

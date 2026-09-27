@@ -179,3 +179,102 @@ class BusinessForecastAgent:
             forecast=selected_forecast,
             validation=selected_validation,
         )
+
+
+from backend.app.schemas.orchestrator import WorkflowContext
+from backend.app.services.agent_registry import BaseAgentRunner
+from backend.app.services.data_retrieval_service import DataRetrievalService
+
+
+class ForecastingAgentRunner(BaseAgentRunner):
+    """Concrete runner for the Business Forecasting Agent in the Orchestrator pipeline."""
+
+    def __init__(
+        self,
+        forecasting_agent: BusinessForecastAgent | None = None,
+        retrieval_service: DataRetrievalService | None = None,
+    ) -> None:
+        self._agent = forecasting_agent or BusinessForecastAgent()
+        self._retrieval_service = retrieval_service
+
+    @property
+    def name(self) -> str:
+        return "forecasting"
+
+    async def run(self, context: WorkflowContext) -> dict[str, Any]:
+        """Execute automated model selection and forecasting for workflow context."""
+        dataset_id = context.dataset_id
+        df: pd.DataFrame | None = None
+
+        if dataset_id and self._retrieval_service:
+            try:
+                df, _ = self._retrieval_service.load_dataframe(dataset_id=dataset_id)
+            except Exception as e:
+                logger.warning("Could not load DataFrame for forecasting: %s", e)
+
+        if df is None or df.empty:
+            if "retrieved_data" in context.results and context.results["retrieved_data"].get("records"):
+                df = pd.DataFrame(context.results["retrieved_data"]["records"])
+
+        if df is None or df.empty:
+            return {
+                "forecast_status": "skipped_no_data",
+                "summary": "Forecasting skipped: no time-series observations available.",
+            }
+
+        # Identify date and numeric target column
+        date_col: str | None = None
+        target_col: str | None = None
+
+        for col in df.columns:
+            if pd.api.types.is_datetime64_any_dtype(df[col]) or any(t in col.lower() for t in ("date", "month", "time", "year", "period")):
+                date_col = col
+                break
+        for col in df.columns:
+            if col != date_col and pd.api.types.is_numeric_dtype(df[col]):
+                target_col = col
+                break
+
+        if not date_col or not target_col or len(df) < 5:
+            return {
+                "forecast_status": "insufficient_series_data",
+                "summary": f"Forecasting requires at least 5 temporal observations with a numeric metric (found {len(df)} rows).",
+            }
+
+        # Build clean time series
+        try:
+            sorted_df = df.dropna(subset=[date_col, target_col]).sort_values(by=date_col)
+            series = [
+                DataPoint(date=str(row[date_col]), value=float(row[target_col]))
+                for _, row in sorted_df.iterrows()
+            ]
+            forecast_input = UnifiedForecastInput(
+                series=series,
+                frequency="daily",
+                horizon=min(14, max(3, len(series) // 4)),
+                target=target_col,
+            )
+            output = self._agent.run(forecast_input)
+            return {
+                "forecast_status": "completed",
+                "selected_model": output.selected_model,
+                "selection_reason": output.selection_reason,
+                "forecast": output.forecast.forecast,
+                "dates": output.forecast.dates,
+                "forecast_points": [p.model_dump() for p in output.forecast.forecast_values],
+                "validation_status": output.validation.validation_status,
+                "quality_score": output.validation.quality_score,
+                "target_metric": target_col,
+                "horizon": forecast_input.horizon,
+            }
+        except Exception as e:
+            logger.error("Forecasting execution error: %s", e)
+            context.add_error("forecasting", f"Forecasting failed: {e}")
+            return {
+                "forecast_status": "error",
+                "error": str(e),
+                "summary": f"Forecasting model execution failed: {e}",
+            }
+
+
+__all__ = ["BusinessForecastAgent", "ForecastingAgentRunner"]

@@ -1,0 +1,15 @@
+{
+  "dataset_id": "574769ac-29f9-4aca-83c5-19e8781d412b",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "3ca4ee57-9d16-48ec-86aa-c842993b3e3c",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-27 10:22:24.508394",
+      "author": "system",
+      "description": "Initial ingestion of orders.csv"
+    }
+  ]
+}

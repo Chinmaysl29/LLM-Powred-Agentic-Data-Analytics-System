@@ -1,0 +1,18 @@
+{
+  "dataset_id": "ds-json-01",
+  "dataset_name": "Events",
+  "columns": [
+    "id",
+    "status"
+  ],
+  "records": [
+    {
+      "id": 1,
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "status": "complete"
+    }
+  ]
+}

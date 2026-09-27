@@ -1,0 +1,15 @@
+{
+  "dataset_id": "689fc7f6-c225-4626-a51c-3aca0765ef34",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "229eb59f-496f-4405-8ac1-34b4c0d8f166",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-27 09:30:18.203073",
+      "author": "system",
+      "description": "Initial ingestion of subscriptions.xlsx"
+    }
+  ]
+}

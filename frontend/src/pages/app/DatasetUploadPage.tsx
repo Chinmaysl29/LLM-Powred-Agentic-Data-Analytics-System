@@ -43,7 +43,7 @@ import { datasetService } from '../../services/datasetService';
 // the file-picker filter and the client-side extension check on drag-and-drop.
 // ---------------------------------------------------------------------------
 
-const ACCEPTED_EXTENSIONS = ['.csv', '.xlsx', '.json'] as const;
+const ACCEPTED_EXTENSIONS = ['.csv', '.xlsx', '.xls', '.json', '.pdf', '.parquet'] as const;
 
 const ACCEPT_ATTR = ACCEPTED_EXTENSIONS.join(',');
 
@@ -206,8 +206,9 @@ export default function DatasetUploadPage() {
         const ext = getFileExtension(file.name) ?? 'unknown';
         errors.push({
           filename: file.name,
-          reason: `"${ext}" is not supported. Accepted types: CSV, XLSX, JSON.`,
+          reason: `"${ext}" is not supported. Accepted types: CSV, XLSX, JSON, PDF.`,
         });
+
         continue;
       }
       valid.push({ key: fileKey(file), file });
@@ -309,7 +310,7 @@ export default function DatasetUploadPage() {
           <div>
             <h1 className="page-title">Upload Dataset</h1>
             <p className="page-description">
-              Add CSV, XLSX, or JSON files to your dataset library.
+              Add CSV, XLSX, JSON, or PDF files to your dataset library.
             </p>
           </div>
           <Link to="/datasets" className="upload-back-link" aria-label="Back to dataset list">
@@ -338,8 +339,9 @@ export default function DatasetUploadPage() {
         {/* Card Header */}
         <div className="upload-card-header">
           <h2 className="upload-card-title">Upload your files</h2>
-          <p className="upload-card-subtitle">CSV, XLSX, JSON</p>
+          <p className="upload-card-subtitle">CSV, XLSX, JSON, PDF</p>
         </div>
+
 
         {/* Drop Zone */}
         {/*

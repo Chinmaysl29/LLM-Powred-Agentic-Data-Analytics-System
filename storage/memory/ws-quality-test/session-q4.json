@@ -1,0 +1,442 @@
+{
+  "workspace_id": "ws-quality-test",
+  "session_id": "session-q4",
+  "created_at": "2026-09-27T11:55:17.574954+00:00",
+  "conversation": [
+    {
+      "id": "turn-a5fe6960",
+      "timestamp": "2026-09-27T11:59:05.041917+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-6ec216e7",
+      "timestamp": "2026-09-27T12:01:17.228571+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-64a2bfd6",
+      "timestamp": "2026-09-27T12:04:15.083262+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-38c4a07a",
+      "timestamp": "2026-09-27T12:06:19.750248+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-e6e1499e",
+      "timestamp": "2026-09-27T12:07:46.065037+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-8399bf29",
+      "timestamp": "2026-09-27T12:09:08.358420+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-b767d3b3",
+      "timestamp": "2026-09-27T12:11:56.837527+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-8c395cf2",
+      "timestamp": "2026-09-27T12:14:05.547621+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-519f0cc9",
+      "timestamp": "2026-09-27T12:15:13.849042+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    },
+    {
+      "id": "turn-9709de93",
+      "timestamp": "2026-09-27T12:38:27.437090+00:00",
+      "user_message": "Create executive dashboard.",
+      "ai_response": "Based on full-lifecycle analysis across 200 records, Revenue stands at 1,503,618.06. Executive Dashboard generated across 200 verified records. Key performance indicators indicate solid foundational health with Revenue totaling 1,503,618.06. Multi-dimensional breakdowns for revenue, margin, and regional velocity are integrated for executive review.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Create executive dashboard.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": false,
+            "forecasting_agent": false,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": true,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.87
+      }
+    }
+  ],
+  "analytics": [
+    {
+      "id": "ana-d6c574f4",
+      "timestamp": "2026-09-27T11:59:05.040715+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-a12fac07",
+      "timestamp": "2026-09-27T12:01:17.226886+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-3dc84541",
+      "timestamp": "2026-09-27T12:04:15.081518+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-5bdb494d",
+      "timestamp": "2026-09-27T12:06:19.747441+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-cfc54dda",
+      "timestamp": "2026-09-27T12:07:46.062823+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-bd3a1485",
+      "timestamp": "2026-09-27T12:09:08.357037+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-acfb6bed",
+      "timestamp": "2026-09-27T12:11:56.836133+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-f35a58fd",
+      "timestamp": "2026-09-27T12:14:05.546189+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-7ba7b644",
+      "timestamp": "2026-09-27T12:15:13.847494+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    },
+    {
+      "id": "ana-250e84c6",
+      "timestamp": "2026-09-27T12:38:27.434826+00:00",
+      "question": "Create executive dashboard.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {},
+      "filters": {}
+    }
+  ],
+  "dashboard": {},
+  "forecasts": [],
+  "datasets": {
+    "active-dataset": {
+      "updated_at": "2026-09-27T12:38:27.417741+00:00",
+      "semantic_mapping": {
+        "order_id": {
+          "business_name": "Order Id",
+          "canonical_key": "order_id",
+          "default_aggregation": "COUNT",
+          "description": "Column order_id"
+        },
+        "order_date": {
+          "business_name": "Transaction Timestamp",
+          "canonical_key": "order_date",
+          "default_aggregation": "COUNT",
+          "description": "Recorded date and time at which the commercial transaction occurred."
+        },
+        "category": {
+          "business_name": "Category",
+          "canonical_key": "category",
+          "default_aggregation": "COUNT",
+          "description": "Column category"
+        },
+        "product_name": {
+          "business_name": "Product Name",
+          "canonical_key": "product_name",
+          "default_aggregation": "COUNT",
+          "description": "Column product_name"
+        },
+        "region": {
+          "business_name": "Region",
+          "canonical_key": "region",
+          "default_aggregation": "COUNT",
+          "description": "Column region"
+        },
+        "revenue": {
+          "business_name": "Gross Revenue",
+          "canonical_key": "revenue",
+          "default_aggregation": "SUM",
+          "description": "Total monetary value realized from commercial sales before returns or deductions."
+        },
+        "cost": {
+          "business_name": "Cost of Goods Sold",
+          "canonical_key": "cogs",
+          "default_aggregation": "SUM",
+          "description": "Direct costs attributable to the production or acquisition of the goods sold."
+        },
+        "units": {
+          "business_name": "Order Quantity",
+          "canonical_key": "quantity",
+          "default_aggregation": "SUM",
+          "description": "Physical units or volume of items purchased per line item."
+        },
+        "profit": {
+          "business_name": "Net Operating Profit",
+          "canonical_key": "profit",
+          "default_aggregation": "SUM",
+          "description": "Earnings remaining after subtracting cost of goods sold from gross revenue."
+        }
+      }
+    }
+  }
+}

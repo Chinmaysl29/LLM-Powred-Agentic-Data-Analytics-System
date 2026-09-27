@@ -1,0 +1,1 @@
+{"dataset_id": "be233e64-6a28-496b-a315-a104b526e2a3", "current_version": 1, "lineage": [{"version_id": "be3f8e77-b8e5-4cd8-b02e-63f094af9797", "version_number": 1, "parent_version_id": null, "change_type": "initial_upload", "timestamp": "2026-09-27 10:22:25.579578", "author": "system", "description": "Initial ingestion of departments.csv"}]}

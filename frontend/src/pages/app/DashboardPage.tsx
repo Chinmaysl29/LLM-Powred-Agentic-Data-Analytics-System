@@ -20,7 +20,7 @@
  *   Analysis request service       - replaces the composer navigation handoff
  */
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Sparkles,
@@ -37,15 +37,9 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 
-import { DEV_DATASETS } from '../../datasetUtils';
+import { datasetService } from '../../services/datasetService';
 import type { Dataset } from '../../types/datasets';
-
-// ---------------------------------------------------------------------------
-// Development data — isolated from future API contracts
-// ---------------------------------------------------------------------------
-
-/** Confirmed dataset shape reused from Phase 2. */
-const RECENT_DATASETS: Dataset[] = DEV_DATASETS.slice(0, 3);
+import { PortfolioOnboardingBanner } from '../../components/PortfolioOnboardingBanner';
 
 interface DevAnalysis {
   id: string;
@@ -329,8 +323,25 @@ function AskAIComposer() {
 // ---------------------------------------------------------------------------
 
 export default function DashboardPage() {
+  const navigate = useNavigate();
+  const [recentDatasets, setRecentDatasets] = useState<Dataset[]>([]);
+
+  useEffect(() => {
+    datasetService
+      .list(0, 5)
+      .then((data) => setRecentDatasets(data.slice(0, 3)))
+      .catch(() => setRecentDatasets([]));
+  }, []);
+
   return (
     <div className="ws-page">
+      {/* Phase 21: Enterprise Portfolio & User Journey Onboarding */}
+      <PortfolioOnboardingBanner
+        onSelectSampleQuery={(sampleQuery) => navigate('/analysis', { state: { question: sampleQuery } })}
+        onRefreshData={() => {
+          datasetService.list(0, 5).then((data) => setRecentDatasets(data.slice(0, 3))).catch(() => {});
+        }}
+      />
 
       {/* ================================================================== */}
       {/* 1. Hero / Ask AI                                                    */}
@@ -393,7 +404,7 @@ export default function DashboardPage() {
             <Link to="/datasets" className="ws-section-card-link">View all →</Link>
           </div>
           <div className="ws-dataset-list">
-            {RECENT_DATASETS.length === 0 ? (
+            {recentDatasets.length === 0 ? (
               <div className="ws-empty">
                 <span className="ws-empty-icon" aria-hidden="true"><Database size={28} /></span>
                 <p className="ws-empty-text">
@@ -401,7 +412,7 @@ export default function DashboardPage() {
                 </p>
               </div>
             ) : (
-              RECENT_DATASETS.map((ds) => (
+              recentDatasets.map((ds) => (
                 <Link
                   key={ds.dataset_id}
                   to={`/datasets/${ds.dataset_id}`}

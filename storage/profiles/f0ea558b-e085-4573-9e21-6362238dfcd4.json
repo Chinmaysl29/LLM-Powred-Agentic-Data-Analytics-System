@@ -1,0 +1,48 @@
+{
+  "dataset_id": "f0ea558b-e085-4573-9e21-6362238dfcd4",
+  "duplicate_rows": 0,
+  "duplicate_percentage": 0.0,
+  "missing_data_profile": {
+    "null_count": 0,
+    "null_percentage": 0.0,
+    "columns_with_missing": []
+  },
+  "cardinality_profile": {
+    "high_cardinality_columns": [],
+    "low_cardinality_columns": [
+      "department",
+      "headcount",
+      "budget"
+    ]
+  },
+  "numeric_columns_profile": {
+    "headcount": {
+      "mean": 50.0,
+      "median": 45.0,
+      "mode": 30.0,
+      "min": 30.0,
+      "max": 75.0,
+      "std": 22.9128784747792,
+      "variance": 525.0,
+      "p25": 37.5,
+      "p50": 45.0,
+      "p75": 60.0,
+      "skewness": 0.9352195295828246,
+      "kurtosis": 0.0
+    },
+    "budget": {
+      "mean": 540000.0,
+      "median": 450000.0,
+      "mode": 220000.0,
+      "min": 220000.0,
+      "max": 950000.0,
+      "std": 373229.15213043045,
+      "variance": 139300000000.0,
+      "p25": 335000.0,
+      "p50": 450000.0,
+      "p75": 700000.0,
+      "skewness": 1.0220265633161478,
+      "kurtosis": 0.0
+    }
+  }
+}

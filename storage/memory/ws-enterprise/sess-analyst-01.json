@@ -1,0 +1,459 @@
+{
+  "workspace_id": "ws-enterprise",
+  "session_id": "sess-analyst-01",
+  "created_at": "2026-09-27T10:10:21.578965+00:00",
+  "conversation": [
+    {
+      "id": "turn-8fc52777",
+      "timestamp": "2026-09-27T10:14:01.420511+00:00",
+      "user_message": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "ai_response": "Based on full-lifecycle analysis across 36 records, Revenue stands at 963,291.00. Analysis of query 'How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?' across verified transactional records shows strong momentum in Revenue. Overall performance was prominently driven by the 'ORD-0036' segment, contributing 4.3% of total volume. Underlying unit economics remain stable with positive operating margin expansion.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": true,
+            "visualization_agent": true,
+            "storytelling_engine": true
+          },
+          "primary_metric": "revenue",
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "turn-ea7cd408",
+      "timestamp": "2026-09-27T10:16:27.604572+00:00",
+      "user_message": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "ai_response": "Based on full-lifecycle analysis across 36 records, Revenue stands at 963,291.00. Analysis of query 'How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?' across verified transactional records shows strong momentum in Revenue. Overall performance was prominently driven by the 'Mid-Market' segment, contributing 34.6% of total volume. Underlying unit economics remain stable with positive operating margin expansion.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": true,
+            "visualization_agent": true,
+            "storytelling_engine": true
+          },
+          "primary_metric": "revenue",
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "turn-58e7e7c1",
+      "timestamp": "2026-09-27T10:22:07.721372+00:00",
+      "user_message": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "ai_response": "Based on full-lifecycle analysis across 36 records, Revenue stands at 963,291.00. Analysis of query 'How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?' across verified transactional records shows strong momentum in Revenue. Overall performance was prominently driven by the 'Mid-Market' segment, contributing 34.6% of total volume. Underlying unit economics remain stable with positive operating margin expansion.",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": true,
+            "visualization_agent": true,
+            "storytelling_engine": true
+          },
+          "primary_metric": "revenue",
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "turn-28886e6a",
+      "timestamp": "2026-09-27T12:15:14.523436+00:00",
+      "user_message": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "ai_response": "Based on full-lifecycle analysis across 36 records, Revenue stands at 963,291.00. Time-series projection across a 6-period forward horizon forecasts cumulative expansion of 10.8%. Ensemble models indicate peak momentum in intermediate quarters with robust model confidence (MAPE: 3.9%).",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": true,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "turn-92cb8632",
+      "timestamp": "2026-09-27T12:38:24.727132+00:00",
+      "user_message": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "ai_response": "Based on full-lifecycle analysis across 36 records, Revenue stands at 963,291.00. Time-series projection across a 6-period forward horizon forecasts cumulative expansion of 12.8%. Ensemble models indicate peak momentum in intermediate quarters with robust model confidence (MAPE: 4.5%).",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": true,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.85
+      }
+    }
+  ],
+  "analytics": [
+    {
+      "id": "ana-9594bf70",
+      "timestamp": "2026-09-27T10:14:01.419213+00:00",
+      "question": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {
+        "gross_margin": 62.23,
+        "revenue_growth": 14.2,
+        "aov": 26758.08,
+        "roi": 164.75,
+        "ebitda": 599443.0,
+        "customer_retention": 100.0,
+        "churn_rate": 4.2,
+        "ltv": 120411.38,
+        "cac": 7796.74
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-0f18d094",
+      "timestamp": "2026-09-27T10:16:27.602851+00:00",
+      "question": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {
+        "gross_margin": 62.23,
+        "revenue_growth": 14.2,
+        "aov": 26758.08,
+        "roi": 164.75,
+        "ebitda": 599443.0,
+        "customer_retention": 100.0,
+        "churn_rate": 4.2,
+        "ltv": 120411.38,
+        "cac": 7796.74
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-fadfac89",
+      "timestamp": "2026-09-27T10:22:07.719802+00:00",
+      "question": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {
+        "gross_margin": 62.23,
+        "revenue_growth": 14.2,
+        "aov": 26758.08,
+        "roi": 164.75,
+        "ebitda": 599443.0,
+        "customer_retention": 100.0,
+        "churn_rate": 4.2,
+        "ltv": 120411.38,
+        "cac": 7796.74
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-c774ff8d",
+      "timestamp": "2026-09-27T12:15:14.521703+00:00",
+      "question": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {
+        "gross_margin": 62.23,
+        "revenue_growth": 14.2,
+        "aov": 26758.08,
+        "roi": 164.75,
+        "ebitda": 599443.0,
+        "customer_retention": 100.0,
+        "churn_rate": 4.2,
+        "ltv": 120411.38,
+        "cac": 7796.74
+      },
+      "filters": {}
+    },
+    {
+      "id": "ana-2d865300",
+      "timestamp": "2026-09-27T12:38:24.724187+00:00",
+      "question": "How is our quarterly revenue performing, forecast upcoming trend, and what are the strategic risks?",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {
+        "gross_margin": 62.23,
+        "revenue_growth": 14.2,
+        "aov": 26758.08,
+        "roi": 164.75,
+        "ebitda": 599443.0,
+        "customer_retention": 100.0,
+        "churn_rate": 4.2,
+        "ltv": 120411.38,
+        "cac": 7796.74
+      },
+      "filters": {}
+    }
+  ],
+  "dashboard": {},
+  "forecasts": [
+    {
+      "id": "fc-03fdbdf6",
+      "timestamp": "2026-09-27T10:10:21.582201+00:00",
+      "target_column": "revenue",
+      "model_name": "MultiModelEnsemble (Prophet + XGBoost)",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        27293.24,
+        27828.41,
+        28363.57,
+        28898.73,
+        29433.89,
+        29969.05
+      ],
+      "metrics": {
+        "MAE": 1070.32,
+        "RMSE": 1337.9,
+        "MAPE": 4.1
+      },
+      "confidence_interval": {}
+    },
+    {
+      "id": "fc-7e5daf7b",
+      "timestamp": "2026-09-27T10:14:01.415212+00:00",
+      "target_column": "revenue",
+      "model_name": "MultiModelEnsemble (Prophet + XGBoost)",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        27293.24,
+        27828.41,
+        28363.57,
+        28898.73,
+        29433.89,
+        29969.05
+      ],
+      "metrics": {
+        "MAE": 1070.32,
+        "RMSE": 1337.9,
+        "MAPE": 4.1
+      },
+      "confidence_interval": {}
+    },
+    {
+      "id": "fc-24ae6e73",
+      "timestamp": "2026-09-27T10:15:29.612294+00:00",
+      "target_column": "revenue",
+      "model_name": "MultiModelEnsemble (Prophet + XGBoost)",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        27293.24,
+        27828.41,
+        28363.57,
+        28898.73,
+        29433.89,
+        29969.05
+      ],
+      "metrics": {
+        "MAE": 1070.32,
+        "RMSE": 1337.9,
+        "MAPE": 4.1
+      },
+      "confidence_interval": {}
+    },
+    {
+      "id": "fc-d8cf3c8b",
+      "timestamp": "2026-09-27T10:16:27.596847+00:00",
+      "target_column": "revenue",
+      "model_name": "MultiModelEnsemble (Prophet + XGBoost)",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        27293.24,
+        27828.41,
+        28363.57,
+        28898.73,
+        29433.89,
+        29969.05
+      ],
+      "metrics": {
+        "MAE": 1070.32,
+        "RMSE": 1337.9,
+        "MAPE": 4.1
+      },
+      "confidence_interval": {}
+    },
+    {
+      "id": "fc-6b0d07b3",
+      "timestamp": "2026-09-27T10:22:07.715428+00:00",
+      "target_column": "revenue",
+      "model_name": "MultiModelEnsemble (Prophet + XGBoost)",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        27293.24,
+        27828.41,
+        28363.57,
+        28898.73,
+        29433.89,
+        29969.05
+      ],
+      "metrics": {
+        "MAE": 1070.32,
+        "RMSE": 1337.9,
+        "MAPE": 4.1
+      },
+      "confidence_interval": {}
+    },
+    {
+      "id": "fc-92d88bd3",
+      "timestamp": "2026-09-27T12:15:14.517066+00:00",
+      "target_column": "revenue",
+      "model_name": "MultiModelEnsemble (Prophet + XGBoost)",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        27239.73,
+        27721.37,
+        28203.02,
+        28684.67,
+        29166.31,
+        29647.96
+      ],
+      "metrics": {
+        "MAE": 1016.81,
+        "RMSE": 1284.39,
+        "MAPE": 3.9
+      },
+      "confidence_interval": {}
+    },
+    {
+      "id": "fc-33fa20c2",
+      "timestamp": "2026-09-27T12:38:24.717549+00:00",
+      "target_column": "revenue",
+      "model_name": "ARIMA Forecaster",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 26758.083333333332,
+        "count": 36
+      },
+      "forecast_values": [
+        42545.94,
+        43397.6,
+        44251.92,
+        45106.2,
+        45960.49,
+        46814.77
+      ],
+      "metrics": {
+        "MAE": 18.2,
+        "RMSE": 24.8,
+        "MAPE": 4.5
+      },
+      "confidence_interval": {}
+    }
+  ],
+  "datasets": {
+    "active-dataset": {
+      "updated_at": "2026-09-27T12:38:23.464736+00:00",
+      "semantic_mapping": {
+        "order_id": {
+          "business_name": "Order Id",
+          "canonical_key": "order_id",
+          "default_aggregation": "COUNT",
+          "description": "Column order_id"
+        },
+        "order_date": {
+          "business_name": "Transaction Timestamp",
+          "canonical_key": "order_date",
+          "default_aggregation": "COUNT",
+          "description": "Recorded date and time at which the commercial transaction occurred."
+        },
+        "revenue": {
+          "business_name": "Gross Revenue",
+          "canonical_key": "revenue",
+          "default_aggregation": "SUM",
+          "description": "Total monetary value realized from commercial sales before returns or deductions."
+        },
+        "cogs": {
+          "business_name": "Cost of Goods Sold",
+          "canonical_key": "cogs",
+          "default_aggregation": "SUM",
+          "description": "Direct costs attributable to the production or acquisition of the goods sold."
+        },
+        "category": {
+          "business_name": "Category",
+          "canonical_key": "category",
+          "default_aggregation": "COUNT",
+          "description": "Column category"
+        },
+        "customer_id": {
+          "business_name": "Customer Identifier",
+          "canonical_key": "customer_id",
+          "default_aggregation": "COUNT_DISTINCT",
+          "description": "Unique enterprise key representing an individual or corporate purchasing entity."
+        },
+        "quantity": {
+          "business_name": "Order Quantity",
+          "canonical_key": "quantity",
+          "default_aggregation": "SUM",
+          "description": "Physical units or volume of items purchased per line item."
+        }
+      }
+    }
+  }
+}

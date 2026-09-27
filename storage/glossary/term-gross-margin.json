@@ -1,0 +1,22 @@
+{
+  "id": "term-gross-margin",
+  "term": "Gross Margin Percentage",
+  "definition": "Proportion of revenue retained after subtracting the direct costs of goods sold (COGS).",
+  "formula": "((Gross Revenue - COGS) / Gross Revenue) * 100",
+  "synonyms": [
+    "Gross Margin %",
+    "Margin Rate",
+    "Gross Profit Margin"
+  ],
+  "category": "Profitability",
+  "owner": "FP&A Lead",
+  "status": "Approved",
+  "physical_mappings": [
+    {
+      "dataset": "sales_performance_2026.csv",
+      "column": "net_profit"
+    }
+  ],
+  "created_at": "2026-09-27T12:30:05.280625+00:00",
+  "updated_at": "2026-09-27T12:30:05.280676+00:00"
+}

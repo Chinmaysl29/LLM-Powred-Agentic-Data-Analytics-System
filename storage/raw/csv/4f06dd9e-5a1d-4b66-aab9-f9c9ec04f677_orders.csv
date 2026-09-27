@@ -1,0 +1,4 @@
+order_id,customer,amount,status
+1001,Acme Corp,1500.0,Completed
+1002,Global Tech,2300.0,Pending
+1003,Starlight,450.0,Completed

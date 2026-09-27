@@ -1,0 +1,27 @@
+{
+  "id": "term-revenue",
+  "term": "Gross Revenue",
+  "definition": "Total monetary volume generated from completed product and service sales transactions prior to deductions.",
+  "formula": "SUM(unit_price * quantity * (1 - discount))",
+  "synonyms": [
+    "Sales Volume",
+    "Topline Revenue",
+    "Gross Merchandise Value",
+    "GMV"
+  ],
+  "category": "Financial",
+  "owner": "Finance Team",
+  "status": "Approved",
+  "physical_mappings": [
+    {
+      "dataset": "sales_performance_2026.csv",
+      "column": "total_revenue"
+    },
+    {
+      "dataset": "finance_pnl_2026.csv",
+      "column": "revenue"
+    }
+  ],
+  "created_at": "2026-09-27T12:30:05.278212+00:00",
+  "updated_at": "2026-09-27T12:30:05.278242+00:00"
+}

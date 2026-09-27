@@ -6,6 +6,8 @@ import type { MotionValue } from 'motion/react';
 import {
   LayoutDashboard,
   Database,
+  Server,
+  Boxes,
   MessageSquare,
   BarChart3,
   Lightbulb,
@@ -19,9 +21,14 @@ import {
   Sparkles,
   PanelLeftClose,
   PanelLeftOpen,
+  TrendingUp,
+  Brain,
+  Command,
+  LayoutGrid,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { CommandPalette, useCommandPalette } from '../components/CommandPalette';
 
 // ---------------------------------------------------------------------------
 // Storage key for sidebar preference persistence
@@ -48,7 +55,14 @@ const NAV_GROUPS: NavGroup[] = [
   {
     items: [
       { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-      { to: '/datasets',  label: 'Datasets',  icon: Database },
+    ],
+  },
+  {
+    label: 'DATA MANAGEMENT',
+    items: [
+      { to: '/datasets',       label: 'Datasets',       icon: Database },
+      { to: '/connections',    label: 'Connections',    icon: Server },
+      { to: '/data-warehouse', label: 'Data Warehouse', icon: Boxes },
     ],
   },
   {
@@ -57,6 +71,7 @@ const NAV_GROUPS: NavGroup[] = [
       { to: '/analysis',        label: 'AI Analysis',     icon: MessageSquare },
       { to: '/visualizations',  label: 'Visualizations',  icon: BarChart3 },
       { to: '/insights',        label: 'Insights',        icon: Lightbulb },
+      { to: '/forecasting',     label: 'Forecasting',     icon: TrendingUp },
     ],
   },
   {
@@ -71,6 +86,13 @@ const NAV_GROUPS: NavGroup[] = [
           { to: '/reports/create', label: 'Create Report' },
         ],
       },
+      { to: '/dashboard-studio', label: 'Dashboard Studio', icon: LayoutGrid },
+    ],
+  },
+  {
+    label: 'AI INTELLIGENCE',
+    items: [
+      { to: '/memory',   label: 'AI Memory',  icon: Brain },
     ],
   },
   {
@@ -87,17 +109,22 @@ const NAV_GROUPS: NavGroup[] = [
 // ---------------------------------------------------------------------------
 
 const PAGE_TITLES: Record<string, string> = {
-  '/dashboard':       'Dashboard',
-  '/datasets':        'Datasets',
-  '/datasets/upload': 'Upload Dataset',
-  '/analysis':        'AI Analysis',
-  '/visualizations':  'Visualizations',
-  '/insights':        'Insights',
-  '/insights/what-if':'What-If Scenario Simulation',
-  '/reports':         'Reports',
-  '/reports/create':  'Create Report',
-  '/profile':         'Profile',
-  '/settings':        'Settings',
+  '/dashboard':         'Dashboard',
+  '/datasets':          'Datasets',
+  '/datasets/upload':   'Upload Dataset',
+  '/connections':       'Data Connections',
+  '/data-warehouse':    'Data Warehouse',
+  '/analysis':          'AI Analysis',
+  '/visualizations':    'Visualizations',
+  '/insights':          'Insights',
+  '/insights/what-if':  'What-If Scenario Simulation',
+  '/reports':           'Reports',
+  '/reports/create':    'Create Report',
+  '/forecasting':       'Forecasting Workbench',
+  '/memory':            'AI Memory Explorer',
+  '/dashboard-studio':  'Dashboard Studio',
+  '/profile':           'Profile',
+  '/settings':          'Settings',
 };
 
 function usePageTitle(): string {
@@ -371,6 +398,7 @@ export default function AppLayout() {
   });
   const [mobileOpen, setMobileOpen] = useState(false);
   const pageTitle = usePageTitle();
+  const cmdPalette = useCommandPalette();
 
   const toggleCollapse = () => {
     setIsCollapsed((prev) => {
@@ -426,6 +454,18 @@ export default function AppLayout() {
           <header className="ws-topbar">
             <span className="ws-topbar-title">{pageTitle}</span>
             <div className="ws-topbar-actions">
+              {/* Command Palette trigger */}
+              <button
+                type="button"
+                className="ws-topbar-cmd"
+                onClick={cmdPalette.open}
+                aria-label="Open command palette (Ctrl+K)"
+                title="Command palette (Ctrl+K)"
+              >
+                <Command size={14} aria-hidden="true" />
+                <span className="ws-topbar-cmd-label">Search</span>
+                <kbd className="ws-topbar-cmd-kbd">⌘K</kbd>
+              </button>
               <Link
                 to="/settings"
                 className="ws-topbar-btn"
@@ -449,6 +489,9 @@ export default function AppLayout() {
           </main>
         </div>
       </div>
+
+      {/* Global Command Palette */}
+      <CommandPalette isOpen={cmdPalette.isOpen} onClose={cmdPalette.close} />
     </div>
   );
 }

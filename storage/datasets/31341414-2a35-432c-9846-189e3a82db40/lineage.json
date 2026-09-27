@@ -1,0 +1,1 @@
+{"dataset_id": "31341414-2a35-432c-9846-189e3a82db40", "current_version": 1, "lineage": [{"version_id": "fc7c5aff-eedc-4b60-9354-982e21094668", "version_number": 1, "parent_version_id": null, "change_type": "initial_upload", "timestamp": "2026-09-27 09:30:26.063978", "author": "system", "description": "Initial ingestion of customers.json"}]}

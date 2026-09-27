@@ -1,0 +1,108 @@
+{
+  "workspace_id": "ws-audit-master",
+  "session_id": "default-session",
+  "created_at": "2026-09-27T12:33:46.267966+00:00",
+  "conversation": [
+    {
+      "id": "turn-a475b43a",
+      "timestamp": "2026-09-27T12:37:11.920061+00:00",
+      "user_message": "Analyze revenue trends and forecast next 6 periods.",
+      "ai_response": "Based on full-lifecycle analysis across 40 records, Revenue stands at 110,442.68. Time-series projection across a 6-period forward horizon forecasts cumulative expansion of -16.2%. Ensemble models indicate peak momentum in intermediate quarters with robust model confidence (MAPE: 4.5%).",
+      "intent": "autonomous_ai_analyst",
+      "context": {
+        "plan": {
+          "query": "Analyze revenue trends and forecast next 6 periods.",
+          "agents_required": {
+            "semantic_layer": true,
+            "sql_agent": false,
+            "eda_agent": false,
+            "kpi_engine": true,
+            "forecasting_agent": true,
+            "visualization_agent": true,
+            "storytelling_engine": true,
+            "dashboard_builder": false,
+            "anomaly_detector": false,
+            "root_cause_engine": false
+          },
+          "primary_metric": "revenue",
+          "forecast_horizon": 6,
+          "execution_strategy": "concurrent_hybrid"
+        },
+        "confidence": 0.85
+      }
+    }
+  ],
+  "analytics": [
+    {
+      "id": "ana-9509495a",
+      "timestamp": "2026-09-27T12:37:11.918706+00:00",
+      "question": "Analyze revenue trends and forecast next 6 periods.",
+      "sql_query": null,
+      "data_summary": {},
+      "key_metrics": {
+        "revenue_growth": 14.2,
+        "aov": 2761.07
+      },
+      "filters": {}
+    }
+  ],
+  "dashboard": {},
+  "forecasts": [
+    {
+      "id": "fc-4437f0aa",
+      "timestamp": "2026-09-27T12:37:11.911738+00:00",
+      "target_column": "revenue",
+      "model_name": "ARIMA Forecaster",
+      "horizon_periods": 6,
+      "historical_summary": {
+        "mean": 2761.067109970848,
+        "count": 40
+      },
+      "forecast_values": [
+        2761.07,
+        2761.07,
+        2761.07,
+        2761.07,
+        2761.07,
+        2761.07
+      ],
+      "metrics": {
+        "MAE": 18.2,
+        "RMSE": 24.8,
+        "MAPE": 4.5
+      },
+      "confidence_interval": {}
+    }
+  ],
+  "datasets": {
+    "active-dataset": {
+      "updated_at": "2026-09-27T12:37:11.234931+00:00",
+      "semantic_mapping": {
+        "order_date": {
+          "business_name": "Transaction Timestamp",
+          "canonical_key": "order_date",
+          "default_aggregation": "COUNT",
+          "description": "Recorded date and time at which the commercial transaction occurred."
+        },
+        "region": {
+          "business_name": "Region",
+          "canonical_key": "region",
+          "default_aggregation": "COUNT",
+          "description": "Column region"
+        },
+        "revenue": {
+          "business_name": "Gross Revenue",
+          "canonical_key": "revenue",
+          "default_aggregation": "SUM",
+          "description": "Total monetary value realized from commercial sales before returns or deductions."
+        },
+        "product_category": {
+          "business_name": "Product Category",
+          "canonical_key": "product_category",
+          "default_aggregation": "COUNT",
+          "description": "Column product_category"
+        }
+      }
+    }
+  }
+}

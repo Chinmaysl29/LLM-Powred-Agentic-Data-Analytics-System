@@ -18,8 +18,20 @@ _pipeline: Optional[RAGPipeline] = None
 def get_pipeline() -> RAGPipeline:
     global _pipeline
     if _pipeline is None:
-        _pipeline = RAGPipeline()
+        try:
+            from backend.rag.vectorstores.chromadb_store import ChromaDBStore
+            from backend.app.core.config import get_settings
+            settings = get_settings()
+            store = ChromaDBStore(
+                collection_name="rag_chunks",
+                host=settings.chroma_host,
+                port=settings.chroma_port,
+            )
+            _pipeline = RAGPipeline(vector_store=store)
+        except Exception:
+            _pipeline = RAGPipeline()
     return _pipeline
+
 
 
 class RAGService:
@@ -34,13 +46,33 @@ class RAGService:
         content: str,
         metadata: Optional[Dict[str, Any]] = None,
         chunking_strategy: str = "recursive",
-        chunk_size: int = 1000,
-        chunk_overlap: int = 200,
+        chunk_size: Optional[int] = None,
+        chunk_overlap: Optional[int] = None,
+        auto_chunk: bool = True,
     ) -> RAGIngestResponse:
+        meta = metadata or {}
+        if auto_chunk and (chunk_size is None or chunk_size == 1000):
+            try:
+                from backend.rag.dynamic_chunking import get_dynamic_chunking_service
+                dyn_svc = get_dynamic_chunking_service()
+                fname = str(meta.get("file_name", "") or meta.get("filename", ""))
+                ftype = str(meta.get("file_type", "") or meta.get("filetype", ""))
+                dyn_cfg = dyn_svc.get_config(content, filename=fname, file_type=ftype)
+                chunk_size = dyn_cfg.chunk_size
+                chunk_overlap = dyn_cfg.chunk_overlap
+                chunking_strategy = dyn_cfg.strategy
+                meta["detected_category"] = dyn_cfg.category
+            except Exception:
+                chunk_size = chunk_size or 500
+                chunk_overlap = chunk_overlap or 100
+        else:
+            chunk_size = chunk_size or 500
+            chunk_overlap = chunk_overlap or 100
+
         request = RAGIngestRequest(
             document_id=document_id,
             content=content,
-            metadata=metadata or {},
+            metadata=meta,
             chunking_strategy=chunking_strategy,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,

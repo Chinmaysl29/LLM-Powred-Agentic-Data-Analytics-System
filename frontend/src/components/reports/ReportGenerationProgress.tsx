@@ -2,15 +2,9 @@ import React from 'react';
 import { Check, Circle } from 'lucide-react';
 import { TextShimmer } from '../ui/shimmer-text';
 
-export const REPORT_GENERATION_STEPS = [
-  'Understanding dataset & data provenance',
-  'Preparing business context & time scope',
-  'Extracting quantitative performance metrics',
-  'Selecting high-signal visualizations',
-  'Building executive narrative & key insights',
-  'Synthesizing strategic recommendations',
-  'Finalizing publication document',
-];
+import { REPORT_GENERATION_STEPS } from './reportSteps';
+
+
 
 interface ReportGenerationProgressProps {
   activeStep: number;

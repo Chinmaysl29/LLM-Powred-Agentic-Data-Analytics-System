@@ -386,6 +386,11 @@ class SQLGuardrailsService:
 
         return clean_sql, applied_limit, violation
 
+    def validate_sql(self, sql: str, **kwargs: Any) -> tuple[bool, str, list[str]]:
+        """Convenience validation method returning (is_safe, sanitized_sql, violations)."""
+        res = self.evaluate_query(sql, **kwargs)
+        return res.is_safe, res.sanitized_sql or sql, res.violations
+
 
 def get_sql_guardrails_service() -> SQLGuardrailsService:
     """FastAPI dependency injection provider for SQLGuardrailsService."""

@@ -32,9 +32,10 @@ class BaseVectorStore(ABC):
         pass
 
     @abstractmethod
-    def delete(self, chunk_ids: List[str]) -> None:
-        """Remove chunks from the index by their IDs."""
+    def delete(self, chunk_ids: Optional[List[str]] = None, document_id: Optional[str] = None) -> None:
+        """Remove chunks from the index by their IDs or parent document ID."""
         pass
+
 
     @abstractmethod
     def clear(self) -> None:

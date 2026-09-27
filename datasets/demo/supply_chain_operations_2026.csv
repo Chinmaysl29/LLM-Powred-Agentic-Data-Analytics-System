@@ -1,0 +1,401 @@
+sku,category,warehouse,unit_cost,current_stock,reorder_threshold,lead_time_days,stockout_risk,total_inventory_value
+SKU-3000,Batteries & Power,APAC (Singapore),1291.18,200,47,41,Optimal,258236.0
+SKU-3001,Compute Servers,EU-Central (Frankfurt),611.84,747,182,22,Optimal,457044.48
+SKU-3002,Batteries & Power,US-West (Nevada),755.7,358,157,23,Optimal,270540.6
+SKU-3003,Optics & Sensors,US-East (New Jersey),202.02,58,92,6,Warning,11717.16
+SKU-3004,Robotics & Hardware,US-West (Nevada),1386.59,579,240,13,Optimal,802835.61
+SKU-3005,Batteries & Power,EU-Central (Frankfurt),394.6,82,178,11,Critical,32357.2
+SKU-3006,Compute Servers,US-East (New Jersey),605.65,340,152,27,Optimal,205921.0
+SKU-3007,Robotics & Hardware,US-West (Nevada),1216.12,550,125,19,Optimal,668866.0
+SKU-3008,Optics & Sensors,EU-Central (Frankfurt),1398.44,795,63,29,Optimal,1111759.8
+SKU-3009,Compute Servers,EU-Central (Frankfurt),1227.22,150,98,32,Optimal,184083.0
+SKU-3010,Optics & Sensors,APAC (Singapore),896.88,763,93,7,Optimal,684319.44
+SKU-3011,Networking Switches,US-West (Nevada),223.94,277,94,29,Optimal,62031.38
+SKU-3012,Compute Servers,EU-Central (Frankfurt),1687.24,750,74,26,Optimal,1265430.0
+SKU-3013,Batteries & Power,APAC (Singapore),441.26,569,184,26,Optimal,251076.94
+SKU-3014,Optics & Sensors,US-West (Nevada),825.83,606,93,19,Optimal,500452.98
+SKU-3015,Batteries & Power,US-West (Nevada),546.93,492,102,4,Optimal,269089.56
+SKU-3016,Networking Switches,EU-Central (Frankfurt),1698.71,34,48,4,Warning,57756.14
+SKU-3017,Networking Switches,EU-Central (Frankfurt),1375.7,131,137,27,Warning,180216.7
+SKU-3018,Optics & Sensors,US-West (Nevada),923.26,322,168,34,Optimal,297289.72
+SKU-3019,Robotics & Hardware,APAC (Singapore),1829.27,793,56,6,Optimal,1450611.11
+SKU-3020,Compute Servers,US-West (Nevada),1003.43,420,192,13,Optimal,421440.6
+SKU-3021,Networking Switches,APAC (Singapore),1335.24,315,165,34,Optimal,420600.6
+SKU-3022,Robotics & Hardware,APAC (Singapore),453.03,404,224,38,Optimal,183024.12
+SKU-3023,Batteries & Power,APAC (Singapore),710.33,464,186,20,Optimal,329593.12
+SKU-3024,Compute Servers,US-West (Nevada),138.32,574,119,28,Optimal,79395.68
+SKU-3025,Batteries & Power,US-West (Nevada),1467.62,113,209,28,Warning,165841.06
+SKU-3026,Compute Servers,APAC (Singapore),818.51,415,235,37,Optimal,339681.65
+SKU-3027,Batteries & Power,US-East (New Jersey),1606.64,220,85,41,Optimal,353460.8
+SKU-3028,Batteries & Power,APAC (Singapore),1062.43,477,134,9,Optimal,506779.11
+SKU-3029,Networking Switches,APAC (Singapore),609.37,281,151,41,Optimal,171232.97
+SKU-3030,Optics & Sensors,EU-Central (Frankfurt),1252.42,166,140,23,Optimal,207901.72
+SKU-3031,Compute Servers,US-East (New Jersey),645.73,651,123,23,Optimal,420370.23
+SKU-3032,Compute Servers,US-West (Nevada),1776.65,145,160,42,Warning,257614.25
+SKU-3033,Optics & Sensors,EU-Central (Frankfurt),1122.31,786,44,23,Optimal,882135.66
+SKU-3034,Batteries & Power,APAC (Singapore),1559.82,110,244,12,Critical,171580.2
+SKU-3035,Optics & Sensors,US-East (New Jersey),1306.48,89,76,14,Optimal,116276.72
+SKU-3036,Compute Servers,APAC (Singapore),1031.55,102,220,10,Critical,105218.1
+SKU-3037,Robotics & Hardware,EU-Central (Frankfurt),351.94,390,186,38,Optimal,137256.6
+SKU-3038,Robotics & Hardware,APAC (Singapore),507.59,265,211,23,Optimal,134511.35
+SKU-3039,Batteries & Power,APAC (Singapore),1160.87,527,100,18,Optimal,611778.49
+SKU-3040,Robotics & Hardware,APAC (Singapore),1479.93,318,73,7,Optimal,470617.74
+SKU-3041,Batteries & Power,US-East (New Jersey),727.15,148,239,43,Warning,107618.2
+SKU-3042,Batteries & Power,EU-Central (Frankfurt),1134.41,775,166,31,Optimal,879167.75
+SKU-3043,Robotics & Hardware,APAC (Singapore),430.6,27,247,28,Critical,11626.2
+SKU-3044,Compute Servers,US-West (Nevada),1161.91,702,42,36,Optimal,815660.82
+SKU-3045,Batteries & Power,EU-Central (Frankfurt),1497.82,772,47,31,Optimal,1156317.04
+SKU-3046,Batteries & Power,APAC (Singapore),485.68,449,161,26,Optimal,218070.32
+SKU-3047,Batteries & Power,APAC (Singapore),1789.19,143,67,35,Optimal,255854.17
+SKU-3048,Networking Switches,US-West (Nevada),253.78,357,167,26,Optimal,90599.46
+SKU-3049,Networking Switches,US-East (New Jersey),623.4,305,226,38,Optimal,190137.0
+SKU-3050,Networking Switches,APAC (Singapore),633.67,154,86,22,Optimal,97585.18
+SKU-3051,Networking Switches,EU-Central (Frankfurt),1757.3,586,207,42,Optimal,1029777.8
+SKU-3052,Optics & Sensors,US-West (Nevada),1619.94,777,55,13,Optimal,1258693.38
+SKU-3053,Optics & Sensors,EU-Central (Frankfurt),1160.14,703,223,12,Optimal,815578.42
+SKU-3054,Optics & Sensors,EU-Central (Frankfurt),110.64,540,49,30,Optimal,59745.6
+SKU-3055,Networking Switches,US-West (Nevada),1415.9,483,49,22,Optimal,683879.7
+SKU-3056,Networking Switches,US-East (New Jersey),575.85,71,242,16,Critical,40885.35
+SKU-3057,Compute Servers,APAC (Singapore),780.89,618,170,16,Optimal,482590.02
+SKU-3058,Optics & Sensors,APAC (Singapore),317.26,109,51,32,Optimal,34581.34
+SKU-3059,Optics & Sensors,APAC (Singapore),666.77,467,79,35,Optimal,311381.59
+SKU-3060,Networking Switches,US-East (New Jersey),1672.71,52,59,20,Warning,86980.92
+SKU-3061,Networking Switches,EU-Central (Frankfurt),1318.03,246,121,5,Optimal,324235.38
+SKU-3062,Networking Switches,EU-Central (Frankfurt),716.55,121,125,41,Warning,86702.55
+SKU-3063,Compute Servers,US-East (New Jersey),1021.69,560,42,33,Optimal,572146.4
+SKU-3064,Optics & Sensors,EU-Central (Frankfurt),127.72,658,224,8,Optimal,84039.76
+SKU-3065,Networking Switches,US-East (New Jersey),1169.78,659,109,26,Optimal,770885.02
+SKU-3066,Optics & Sensors,APAC (Singapore),1835.88,650,123,18,Optimal,1193322.0
+SKU-3067,Networking Switches,US-West (Nevada),828.39,551,127,38,Optimal,456442.89
+SKU-3068,Optics & Sensors,US-West (Nevada),1451.35,734,205,43,Optimal,1065290.9
+SKU-3069,Networking Switches,APAC (Singapore),1484.38,639,120,17,Optimal,948518.82
+SKU-3070,Optics & Sensors,US-West (Nevada),714.33,370,175,16,Optimal,264302.1
+SKU-3071,Optics & Sensors,US-West (Nevada),1803.72,689,89,20,Optimal,1242763.08
+SKU-3072,Batteries & Power,APAC (Singapore),1477.84,397,158,6,Optimal,586702.48
+SKU-3073,Batteries & Power,US-East (New Jersey),1575.06,646,120,17,Optimal,1017488.76
+SKU-3074,Batteries & Power,US-West (Nevada),1005.07,648,181,29,Optimal,651285.36
+SKU-3075,Robotics & Hardware,US-East (New Jersey),1386.71,785,106,20,Optimal,1088567.35
+SKU-3076,Networking Switches,APAC (Singapore),1352.85,479,56,12,Optimal,648015.15
+SKU-3077,Networking Switches,EU-Central (Frankfurt),1755.23,101,110,25,Warning,177278.23
+SKU-3078,Compute Servers,APAC (Singapore),1029.79,309,129,32,Optimal,318205.11
+SKU-3079,Optics & Sensors,APAC (Singapore),1257.6,490,60,35,Optimal,616224.0
+SKU-3080,Networking Switches,US-East (New Jersey),671.74,395,84,24,Optimal,265337.3
+SKU-3081,Batteries & Power,EU-Central (Frankfurt),1059.99,503,121,38,Optimal,533174.97
+SKU-3082,Networking Switches,US-East (New Jersey),277.34,50,136,21,Critical,13867.0
+SKU-3083,Optics & Sensors,US-West (Nevada),418.35,236,232,36,Optimal,98730.6
+SKU-3084,Networking Switches,US-East (New Jersey),1706.86,345,245,31,Optimal,588866.7
+SKU-3085,Optics & Sensors,EU-Central (Frankfurt),1192.1,197,80,19,Optimal,234843.7
+SKU-3086,Compute Servers,APAC (Singapore),1264.51,504,66,34,Optimal,637313.04
+SKU-3087,Robotics & Hardware,US-West (Nevada),1554.15,560,245,16,Optimal,870324.0
+SKU-3088,Networking Switches,EU-Central (Frankfurt),419.49,476,51,34,Optimal,199677.24
+SKU-3089,Networking Switches,APAC (Singapore),1307.33,382,40,17,Optimal,499400.06
+SKU-3090,Batteries & Power,APAC (Singapore),1737.73,764,192,13,Optimal,1327625.72
+SKU-3091,Compute Servers,US-East (New Jersey),1731.75,589,192,14,Optimal,1020000.75
+SKU-3092,Robotics & Hardware,EU-Central (Frankfurt),1356.6,106,124,32,Warning,143799.6
+SKU-3093,Optics & Sensors,US-West (Nevada),992.24,416,190,42,Optimal,412771.84
+SKU-3094,Robotics & Hardware,US-West (Nevada),1040.41,209,238,35,Warning,217445.69
+SKU-3095,Robotics & Hardware,EU-Central (Frankfurt),958.25,676,161,23,Optimal,647777.0
+SKU-3096,Robotics & Hardware,APAC (Singapore),351.8,711,216,32,Optimal,250129.8
+SKU-3097,Networking Switches,US-East (New Jersey),551.53,294,167,8,Optimal,162149.82
+SKU-3098,Robotics & Hardware,EU-Central (Frankfurt),508.22,559,100,10,Optimal,284094.98
+SKU-3099,Robotics & Hardware,US-West (Nevada),1159.4,783,111,25,Optimal,907810.2
+SKU-3100,Compute Servers,US-East (New Jersey),1315.88,243,42,36,Optimal,319758.84
+SKU-3101,Optics & Sensors,US-West (Nevada),1777.01,130,98,7,Optimal,231011.3
+SKU-3102,Robotics & Hardware,APAC (Singapore),1350.24,657,166,35,Optimal,887107.68
+SKU-3103,Robotics & Hardware,US-West (Nevada),691.15,683,215,11,Optimal,472055.45
+SKU-3104,Compute Servers,US-West (Nevada),1588.67,634,244,11,Optimal,1007216.78
+SKU-3105,Batteries & Power,EU-Central (Frankfurt),1805.52,572,244,33,Optimal,1032757.44
+SKU-3106,Batteries & Power,US-West (Nevada),432.27,497,133,14,Optimal,214838.19
+SKU-3107,Batteries & Power,EU-Central (Frankfurt),642.03,675,226,25,Optimal,433370.25
+SKU-3108,Networking Switches,US-East (New Jersey),715.38,121,222,33,Warning,86560.98
+SKU-3109,Compute Servers,APAC (Singapore),196.2,654,123,16,Optimal,128314.8
+SKU-3110,Networking Switches,US-East (New Jersey),856.89,501,213,13,Optimal,429301.89
+SKU-3111,Networking Switches,US-West (Nevada),100.48,740,248,26,Optimal,74355.2
+SKU-3112,Optics & Sensors,EU-Central (Frankfurt),1094.74,474,40,7,Optimal,518906.76
+SKU-3113,Compute Servers,US-West (Nevada),239.67,434,140,31,Optimal,104016.78
+SKU-3114,Robotics & Hardware,US-West (Nevada),1794.65,709,217,20,Optimal,1272406.85
+SKU-3115,Networking Switches,US-East (New Jersey),111.39,180,215,7,Warning,20050.2
+SKU-3116,Networking Switches,US-East (New Jersey),1374.46,235,225,9,Optimal,322998.1
+SKU-3117,Optics & Sensors,US-West (Nevada),1374.23,292,159,29,Optimal,401275.16
+SKU-3118,Networking Switches,US-West (Nevada),131.76,379,109,40,Optimal,49937.04
+SKU-3119,Optics & Sensors,EU-Central (Frankfurt),471.43,40,50,15,Warning,18857.2
+SKU-3120,Networking Switches,EU-Central (Frankfurt),88.66,648,248,17,Optimal,57451.68
+SKU-3121,Batteries & Power,EU-Central (Frankfurt),1107.14,745,191,38,Optimal,824819.3
+SKU-3122,Compute Servers,US-West (Nevada),1228.26,298,77,20,Optimal,366021.48
+SKU-3123,Compute Servers,US-West (Nevada),1558.34,574,147,14,Optimal,894487.16
+SKU-3124,Networking Switches,APAC (Singapore),876.68,284,220,35,Optimal,248977.12
+SKU-3125,Optics & Sensors,APAC (Singapore),800.58,92,85,28,Optimal,73653.36
+SKU-3126,Batteries & Power,EU-Central (Frankfurt),1398.08,112,190,44,Warning,156584.96
+SKU-3127,Compute Servers,US-West (Nevada),1391.27,554,91,21,Optimal,770763.58
+SKU-3128,Networking Switches,EU-Central (Frankfurt),438.89,485,108,28,Optimal,212861.65
+SKU-3129,Compute Servers,APAC (Singapore),1098.33,17,228,21,Critical,18671.61
+SKU-3130,Optics & Sensors,EU-Central (Frankfurt),218.22,687,215,38,Optimal,149917.14
+SKU-3131,Robotics & Hardware,US-West (Nevada),1173.76,126,231,41,Warning,147893.76
+SKU-3132,Robotics & Hardware,EU-Central (Frankfurt),548.06,439,207,23,Optimal,240598.34
+SKU-3133,Compute Servers,APAC (Singapore),941.22,754,239,42,Optimal,709679.88
+SKU-3134,Networking Switches,EU-Central (Frankfurt),1740.59,279,110,19,Optimal,485624.61
+SKU-3135,Compute Servers,APAC (Singapore),1625.47,171,152,38,Optimal,277955.37
+SKU-3136,Compute Servers,APAC (Singapore),984.7,254,247,23,Optimal,250113.8
+SKU-3137,Batteries & Power,EU-Central (Frankfurt),1515.95,440,221,28,Optimal,667018.0
+SKU-3138,Networking Switches,US-West (Nevada),1810.16,536,172,26,Optimal,970245.76
+SKU-3139,Robotics & Hardware,APAC (Singapore),837.88,798,246,22,Optimal,668628.24
+SKU-3140,Batteries & Power,US-East (New Jersey),1407.4,799,167,31,Optimal,1124512.6
+SKU-3141,Batteries & Power,EU-Central (Frankfurt),475.5,603,228,4,Optimal,286726.5
+SKU-3142,Optics & Sensors,APAC (Singapore),582.9,21,238,41,Critical,12240.9
+SKU-3143,Batteries & Power,APAC (Singapore),380.26,96,191,29,Warning,36504.96
+SKU-3144,Robotics & Hardware,US-East (New Jersey),1748.31,598,157,38,Optimal,1045489.38
+SKU-3145,Compute Servers,US-West (Nevada),182.14,371,227,6,Optimal,67573.94
+SKU-3146,Optics & Sensors,APAC (Singapore),1498.85,438,131,6,Optimal,656496.3
+SKU-3147,Batteries & Power,US-West (Nevada),1285.35,758,98,33,Optimal,974295.3
+SKU-3148,Batteries & Power,US-West (Nevada),46.31,605,188,37,Optimal,28017.55
+SKU-3149,Networking Switches,EU-Central (Frankfurt),105.76,726,225,29,Optimal,76781.76
+SKU-3150,Batteries & Power,APAC (Singapore),459.62,601,203,39,Optimal,276231.62
+SKU-3151,Optics & Sensors,US-West (Nevada),940.17,669,166,16,Optimal,628973.73
+SKU-3152,Networking Switches,APAC (Singapore),566.84,480,206,31,Optimal,272083.2
+SKU-3153,Optics & Sensors,EU-Central (Frankfurt),722.65,342,237,32,Optimal,247146.3
+SKU-3154,Robotics & Hardware,US-East (New Jersey),227.75,608,87,44,Optimal,138472.0
+SKU-3155,Compute Servers,EU-Central (Frankfurt),861.88,304,183,21,Optimal,262011.52
+SKU-3156,Networking Switches,US-East (New Jersey),582.86,122,172,24,Warning,71108.92
+SKU-3157,Networking Switches,US-West (Nevada),1678.45,153,184,16,Warning,256802.85
+SKU-3158,Batteries & Power,US-East (New Jersey),1730.29,546,136,36,Optimal,944738.34
+SKU-3159,Networking Switches,US-West (Nevada),1507.43,233,69,24,Optimal,351231.19
+SKU-3160,Optics & Sensors,EU-Central (Frankfurt),692.26,236,173,4,Optimal,163373.36
+SKU-3161,Optics & Sensors,APAC (Singapore),246.93,409,109,22,Optimal,100994.37
+SKU-3162,Robotics & Hardware,US-West (Nevada),344.44,770,50,35,Optimal,265218.8
+SKU-3163,Optics & Sensors,US-West (Nevada),1768.06,174,128,34,Optimal,307642.44
+SKU-3164,Batteries & Power,US-West (Nevada),457.16,243,118,20,Optimal,111089.88
+SKU-3165,Compute Servers,US-West (Nevada),596.27,294,210,10,Optimal,175303.38
+SKU-3166,Compute Servers,EU-Central (Frankfurt),224.01,96,121,9,Warning,21504.96
+SKU-3167,Compute Servers,APAC (Singapore),545.36,680,43,19,Optimal,370844.8
+SKU-3168,Networking Switches,APAC (Singapore),102.17,350,208,9,Optimal,35759.5
+SKU-3169,Optics & Sensors,EU-Central (Frankfurt),360.27,767,186,18,Optimal,276327.09
+SKU-3170,Optics & Sensors,APAC (Singapore),611.69,354,98,28,Optimal,216538.26
+SKU-3171,Batteries & Power,EU-Central (Frankfurt),77.91,173,42,38,Optimal,13478.43
+SKU-3172,Optics & Sensors,US-West (Nevada),836.03,332,111,18,Optimal,277561.96
+SKU-3173,Networking Switches,US-West (Nevada),238.27,700,177,14,Optimal,166789.0
+SKU-3174,Compute Servers,US-East (New Jersey),893.31,732,95,37,Optimal,653902.92
+SKU-3175,Robotics & Hardware,APAC (Singapore),563.57,145,249,39,Warning,81717.65
+SKU-3176,Networking Switches,APAC (Singapore),316.17,117,71,35,Optimal,36991.89
+SKU-3177,Optics & Sensors,EU-Central (Frankfurt),1005.55,782,187,30,Optimal,786340.1
+SKU-3178,Networking Switches,EU-Central (Frankfurt),683.07,312,234,34,Optimal,213117.84
+SKU-3179,Robotics & Hardware,US-East (New Jersey),438.79,667,138,29,Optimal,292672.93
+SKU-3180,Robotics & Hardware,US-East (New Jersey),342.48,103,185,24,Warning,35275.44
+SKU-3181,Robotics & Hardware,APAC (Singapore),510.45,563,175,8,Optimal,287383.35
+SKU-3182,Networking Switches,US-West (Nevada),1165.56,174,60,32,Optimal,202807.44
+SKU-3183,Batteries & Power,US-West (Nevada),48.2,568,185,25,Optimal,27377.6
+SKU-3184,Optics & Sensors,US-East (New Jersey),1760.28,444,216,22,Optimal,781564.32
+SKU-3185,Networking Switches,US-East (New Jersey),347.3,436,223,38,Optimal,151422.8
+SKU-3186,Robotics & Hardware,APAC (Singapore),283.28,392,197,20,Optimal,111045.76
+SKU-3187,Networking Switches,EU-Central (Frankfurt),507.8,204,40,15,Optimal,103591.2
+SKU-3188,Robotics & Hardware,APAC (Singapore),700.05,782,60,43,Optimal,547439.1
+SKU-3189,Networking Switches,US-East (New Jersey),1796.75,725,177,27,Optimal,1302643.75
+SKU-3190,Networking Switches,EU-Central (Frankfurt),1618.42,352,117,35,Optimal,569683.84
+SKU-3191,Batteries & Power,APAC (Singapore),699.76,748,70,14,Optimal,523420.48
+SKU-3192,Batteries & Power,EU-Central (Frankfurt),1738.69,129,222,13,Warning,224291.01
+SKU-3193,Networking Switches,US-East (New Jersey),442.4,351,166,14,Optimal,155282.4
+SKU-3194,Robotics & Hardware,US-West (Nevada),1249.32,494,148,34,Optimal,617164.08
+SKU-3195,Batteries & Power,APAC (Singapore),1544.73,610,233,13,Optimal,942285.3
+SKU-3196,Batteries & Power,US-West (Nevada),608.03,527,235,5,Optimal,320431.81
+SKU-3197,Networking Switches,US-West (Nevada),978.55,75,154,18,Critical,73391.25
+SKU-3198,Robotics & Hardware,APAC (Singapore),894.55,683,241,22,Optimal,610977.65
+SKU-3199,Robotics & Hardware,US-East (New Jersey),671.54,307,217,25,Optimal,206162.78
+SKU-3200,Networking Switches,EU-Central (Frankfurt),1294.15,530,177,17,Optimal,685899.5
+SKU-3201,Optics & Sensors,US-West (Nevada),749.71,625,94,24,Optimal,468568.75
+SKU-3202,Batteries & Power,EU-Central (Frankfurt),197.01,777,230,31,Optimal,153076.77
+SKU-3203,Optics & Sensors,US-West (Nevada),533.11,318,143,19,Optimal,169528.98
+SKU-3204,Compute Servers,EU-Central (Frankfurt),758.49,401,122,7,Optimal,304154.49
+SKU-3205,Optics & Sensors,US-West (Nevada),280.76,696,90,32,Optimal,195408.96
+SKU-3206,Robotics & Hardware,US-West (Nevada),1359.01,47,211,28,Critical,63873.47
+SKU-3207,Optics & Sensors,US-East (New Jersey),141.8,338,158,12,Optimal,47928.4
+SKU-3208,Robotics & Hardware,US-East (New Jersey),1812.71,502,92,41,Optimal,909980.42
+SKU-3209,Compute Servers,APAC (Singapore),1710.82,708,158,24,Optimal,1211260.56
+SKU-3210,Optics & Sensors,EU-Central (Frankfurt),1731.11,486,223,28,Optimal,841319.46
+SKU-3211,Networking Switches,US-West (Nevada),400.5,617,102,21,Optimal,247108.5
+SKU-3212,Robotics & Hardware,APAC (Singapore),411.0,52,227,13,Critical,21372.0
+SKU-3213,Batteries & Power,US-West (Nevada),702.74,262,112,25,Optimal,184117.88
+SKU-3214,Networking Switches,US-West (Nevada),429.63,236,46,30,Optimal,101392.68
+SKU-3215,Compute Servers,US-East (New Jersey),661.57,190,215,5,Warning,125698.3
+SKU-3216,Optics & Sensors,US-West (Nevada),1476.66,611,212,33,Optimal,902239.26
+SKU-3217,Batteries & Power,US-East (New Jersey),851.56,66,94,20,Warning,56202.96
+SKU-3218,Optics & Sensors,APAC (Singapore),516.69,747,59,26,Optimal,385967.43
+SKU-3219,Optics & Sensors,EU-Central (Frankfurt),1779.65,90,70,17,Optimal,160168.5
+SKU-3220,Compute Servers,APAC (Singapore),1655.52,628,104,4,Optimal,1039666.56
+SKU-3221,Networking Switches,APAC (Singapore),1797.02,128,163,41,Warning,230018.56
+SKU-3222,Optics & Sensors,EU-Central (Frankfurt),476.68,681,144,41,Optimal,324619.08
+SKU-3223,Networking Switches,EU-Central (Frankfurt),553.2,443,47,27,Optimal,245067.6
+SKU-3224,Robotics & Hardware,US-East (New Jersey),987.06,450,42,9,Optimal,444177.0
+SKU-3225,Networking Switches,US-East (New Jersey),401.9,364,145,14,Optimal,146291.6
+SKU-3226,Compute Servers,EU-Central (Frankfurt),802.29,242,184,32,Optimal,194154.18
+SKU-3227,Optics & Sensors,APAC (Singapore),1314.7,159,129,4,Optimal,209037.3
+SKU-3228,Compute Servers,APAC (Singapore),1166.94,259,61,33,Optimal,302237.46
+SKU-3229,Networking Switches,US-East (New Jersey),567.33,480,90,34,Optimal,272318.4
+SKU-3230,Networking Switches,US-East (New Jersey),268.17,79,82,10,Warning,21185.43
+SKU-3231,Compute Servers,US-West (Nevada),1032.7,56,162,16,Critical,57831.2
+SKU-3232,Robotics & Hardware,US-East (New Jersey),752.92,756,162,37,Optimal,569207.52
+SKU-3233,Robotics & Hardware,US-East (New Jersey),53.41,637,52,28,Optimal,34022.17
+SKU-3234,Networking Switches,US-West (Nevada),90.93,292,212,14,Optimal,26551.56
+SKU-3235,Networking Switches,US-East (New Jersey),896.78,337,110,14,Optimal,302214.86
+SKU-3236,Batteries & Power,EU-Central (Frankfurt),697.13,645,113,14,Optimal,449648.85
+SKU-3237,Robotics & Hardware,US-East (New Jersey),1488.42,695,245,4,Optimal,1034451.9
+SKU-3238,Batteries & Power,APAC (Singapore),906.84,169,166,40,Optimal,153255.96
+SKU-3239,Robotics & Hardware,US-West (Nevada),951.9,295,243,10,Optimal,280810.5
+SKU-3240,Networking Switches,US-West (Nevada),741.01,304,226,21,Optimal,225267.04
+SKU-3241,Networking Switches,EU-Central (Frankfurt),410.85,192,211,27,Warning,78883.2
+SKU-3242,Batteries & Power,APAC (Singapore),879.19,429,121,6,Optimal,377172.51
+SKU-3243,Compute Servers,US-West (Nevada),332.8,476,104,28,Optimal,158412.8
+SKU-3244,Batteries & Power,US-East (New Jersey),1271.92,237,144,16,Optimal,301445.04
+SKU-3245,Networking Switches,US-West (Nevada),1542.7,452,95,7,Optimal,697300.4
+SKU-3246,Optics & Sensors,US-West (Nevada),388.82,90,233,6,Critical,34993.8
+SKU-3247,Batteries & Power,US-West (Nevada),327.81,266,49,11,Optimal,87197.46
+SKU-3248,Batteries & Power,US-East (New Jersey),365.68,715,180,24,Optimal,261461.2
+SKU-3249,Optics & Sensors,APAC (Singapore),1509.75,386,71,26,Optimal,582763.5
+SKU-3250,Batteries & Power,US-East (New Jersey),746.71,693,66,13,Optimal,517470.03
+SKU-3251,Optics & Sensors,US-West (Nevada),661.49,419,120,29,Optimal,277164.31
+SKU-3252,Batteries & Power,US-East (New Jersey),1229.38,737,159,18,Optimal,906053.06
+SKU-3253,Batteries & Power,US-West (Nevada),1581.48,597,117,20,Optimal,944143.56
+SKU-3254,Robotics & Hardware,US-West (Nevada),1506.31,651,235,21,Optimal,980607.81
+SKU-3255,Networking Switches,US-East (New Jersey),1652.4,707,219,38,Optimal,1168246.8
+SKU-3256,Compute Servers,US-East (New Jersey),1682.14,573,101,9,Optimal,963866.22
+SKU-3257,Robotics & Hardware,APAC (Singapore),307.04,337,227,30,Optimal,103472.48
+SKU-3258,Optics & Sensors,US-West (Nevada),275.25,62,187,4,Critical,17065.5
+SKU-3259,Compute Servers,APAC (Singapore),701.41,620,100,28,Optimal,434874.2
+SKU-3260,Optics & Sensors,US-East (New Jersey),903.22,297,242,16,Optimal,268256.34
+SKU-3261,Batteries & Power,EU-Central (Frankfurt),336.3,671,126,9,Optimal,225657.3
+SKU-3262,Batteries & Power,US-East (New Jersey),787.11,617,176,10,Optimal,485646.87
+SKU-3263,Networking Switches,US-West (Nevada),340.32,739,41,40,Optimal,251496.48
+SKU-3264,Robotics & Hardware,EU-Central (Frankfurt),1369.72,137,65,7,Optimal,187651.64
+SKU-3265,Optics & Sensors,US-West (Nevada),1636.93,681,43,18,Optimal,1114749.33
+SKU-3266,Robotics & Hardware,US-West (Nevada),286.8,449,57,38,Optimal,128773.2
+SKU-3267,Optics & Sensors,APAC (Singapore),193.36,388,90,23,Optimal,75023.68
+SKU-3268,Compute Servers,EU-Central (Frankfurt),712.36,542,165,29,Optimal,386099.12
+SKU-3269,Batteries & Power,APAC (Singapore),872.94,407,216,29,Optimal,355286.58
+SKU-3270,Batteries & Power,EU-Central (Frankfurt),75.84,343,70,13,Optimal,26013.12
+SKU-3271,Optics & Sensors,APAC (Singapore),342.99,222,198,10,Optimal,76143.78
+SKU-3272,Batteries & Power,US-West (Nevada),804.8,514,111,28,Optimal,413667.2
+SKU-3273,Networking Switches,US-East (New Jersey),588.86,219,153,30,Optimal,128960.34
+SKU-3274,Compute Servers,US-East (New Jersey),1275.13,340,232,28,Optimal,433544.2
+SKU-3275,Robotics & Hardware,US-East (New Jersey),1344.71,683,87,7,Optimal,918436.93
+SKU-3276,Networking Switches,APAC (Singapore),563.21,700,231,30,Optimal,394247.0
+SKU-3277,Robotics & Hardware,US-West (Nevada),471.01,624,200,30,Optimal,293910.24
+SKU-3278,Networking Switches,US-East (New Jersey),995.61,290,158,9,Optimal,288726.9
+SKU-3279,Compute Servers,US-West (Nevada),714.1,415,123,23,Optimal,296351.5
+SKU-3280,Batteries & Power,US-East (New Jersey),79.06,421,153,37,Optimal,33284.26
+SKU-3281,Compute Servers,US-East (New Jersey),1049.04,155,159,31,Warning,162601.2
+SKU-3282,Optics & Sensors,US-East (New Jersey),1677.65,144,129,28,Optimal,241581.6
+SKU-3283,Optics & Sensors,US-East (New Jersey),78.46,539,222,40,Optimal,42289.94
+SKU-3284,Optics & Sensors,APAC (Singapore),497.62,90,176,33,Warning,44785.8
+SKU-3285,Networking Switches,APAC (Singapore),547.67,36,189,34,Critical,19716.12
+SKU-3286,Robotics & Hardware,APAC (Singapore),1082.0,281,221,16,Optimal,304042.0
+SKU-3287,Networking Switches,APAC (Singapore),1693.8,124,237,11,Warning,210031.2
+SKU-3288,Robotics & Hardware,US-West (Nevada),1373.09,273,122,34,Optimal,374853.57
+SKU-3289,Batteries & Power,US-West (Nevada),1837.67,404,150,36,Optimal,742418.68
+SKU-3290,Networking Switches,EU-Central (Frankfurt),969.77,416,181,28,Optimal,403424.32
+SKU-3291,Networking Switches,APAC (Singapore),932.15,782,163,19,Optimal,728941.3
+SKU-3292,Robotics & Hardware,US-West (Nevada),261.17,530,103,16,Optimal,138420.1
+SKU-3293,Batteries & Power,US-West (Nevada),331.76,84,131,18,Warning,27867.84
+SKU-3294,Compute Servers,EU-Central (Frankfurt),450.49,273,154,30,Optimal,122983.77
+SKU-3295,Batteries & Power,US-West (Nevada),1055.99,454,180,24,Optimal,479419.46
+SKU-3296,Networking Switches,US-East (New Jersey),1560.28,680,129,7,Optimal,1060990.4
+SKU-3297,Optics & Sensors,APAC (Singapore),1281.91,246,192,21,Optimal,315349.86
+SKU-3298,Optics & Sensors,EU-Central (Frankfurt),102.77,648,87,13,Optimal,66594.96
+SKU-3299,Networking Switches,US-West (Nevada),1240.71,68,62,19,Optimal,84368.28
+SKU-3300,Batteries & Power,EU-Central (Frankfurt),670.33,340,73,35,Optimal,227912.2
+SKU-3301,Optics & Sensors,APAC (Singapore),179.55,662,119,4,Optimal,118862.1
+SKU-3302,Batteries & Power,EU-Central (Frankfurt),86.35,495,126,13,Optimal,42743.25
+SKU-3303,Compute Servers,US-East (New Jersey),316.45,528,188,8,Optimal,167085.6
+SKU-3304,Batteries & Power,US-West (Nevada),554.11,211,101,19,Optimal,116917.21
+SKU-3305,Networking Switches,US-West (Nevada),306.52,448,87,24,Optimal,137320.96
+SKU-3306,Compute Servers,APAC (Singapore),1054.42,169,84,13,Optimal,178196.98
+SKU-3307,Robotics & Hardware,APAC (Singapore),1135.6,738,51,18,Optimal,838072.8
+SKU-3308,Optics & Sensors,EU-Central (Frankfurt),1049.79,49,236,30,Critical,51439.71
+SKU-3309,Robotics & Hardware,APAC (Singapore),1735.2,559,45,32,Optimal,969976.8
+SKU-3310,Optics & Sensors,APAC (Singapore),1592.59,81,246,42,Critical,128999.79
+SKU-3311,Optics & Sensors,APAC (Singapore),551.13,347,80,32,Optimal,191242.11
+SKU-3312,Networking Switches,US-East (New Jersey),1547.81,504,58,40,Optimal,780096.24
+SKU-3313,Robotics & Hardware,EU-Central (Frankfurt),1596.48,560,166,32,Optimal,894028.8
+SKU-3314,Compute Servers,US-West (Nevada),264.26,127,205,17,Warning,33561.02
+SKU-3315,Compute Servers,EU-Central (Frankfurt),990.43,326,56,4,Optimal,322880.18
+SKU-3316,Compute Servers,EU-Central (Frankfurt),1259.36,579,174,4,Optimal,729169.44
+SKU-3317,Batteries & Power,US-East (New Jersey),753.71,388,213,41,Optimal,292439.48
+SKU-3318,Robotics & Hardware,EU-Central (Frankfurt),220.72,421,139,44,Optimal,92923.12
+SKU-3319,Compute Servers,EU-Central (Frankfurt),1656.61,708,230,5,Optimal,1172879.88
+SKU-3320,Optics & Sensors,US-West (Nevada),328.59,517,244,3,Optimal,169881.03
+SKU-3321,Robotics & Hardware,APAC (Singapore),680.63,278,213,26,Optimal,189215.14
+SKU-3322,Robotics & Hardware,EU-Central (Frankfurt),826.3,68,101,30,Warning,56188.4
+SKU-3323,Compute Servers,EU-Central (Frankfurt),1385.69,18,165,3,Critical,24942.42
+SKU-3324,Compute Servers,US-West (Nevada),1421.71,528,94,5,Optimal,750662.88
+SKU-3325,Compute Servers,US-East (New Jersey),104.22,348,105,41,Optimal,36268.56
+SKU-3326,Batteries & Power,US-East (New Jersey),926.05,652,239,28,Optimal,603784.6
+SKU-3327,Compute Servers,US-East (New Jersey),170.74,211,157,19,Optimal,36026.14
+SKU-3328,Batteries & Power,US-West (Nevada),338.17,768,132,21,Optimal,259714.56
+SKU-3329,Networking Switches,APAC (Singapore),1277.44,691,244,38,Optimal,882711.04
+SKU-3330,Optics & Sensors,US-West (Nevada),1652.26,287,158,41,Optimal,474198.62
+SKU-3331,Robotics & Hardware,US-East (New Jersey),1556.4,511,54,22,Optimal,795320.4
+SKU-3332,Optics & Sensors,APAC (Singapore),466.36,719,240,20,Optimal,335312.84
+SKU-3333,Batteries & Power,EU-Central (Frankfurt),1473.12,488,125,25,Optimal,718882.56
+SKU-3334,Networking Switches,US-East (New Jersey),846.78,637,232,3,Optimal,539398.86
+SKU-3335,Robotics & Hardware,EU-Central (Frankfurt),1423.97,384,112,6,Optimal,546804.48
+SKU-3336,Optics & Sensors,US-East (New Jersey),1714.65,423,215,25,Optimal,725296.95
+SKU-3337,Batteries & Power,APAC (Singapore),942.11,746,112,13,Optimal,702814.06
+SKU-3338,Compute Servers,EU-Central (Frankfurt),475.26,695,170,22,Optimal,330305.7
+SKU-3339,Networking Switches,US-West (Nevada),1449.62,30,131,30,Critical,43488.6
+SKU-3340,Batteries & Power,US-East (New Jersey),1634.83,620,51,16,Optimal,1013594.6
+SKU-3341,Optics & Sensors,US-East (New Jersey),838.42,389,131,20,Optimal,326145.38
+SKU-3342,Robotics & Hardware,APAC (Singapore),1549.14,417,134,35,Optimal,645991.38
+SKU-3343,Robotics & Hardware,US-West (Nevada),1326.08,30,177,19,Critical,39782.4
+SKU-3344,Networking Switches,EU-Central (Frankfurt),825.99,593,49,44,Optimal,489812.07
+SKU-3345,Robotics & Hardware,US-West (Nevada),797.64,576,114,9,Optimal,459440.64
+SKU-3346,Networking Switches,US-East (New Jersey),535.03,366,60,16,Optimal,195820.98
+SKU-3347,Robotics & Hardware,EU-Central (Frankfurt),1624.12,286,64,16,Optimal,464498.32
+SKU-3348,Networking Switches,EU-Central (Frankfurt),198.56,71,72,4,Warning,14097.76
+SKU-3349,Batteries & Power,APAC (Singapore),1576.86,157,92,6,Optimal,247567.02
+SKU-3350,Compute Servers,EU-Central (Frankfurt),469.5,489,163,26,Optimal,229585.5
+SKU-3351,Optics & Sensors,APAC (Singapore),208.61,536,220,24,Optimal,111814.96
+SKU-3352,Networking Switches,US-West (Nevada),591.24,403,139,29,Optimal,238269.72
+SKU-3353,Robotics & Hardware,APAC (Singapore),1467.37,742,204,44,Optimal,1088788.54
+SKU-3354,Optics & Sensors,APAC (Singapore),1353.05,639,237,18,Optimal,864598.95
+SKU-3355,Compute Servers,US-East (New Jersey),1517.85,379,81,13,Optimal,575265.15
+SKU-3356,Networking Switches,US-East (New Jersey),1454.85,167,150,36,Optimal,242959.95
+SKU-3357,Optics & Sensors,US-East (New Jersey),1147.76,140,146,11,Warning,160686.4
+SKU-3358,Networking Switches,US-East (New Jersey),1371.8,248,176,12,Optimal,340206.4
+SKU-3359,Robotics & Hardware,US-West (Nevada),945.97,731,123,14,Optimal,691504.07
+SKU-3360,Robotics & Hardware,EU-Central (Frankfurt),566.47,296,69,33,Optimal,167675.12
+SKU-3361,Batteries & Power,EU-Central (Frankfurt),1501.42,43,178,7,Critical,64561.06
+SKU-3362,Robotics & Hardware,EU-Central (Frankfurt),1166.18,739,222,20,Optimal,861807.02
+SKU-3363,Compute Servers,US-West (Nevada),1729.7,655,148,38,Optimal,1132953.5
+SKU-3364,Optics & Sensors,APAC (Singapore),1386.81,553,53,31,Optimal,766905.93
+SKU-3365,Networking Switches,US-West (Nevada),1672.66,57,230,41,Critical,95341.62
+SKU-3366,Batteries & Power,EU-Central (Frankfurt),412.59,783,132,10,Optimal,323057.97
+SKU-3367,Optics & Sensors,EU-Central (Frankfurt),1744.24,459,96,19,Optimal,800606.16
+SKU-3368,Optics & Sensors,US-East (New Jersey),1831.17,155,170,44,Warning,283831.35
+SKU-3369,Optics & Sensors,US-East (New Jersey),1292.2,466,111,3,Optimal,602165.2
+SKU-3370,Robotics & Hardware,APAC (Singapore),1396.59,114,248,8,Critical,159211.26
+SKU-3371,Networking Switches,US-West (Nevada),970.78,22,238,9,Critical,21357.16
+SKU-3372,Batteries & Power,US-East (New Jersey),341.44,628,193,41,Optimal,214424.32
+SKU-3373,Compute Servers,EU-Central (Frankfurt),1637.84,267,60,20,Optimal,437303.28
+SKU-3374,Robotics & Hardware,US-East (New Jersey),1722.74,285,129,21,Optimal,490980.9
+SKU-3375,Networking Switches,APAC (Singapore),1083.24,526,167,31,Optimal,569784.24
+SKU-3376,Robotics & Hardware,US-West (Nevada),107.48,474,162,3,Optimal,50945.52
+SKU-3377,Optics & Sensors,US-West (Nevada),765.5,594,235,32,Optimal,454707.0
+SKU-3378,Networking Switches,US-East (New Jersey),332.39,734,75,35,Optimal,243974.26
+SKU-3379,Networking Switches,US-West (Nevada),844.91,404,205,36,Optimal,341343.64
+SKU-3380,Networking Switches,EU-Central (Frankfurt),67.75,423,97,36,Optimal,28658.25
+SKU-3381,Robotics & Hardware,US-East (New Jersey),967.05,233,230,11,Optimal,225322.65
+SKU-3382,Optics & Sensors,EU-Central (Frankfurt),1295.29,795,99,31,Optimal,1029755.55
+SKU-3383,Optics & Sensors,EU-Central (Frankfurt),628.4,191,90,28,Optimal,120024.4
+SKU-3384,Optics & Sensors,US-West (Nevada),322.57,467,228,34,Optimal,150640.19
+SKU-3385,Compute Servers,EU-Central (Frankfurt),237.93,559,157,32,Optimal,133002.87
+SKU-3386,Batteries & Power,APAC (Singapore),879.85,416,232,5,Optimal,366017.6
+SKU-3387,Compute Servers,APAC (Singapore),1140.61,297,201,20,Optimal,338761.17
+SKU-3388,Networking Switches,APAC (Singapore),1124.76,275,217,42,Optimal,309309.0
+SKU-3389,Batteries & Power,APAC (Singapore),55.56,498,149,9,Optimal,27668.88
+SKU-3390,Optics & Sensors,US-East (New Jersey),1234.59,407,44,4,Optimal,502478.13
+SKU-3391,Batteries & Power,APAC (Singapore),1726.61,64,123,44,Warning,110503.04
+SKU-3392,Optics & Sensors,US-East (New Jersey),1301.24,458,50,14,Optimal,595967.92
+SKU-3393,Robotics & Hardware,APAC (Singapore),989.6,353,99,28,Optimal,349328.8
+SKU-3394,Networking Switches,US-East (New Jersey),1675.73,383,72,12,Optimal,641804.59
+SKU-3395,Optics & Sensors,US-East (New Jersey),1382.57,126,232,20,Warning,174203.82
+SKU-3396,Batteries & Power,EU-Central (Frankfurt),1829.18,344,103,6,Optimal,629237.92
+SKU-3397,Optics & Sensors,EU-Central (Frankfurt),462.66,391,240,41,Optimal,180900.06
+SKU-3398,Optics & Sensors,EU-Central (Frankfurt),1564.66,355,133,4,Optimal,555454.3
+SKU-3399,Batteries & Power,US-East (New Jersey),1661.3,362,144,31,Optimal,601390.6

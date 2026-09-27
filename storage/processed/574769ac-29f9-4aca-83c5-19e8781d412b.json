@@ -1,0 +1,20 @@
+[
+  {
+    "order_id": 1001,
+    "customer": "Acme Corp",
+    "amount": 1500.0,
+    "status": "Completed"
+  },
+  {
+    "order_id": 1002,
+    "customer": "Global Tech",
+    "amount": 2300.0,
+    "status": "Pending"
+  },
+  {
+    "order_id": 1003,
+    "customer": "Starlight",
+    "amount": 450.0,
+    "status": "Completed"
+  }
+]

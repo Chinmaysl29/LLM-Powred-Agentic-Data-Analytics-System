@@ -1,0 +1,1 @@
+{"dataset_id": "3d6fdbe8-6809-4ba4-9c0b-2e6f2ec0a153", "current_version": 1, "lineage": [{"version_id": "883f7bee-62d0-46d5-a249-957d15580208", "version_number": 1, "parent_version_id": null, "change_type": "initial_upload", "timestamp": "2026-09-27 09:30:26.383281", "author": "system", "description": "Initial ingestion of finance.csv"}]}

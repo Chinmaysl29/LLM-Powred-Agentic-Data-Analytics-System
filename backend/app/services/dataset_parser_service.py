@@ -40,11 +40,15 @@ class DatasetParserService:
         document = fitz.open(source)
         pages: list[dict[str, Any]] = []
         tables: list[dict[str, Any]] = []
+        full_text_list: list[str] = []
         for number, page in enumerate(document, start=1):
-            pages.append({"page": number, "text": page.get_text("text")})
+            page_text = page.get_text("text") or ""
+            pages.append({"page": number, "text": page_text})
+            if page_text.strip():
+                full_text_list.append(page_text.strip())
             try:
                 for table in page.find_tables().tables:
                     tables.append({"page": number, "records": table.extract()})
             except (AttributeError, RuntimeError):
                 pass
-        return {"pages": pages, "tables": tables}
+        return {"pages": pages, "text": "\n\n".join(full_text_list), "tables": tables}

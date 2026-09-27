@@ -20,6 +20,23 @@ from backend.app.core.exceptions import DataQualityError, QualityAssessmentError
 class DataQualityService:
     """Service to compute overall data quality and specific metric scores."""
 
+    @classmethod
+    def evaluate_dataframe_quality(cls, df: pd.DataFrame, profile: Any = None) -> dict[str, Any]:
+        """Compute standalone quality assessment directly on DataFrame."""
+        total_cells = df.shape[0] * df.shape[1]
+        null_count = int(df.isna().sum().sum())
+        completeness = round(1.0 - (null_count / total_cells if total_cells > 0 else 0.0), 4)
+        duplicate_rows = int(df.duplicated().sum())
+        uniqueness = round(1.0 - (duplicate_rows / df.shape[0] if df.shape[0] > 0 else 0.0), 4)
+        overall = round((completeness * 0.6) + (uniqueness * 0.4), 4)
+        return {
+            "overall_score": overall,
+            "completeness_score": completeness,
+            "uniqueness_score": uniqueness,
+            "null_count": null_count,
+            "duplicate_rows": duplicate_rows,
+        }
+
     def __init__(
         self, 
         dataset_repository: DatasetRepository,
@@ -201,6 +218,18 @@ class DataQualityService:
 
         if not profile:
             raise QualityAssessmentError(f"Profile is required for dataset {dataset_id}")
+
+        if file_type == "pdf":
+            return DatasetQualityCreate(
+                dataset_id=dataset_id,
+                completeness_score=100.0,
+                uniqueness_score=100.0,
+                consistency_score=100.0,
+                validity_score=100.0,
+                integrity_score=100.0,
+                overall_score=100.0,
+                quality_classification="Good",
+            )
 
         try:
             df = self.metadata_service._load_dataframe(file_path, file_type)

@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-09-26T18:13:05Z",
+  "benchmarks": [
+    {
+      "target_rows": 100000,
+      "actual_rows": 100000,
+      "file_size_mb": 4.59,
+      "generation_sec": 0.796,
+      "generation_rows_per_sec": 125641.7,
+      "analysis_sec": 0.0668,
+      "predicted_memory_mb": 16.89,
+      "streaming_processing_sec": 0.188,
+      "processing_rows_per_sec": 531914.9,
+      "peak_memory_mb": 13.12,
+      "passed": true,
+      "details": {
+        "chunks_processed": 2,
+        "mean_revenue": 260.7566,
+        "cost_tier": "low"
+      }
+    },
+    {
+      "target_rows": 500000,
+      "actual_rows": 500000,
+      "file_size_mb": 23.38,
+      "generation_sec": 3.598,
+      "generation_rows_per_sec": 138974.6,
+      "analysis_sec": 0.2317,
+      "predicted_memory_mb": 84.14,
+      "streaming_processing_sec": 1.048,
+      "processing_rows_per_sec": 477099.2,
+      "peak_memory_mb": 13.78,
+      "passed": true,
+      "details": {
+        "chunks_processed": 10,
+        "mean_revenue": 260.6859,
+        "cost_tier": "medium"
+      }
+    },
+    {
+      "target_rows": 1000000,
+      "actual_rows": 1000000,
+      "file_size_mb": 46.87,
+      "generation_sec": 7.475,
+      "generation_rows_per_sec": 133779.0,
+      "analysis_sec": 0.6218,
+      "predicted_memory_mb": 168.59,
+      "streaming_processing_sec": 1.566,
+      "processing_rows_per_sec": 638569.6,
+      "peak_memory_mb": 13.79,
+      "passed": true,
+      "details": {
+        "chunks_processed": 20,
+        "mean_revenue": 260.0801,
+        "cost_tier": "medium"
+      }
+    }
+  ],
+  "total_duration_sec": 15.631,
+  "all_passed": true,
+  "summary_markdown": "# Large Dataset Scalability Benchmark Report (Phase 18.5.2)\n**Timestamp**: 2026-09-26 18:13:05 UTC\n**Total Benchmark Runtime**: 15.63s\n**Overall Status**: PASSED\n\n| Rows | File Size | Gen Time | Gen Rate | Process Time | Process Rate | Peak RAM | Status |\n|---|---|---|---|---|---|---|---|\n| 100,000 | 4.6 MB | 0.80s | 125,642 r/s | 0.19s | 531,915 r/s | 13.1 MB | PASS |\n| 500,000 | 23.4 MB | 3.60s | 138,975 r/s | 1.05s | 477,099 r/s | 13.8 MB | PASS |\n| 1,000,000 | 46.9 MB | 7.47s | 133,779 r/s | 1.57s | 638,570 r/s | 13.8 MB | PASS |"
+}

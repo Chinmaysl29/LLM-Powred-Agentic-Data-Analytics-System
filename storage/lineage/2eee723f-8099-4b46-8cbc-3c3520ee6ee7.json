@@ -1,0 +1,15 @@
+{
+  "dataset_id": "2eee723f-8099-4b46-8cbc-3c3520ee6ee7",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "a66a8639-8f37-41e8-bdeb-56ac12cf7f77",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-27 10:22:25.427406",
+      "author": "system",
+      "description": "Initial ingestion of financial_report.pdf"
+    }
+  ]
+}

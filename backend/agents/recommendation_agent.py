@@ -12,7 +12,6 @@ from backend.app.schemas.recommendations import (
     AnalyticalInputs,
     DecisionSupportOutput,
 )
-from backend.recommendations.foundation import RecommendationFoundation
 
 logger = logging.getLogger(__name__)
 
@@ -22,10 +21,14 @@ class DecisionSupportAgent:
 
     def __init__(
         self,
-        foundation: RecommendationFoundation | None = None,
+        foundation: Any | None = None,
         llm: Any | None = None,
     ) -> None:
-        self.foundation = foundation or RecommendationFoundation()
+        if foundation is None:
+            from backend.recommendations.foundation import RecommendationFoundation
+            self.foundation = RecommendationFoundation()
+        else:
+            self.foundation = foundation
         self.llm = llm
 
     def generate_decision_guidance(
@@ -117,3 +120,50 @@ class DecisionSupportAgent:
             risk_assessment=risks,
             strategic_priorities=priorities,
         )
+
+
+from backend.app.schemas.orchestrator import WorkflowContext
+from backend.app.services.agent_registry import BaseAgentRunner
+
+
+class RecommendationAgentRunner(BaseAgentRunner):
+    """Concrete runner for the Decision Support / Recommendation Agent in the Orchestrator pipeline."""
+
+    def __init__(self, agent: DecisionSupportAgent | None = None) -> None:
+        self._agent = agent or DecisionSupportAgent()
+
+    @property
+    def name(self) -> str:
+        return "recommendation"
+
+    async def run(self, context: WorkflowContext) -> dict[str, Any]:
+        """Synthesize previous agent results into actionable strategic recommendations."""
+        ctx_data = {
+            "forecast_results": context.results.get("forecasting", {}),
+            "eda_results": context.results.get("eda", {}),
+            "statistics_results": context.results.get("statistics", {}),
+            "sql_results": context.results.get("sql", {}),
+            "query": context.query,
+        }
+
+        try:
+            output = self._agent.generate_decision_guidance(ctx_data)
+            return {
+                "decision_summary": output.decision_summary,
+                "recommended_action": output.recommended_action,
+                "risk_assessment": output.risk_assessment,
+                "strategic_priorities": output.strategic_priorities,
+                "status": "completed",
+            }
+        except Exception as e:
+            logger.error("Recommendation execution error: %s", e)
+            return {
+                "decision_summary": "Continue monitoring baseline metrics across target channels.",
+                "recommended_action": "Maintain active optimization tests.",
+                "risk_assessment": "Standard operational variance.",
+                "strategic_priorities": ["Monitor daily KPIs", "Review cohort retention"],
+                "status": "fallback",
+            }
+
+
+__all__ = ["DecisionSupportAgent", "RecommendationAgentRunner"]

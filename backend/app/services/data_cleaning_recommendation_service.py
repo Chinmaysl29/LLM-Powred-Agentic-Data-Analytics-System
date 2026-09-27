@@ -42,6 +42,10 @@ class DataCleaningRecommendationService:
             return pd.read_excel(file_path, nrows=100000)
         elif ext == '.json':
             return pd.read_json(file_path)
+        elif ext == '.pdf':
+            return pd.DataFrame()
+        elif ext == '.parquet':
+            return pd.read_parquet(file_path)
         else:
             raise CleaningRecommendationError(f"Unsupported file extension: {ext}")
 

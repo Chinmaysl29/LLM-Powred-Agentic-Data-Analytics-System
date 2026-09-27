@@ -1,0 +1,26 @@
+{
+  "dataset_id": "09ce9ae3-621c-47ed-adc9-f1455d6ad2a2",
+  "dataset_name": "Department Budgets",
+  "columns": [
+    "department",
+    "headcount",
+    "budget"
+  ],
+  "records": [
+    {
+      "department": "Sales",
+      "headcount": 45,
+      "budget": 450000
+    },
+    {
+      "department": "Engineering",
+      "headcount": 75,
+      "budget": 950000
+    },
+    {
+      "department": "Support",
+      "headcount": 30,
+      "budget": 220000
+    }
+  ]
+}

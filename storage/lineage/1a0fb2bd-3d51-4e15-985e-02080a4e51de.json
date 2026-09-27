@@ -1,0 +1,15 @@
+{
+  "dataset_id": "1a0fb2bd-3d51-4e15-985e-02080a4e51de",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "16b7b8d6-70a8-48e6-98f1-360adb38ca62",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-26 19:09:23.802198+00:00",
+      "author": "system",
+      "description": "Initial ingestion of warehouse_inventory.xlsx"
+    }
+  ]
+}

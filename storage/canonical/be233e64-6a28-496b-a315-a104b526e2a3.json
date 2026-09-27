@@ -1,0 +1,17 @@
+[
+  {
+    "department": "Sales",
+    "headcount": 45,
+    "budget": 450000
+  },
+  {
+    "department": "Engineering",
+    "headcount": 75,
+    "budget": 950000
+  },
+  {
+    "department": "Support",
+    "headcount": 30,
+    "budget": 220000
+  }
+]

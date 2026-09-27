@@ -1,5 +1,6 @@
 """Dataset API routes for Phase 2.1 Dataset Foundation."""
 
+import json
 import logging
 from pathlib import Path
 from typing import Annotated, Any
@@ -173,6 +174,77 @@ async def get_dataset_quality(
             detail=f"Quality record for dataset with ID '{dataset_id}' not found",
         )
     return DatasetQualityResponse.model_validate(quality)
+
+
+@router.get(
+    "/{dataset_id}/preview",
+    summary="Get preview records for a dataset",
+)
+async def get_dataset_preview(
+    dataset_id: str,
+    limit: Annotated[int, Query(ge=1, le=100)] = 50,
+    dataset_repository: DatasetRepository = Depends(get_dataset_repository),
+    storage_service: StorageService = Depends(get_storage_service),
+) -> dict[str, Any]:
+    """Retrieve preview records directly from canonical JSON or source storage."""
+    dataset = dataset_repository.get(dataset_id)
+    if not dataset:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Dataset with ID '{dataset_id}' not found",
+        )
+
+    # 1. Try canonical processed JSON
+    json_path = storage_service.processed_dir / f"{dataset_id}.json"
+    if json_path.exists():
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                content = json.load(f)
+                if isinstance(content, list):
+                    sample = content[:limit]
+                    columns = list(sample[0].keys()) if sample else []
+                    return {
+                        "columns": columns,
+                        "rows": sample,
+                        "total_rows": len(content),
+                    }
+                elif isinstance(content, dict):
+                    pages = content.get("pages", [])
+                    return {
+                        "columns": ["page", "text"],
+                        "rows": pages[:limit],
+                        "total_rows": len(pages),
+                    }
+        except Exception as e:
+            logger.warning("Failed to load canonical JSON for preview %s: %s", dataset_id, e)
+
+    # 2. Try reading via pandas from stored raw file
+    try:
+        raw_file = storage_service.retrieve_file(dataset.file_path) if dataset.file_path else None
+        if raw_file and raw_file.exists():
+            import pandas as pd
+            if dataset.file_type == "csv":
+                df = pd.read_csv(raw_file, nrows=limit)
+            elif dataset.file_type in ["xlsx", "xls"]:
+                df = pd.read_excel(raw_file, nrows=limit)
+            elif dataset.file_type == "json":
+                df = pd.read_json(raw_file).head(limit)
+            elif dataset.file_type == "parquet":
+                df = pd.read_parquet(raw_file).head(limit)
+            else:
+                df = None
+
+            if df is not None:
+                clean_df = df.where(pd.notnull(df), None)
+                return {
+                    "columns": clean_df.columns.tolist(),
+                    "rows": clean_df.to_dict(orient="records"),
+                    "total_rows": len(clean_df),
+                }
+    except Exception as e:
+        logger.error("Failed to load preview for dataset %s: %s", dataset_id, e)
+
+    return {"columns": [], "rows": [], "total_rows": 0}
 
 
 @router.get(
@@ -376,6 +448,16 @@ async def delete_dataset(
 
     # Delete database record
     dataset_repository.delete(dataset_id)
+
+    # Delete any associated vector embeddings from ChromaDB
+    try:
+        from backend.app.services.rag_service import get_pipeline
+        pipeline = get_pipeline()
+        pipeline._store.delete(document_id=dataset_id)
+        logger.info("Deleted vector embeddings for dataset_id=%s from Chroma", dataset_id)
+    except Exception as exc:
+        logger.debug("No Chroma vector embeddings to delete for dataset_id=%s (%s)", dataset_id, exc)
+
     logger.info("Dataset deleted successfully dataset_id=%s", dataset_id)
 
     return {"success": True, "message": f"Dataset '{dataset_id}' deleted successfully"}

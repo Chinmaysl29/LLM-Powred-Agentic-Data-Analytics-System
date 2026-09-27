@@ -12,6 +12,8 @@ import DashboardPage from './pages/app/DashboardPage';
 import DatasetsPage from './pages/app/DatasetsPage';
 import DatasetDetailPage from './pages/app/DatasetDetailPage';
 import DatasetUploadPage from './pages/app/DatasetUploadPage';
+import ConnectionsPage from './pages/app/ConnectionsPage';
+import DataWarehousePage from './pages/app/DataWarehousePage';
 import ProfilePage from './pages/app/ProfilePage';
 import AnalysisPage from './pages/app/AnalysisPage';
 import VisualizationsPage from './pages/app/VisualizationsPage';
@@ -21,6 +23,9 @@ import CreateReportPage from './pages/app/CreateReportPage';
 import ReportDetailPage from './pages/app/ReportDetailPage';
 import ReportBuilderPage from './pages/app/ReportBuilderPage';
 import SettingsPage from './pages/app/SettingsPage';
+import ForecastingWorkbenchPage from './pages/app/ForecastingWorkbenchPage';
+import AIMemoryExplorerPage from './pages/app/AIMemoryExplorerPage';
+import DashboardStudioPage from './pages/app/DashboardStudioPage';
 
 import LandingPage from './pages/LandingPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -74,6 +79,8 @@ function App() {
           */}
           <Route path="/datasets/upload" element={<DatasetUploadPage />} />
           <Route path="/datasets/:datasetId" element={<DatasetDetailPage />} />
+          <Route path="/connections" element={<ConnectionsPage />} />
+          <Route path="/data-warehouse" element={<DataWarehousePage />} />
 
           {/* Analytics */}
           <Route path="/analysis" element={<AnalysisPage />} />
@@ -86,6 +93,11 @@ function App() {
           <Route path="/reports/create" element={<CreateReportPage />} />
           <Route path="/reports/:reportId" element={<ReportDetailPage />} />
           <Route path="/reports/:reportId/edit" element={<ReportBuilderPage />} />
+
+          {/* Phase 23 — New Pages */}
+          <Route path="/forecasting" element={<ForecastingWorkbenchPage />} />
+          <Route path="/memory" element={<AIMemoryExplorerPage />} />
+          <Route path="/dashboard-studio" element={<DashboardStudioPage />} />
 
           {/* Account */}
           <Route path="/profile" element={<ProfilePage />} />

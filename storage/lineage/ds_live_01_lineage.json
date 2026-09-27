@@ -1,0 +1,57 @@
+{
+  "dataset_id": "ds_live_01",
+  "dataset_name": "Dataset ds_live_",
+  "created_at": "2026-09-26T18:14:46.577709+00:00",
+  "updated_at": "2026-09-26T18:14:46.577870+00:00",
+  "origin": {
+    "file_name": "dataset.csv",
+    "file_type": "csv",
+    "size_bytes": 1024,
+    "content_hash": "",
+    "author": "system"
+  },
+  "transformations": [
+    {
+      "step_name": "initial_upload",
+      "action": "ingestion",
+      "timestamp": "2026-09-26T18:14:46.577709+00:00",
+      "description": "Uploaded dataset.csv to Enterprise Data Lake"
+    }
+  ],
+  "profiles_history": [],
+  "quality_history": [],
+  "forecast_history": [],
+  "graph": {
+    "nodes": [
+      {
+        "id": "ds_live_01_raw",
+        "label": "Raw: dataset.csv",
+        "type": "source",
+        "timestamp": "2026-09-26T18:14:46.577709+00:00",
+        "metadata": {
+          "file_name": "dataset.csv",
+          "file_type": "csv",
+          "size_bytes": 1024,
+          "content_hash": ""
+        }
+      },
+      {
+        "id": "ds_live_01_canonical",
+        "label": "Canonical JSON: Dataset ds_live_",
+        "type": "canonical",
+        "timestamp": "2026-09-26T18:14:46.577709+00:00",
+        "metadata": {
+          "format": "canonical_json"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "ds_live_01_raw",
+        "target": "ds_live_01_canonical",
+        "action": "standardized",
+        "timestamp": "2026-09-26T18:14:46.577709+00:00"
+      }
+    ]
+  }
+}

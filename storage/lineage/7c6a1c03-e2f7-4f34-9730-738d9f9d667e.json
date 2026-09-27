@@ -1,0 +1,15 @@
+{
+  "dataset_id": "7c6a1c03-e2f7-4f34-9730-738d9f9d667e",
+  "current_version": 1,
+  "lineage": [
+    {
+      "version_id": "a5087607-3215-4399-8827-0fcb5861bb19",
+      "version_number": 1,
+      "parent_version_id": null,
+      "change_type": "initial_upload",
+      "timestamp": "2026-09-26 18:48:34.792857+00:00",
+      "author": "system",
+      "description": "Initial ingestion of service_catalog.json"
+    }
+  ]
+}

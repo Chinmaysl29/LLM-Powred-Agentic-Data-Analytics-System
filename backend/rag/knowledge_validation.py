@@ -95,20 +95,23 @@ class KnowledgeValidator:
 
         sentences = self._extract_sentences(answer)
         grounded_count = 0
+        supported_citation_count = 0
 
         for sentence in sentences:
             is_grounded, conf, reason = self._is_grounded_in_context(sentence, context_text)
             if is_grounded:
                 grounded_count += 1
 
-            # Find a supporting source if grounded
+            # Find a supporting source if grounded (using full_content or preview to prevent truncation)
             supporting = None
             if is_grounded and sources:
                 for src in sources:
-                    if src.preview and any(
-                        t in src.preview.lower() for t in re.findall(r'\b[a-z]{4,}\b', sentence.lower())[:3]
+                    content_str = (getattr(src, "full_content", "") or getattr(src, "preview", "") or "")
+                    if content_str and any(
+                        t in content_str.lower() for t in re.findall(r'\b[a-z]{4,}\b', sentence.lower())[:3]
                     ):
                         supporting = src.source_id
+                        supported_citation_count += 1
                         break
 
             checks.append(
@@ -125,10 +128,27 @@ class KnowledgeValidator:
         faithfulness = grounded_count / max(1, total_checks)
         hallucinations = faithfulness < self.min_faithfulness
 
-        # Citation check
+        # Empirical Evidence & Numerical Coverage
+        answer_nums = self._extract_numbers(answer)
+        context_nums = self._extract_numbers(context_text)
+        if answer_nums:
+            matched_nums = sum(1 for n in answer_nums if n in context_nums)
+            evidence_cov = matched_nums / len(answer_nums)
+        else:
+            evidence_cov = 1.0
+
+        # Citation validity & accuracy
         answer_has_sources = bool(sources) and len(sources) > 0
         if not answer_has_sources:
             warnings.append("Answer has no source citations")
+            citation_acc = 0.8 if total_checks > 0 else 1.0
+        else:
+            citation_acc = min(1.0, max(0.5, supported_citation_count / max(1, min(len(sources), grounded_count))))
+
+        source_cov = round(grounded_count / max(1, total_checks), 3)
+        evidence_cov = round(evidence_cov, 3)
+        grounding_score = round((faithfulness + source_cov) / 2.0, 3)
+        grounded_conf = round(0.4 * source_cov + 0.3 * evidence_cov + 0.3 * citation_acc, 3)
 
         is_valid = not hallucinations and answer_has_sources
 
@@ -139,4 +159,10 @@ class KnowledgeValidator:
             checks=checks,
             warnings=warnings,
             answer_has_sources=answer_has_sources,
+            source_coverage=source_cov,
+            evidence_coverage=evidence_cov,
+            grounding_score=grounding_score,
+            citation_accuracy=round(citation_acc, 3),
+            grounded_confidence_score=grounded_conf,
         )
+

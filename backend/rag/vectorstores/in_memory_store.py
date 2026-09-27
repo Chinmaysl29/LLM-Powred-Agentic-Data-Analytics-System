@@ -93,12 +93,18 @@ class InMemoryVectorStore(BaseVectorStore):
         results.sort(key=lambda r: r.score, reverse=True)
         return results[:top_k]
 
-    def delete(self, chunk_ids: List[str]) -> None:
-        ids_to_remove = set(chunk_ids)
-        keep_indices = [i for i, cid in enumerate(self._chunk_ids) if cid not in ids_to_remove]
+    def delete(self, chunk_ids: Optional[List[str]] = None, document_id: Optional[str] = None) -> None:
+        if document_id:
+            keep_indices = [i for i, did in enumerate(self._document_ids) if did != document_id]
+        elif chunk_ids:
+            ids_to_remove = set(chunk_ids)
+            keep_indices = [i for i, cid in enumerate(self._chunk_ids) if cid not in ids_to_remove]
+        else:
+            return
         if not keep_indices:
             self.clear()
             return
+
         self._chunk_ids = [self._chunk_ids[i] for i in keep_indices]
         self._document_ids = [self._document_ids[i] for i in keep_indices]
         self._texts = [self._texts[i] for i in keep_indices]

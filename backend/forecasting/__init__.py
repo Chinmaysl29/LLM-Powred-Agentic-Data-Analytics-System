@@ -11,6 +11,7 @@ from backend.forecasting.foundation import (
     TimeSeriesValidator,
 )
 from backend.forecasting.prophet_model import NSETradingCalendar, ProphetForecaster
+from backend.forecasting.lstm_model import LSTMForecaster
 from backend.forecasting.scenario_engine import ScenarioEngine
 from backend.forecasting.what_if_engine import WhatIfAnalysisEngine
 from backend.forecasting.xgboost_forecaster import XGBoostForecaster
@@ -25,6 +26,7 @@ __all__ = [
     "NSETradingCalendar",
     "ARIMAForecaster",
     "XGBoostForecaster",
+    "LSTMForecaster",
     "ForecastValidator",
     "ScenarioEngine",
     "WhatIfAnalysisEngine",
